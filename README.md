@@ -1,4 +1,4 @@
-# Szkolenie InfoSystem C++Builder
+# Szkolenie INFO-SYSTEM C++Builder
 
 ## Przygotowanie projektu
 
