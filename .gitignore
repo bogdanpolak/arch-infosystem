@@ -1,0 +1,120 @@
+# ########## Open Console File
+
+/OpenConsole.bat
+
+# ########## OS X hidden file index data
+
+.DS_Store
+
+# ########## Parallers Destop hidden meta links
+
+._*
+
+# ########## Delphi project file
+# (*.dproj) Delphi Project file
+# (*.cbproj) C++Builder Project file
+
+*.dproj
+*.cbproj
+
+# ########## Resource file
+# (*.rc, *.res) Compiled and uncompiled resource files
+# *.rc
+
+*.res
+
+# ########## RAD Studio (Delphi and C++Builder) binary files
+# (*.dll) A dynamically linked library file
+# (*.exe) Windows executable file
+# (*.bpl) Package shared library file
+# (*.bpi) Package import library file
+# (*.map) Map debug file
+# (*.lib) static library file OR import library for the Win32/Win64
+# (*.ocx) OLE Control eXtension
+# (*.rsm) Used for remote debugging. (Include remote debug symbols option.)
+# (*.dylib) Dynamic library (.dll) or package (.bpl) compiled for the OS X
+# (*.tds) Remote debugger TDS debug file.
+# (*.tlb) Type library
+
+*.exe
+*.dll
+*.bpl
+*.bpi
+*.map
+*.lib
+*.ocx
+*.rsm
+*.tds
+*.tlb
+
+# ########## Android / iOS / OS X binary files
+# (*.apk) Android application package file.
+# (*.so) Unix-like systems shared libraries (OS X and Linux)
+# (*.a) Static library file (ELF-format) produced by Clang
+
+*.so
+*.apk
+*.a
+
+# ########## IDE / RAD Studio: files
+# (*.cfg) Project configuration file used for command-line compiles
+# (*.ddp): Diagram Portfolio file. Used by the diagram editor up to Delphi 7.
+# (*.vlb): Visual LiveBindings file. Added in Delphi XE2.
+# (*.deployproj): Deployment Manager configuration file for your project. Added in Delphi XE2.
+
+*.cfg
+*.ddp
+*.vlb
+*.deployproj
+
+# ########## IDE / RAD Studio: Other files
+# local files (user-specific info)
+
+*.local
+*.identcache
+*.projdata
+*.tvsconfig
+*.dsk
+*.otares
+
+# ########## IDE / RAD Studio: history and backups
+# (__history) History folder
+# (__recovery) Recovery folder
+# (*.~*)  Local versions history file
+
+__history/
+__recovery/
+*.~*
+
+# ##########  IDE / RAD Studio: Castalia
+# (*.stat) Statistics file (add in RAD Studio) XE7
+
+*.stat
+
+# ########## Delphi binary files
+# (*.dcp) Delphi Compiled Package file
+# (*.drc) Delphi resource string file
+# (*.dcu) Delphi Compiled Unit file 
+
+*.dcp
+*.drc
+*.tds
+*.dcu
+
+# ########## Delphi binary files (complied resources)
+# (*.dres) Delphi compiled resource file. (Used when you add to a project RESOURCE such as an icon or image.)
+# *.dres
+# DO NOT IGNORE - required to persist icons or images added to the Resources
+
+
+# ########## C++Builder
+# (*.obj) C++ Object File
+# (*.pch) C++ Precompiled Header File
+# (*.o) C++ object file or compiled translation unit.
+# (*.pdi) explain it
+# (*.#00) explain it
+
+*.obj
+*.pch
+*.pdi
+*.#00
