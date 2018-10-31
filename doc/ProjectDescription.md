@@ -1,8 +1,8 @@
 ﻿# Opis projektu
 
-Aplikacja na wewnętrze potrzeby szkolenia szkolenie. Zapisana w folderze `projects`
+Aplikacja na wewnętrzne potrzeby szkolenia szkolenie. Żródła projektu są zapisana w podkatalogu `projects`
 
-## Cel
+## Cel projektu
 
 Aplikacja 'Klienci' obsługuje prostą wersję rejestru klientów. Pozwala na wykonywania operacji:
 - dodania nowego klienta do rejestru,
@@ -15,17 +15,17 @@ Aplikacja 'Klienci' obsługuje prostą wersję rejestru klientów. Pozwala na wy
 1) Pobranie projektu (sklonowanie repozytorium)
 	* Proszę sklonować to repozytorium przy pomocy polecenia ```git clone <repo-url>```
 2) Stworzenie bazy danych
-	* Proszę zweryfikować działanie lub zainstalować serwera Firebird
-	* Aktualnie wspierana jest tylko wersja 2.5
+	* Proszę zweryfikować działanie lub zainstalować serwer Firebird
+		* Aktualnie wspierana jest tylko wersja Firebird 2.5 (nie działa z wersją 3.0 - dlaczego?)
 	* Proszę przejść do podkatalogu `resources/database` 
-	* Proszę skopiować pliki z backup-em bazu oraz skrypt budujący bazę do folderu przeznaczoneg docelowo na bazę danych
-	* Proszę zmienić zmienne w pliku BAT i uruchomić skrypt
+	* Proszę skopiować pliki (backup bazy oraz skrypt budujący) do folderu przeznaczonego docelowo na bazę danych
+	* Proszę zmienić zmienne w skrypcie (pliku BAT) i uruchomić go
 3) Przygotowanie projektu
 	* Proszę przejść do podkatalogu `resources/cbproj`
 	* Proszę uruchomić plik BAT
 		* Skrypt kopiuje wzorcowy plik projektu do folderu projektu zmieniając nazwę na ```CBPROJ```
 	* Proszę otworzyć i uruchomić projekt w środowisku C++Builder
-		* wspierane wercje C++Builder-a to wersja 10.2 (proszę samodzielnie sprawdzić zgodność z innymi wersjami)
+		* Wspierane wersje C++Builder-a to wersja 10.2 (proszę samodzielnie sprawdzić zgodność z innymi wersjami)
 
 	
 ## Logowanie
