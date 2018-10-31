@@ -37,6 +37,7 @@ Otwarcie rejestru wymaga zalogowania operatora. Zalogowanie następuje przez dwu
 Aplikacja działa na bazie Firebird. Do otwarcia załączone bazy należy użyć serwera 32 bitowego w najnowszej wersji 2.5 **Uwaga! wersja 3.0 nie będzie działać**.
 
 Tabele składające się na rejestr klientów:
+
 | Nazwa | Opis |
 | --- | --- |
 | OP_OPER | operatorzy |
