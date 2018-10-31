@@ -10,6 +10,24 @@ Aplikacja 'Klienci' obsługuje prostą wersję rejestru klientów. Pozwala na wy
 - usunięcia danych klienta z rejestru,
 - przeglądania rejestru klientów.
 
+## Pobranie i przygotowanie projektu
+
+1) Pobranie projektu (sklonowanie repozytorium)
+	* Proszę sklonować to repozytorium przy pomocy polecenia ```git clone <repo-url>```
+2) Stworzenie bazy danych
+	* Proszę zweryfikować działanie lub zainstalować serwera Firebird
+	* Aktualnie wspierana jest tylko wersja 2.5
+	* Proszę przejść do podkatalogu `resources/database` 
+	* Proszę skopiować pliki z backup-em bazu oraz skrypt budujący bazę do folderu przeznaczoneg docelowo na bazę danych
+	* Proszę zmienić zmienne w pliku BAT i uruchomić skrypt
+3) Przygotowanie projektu
+	* Proszę przejść do podkatalogu `resources/cbproj`
+	* Proszę uruchomić plik BAT
+		* Skrypt kopiuje wzorcowy plik projektu do folderu projektu zmieniając nazwę na ```CBPROJ```
+	* Proszę otworzyć i uruchomić projekt w środowisku C++Builder
+		* wspierane wercje C++Builder-a to wersja 10.2 (proszę samodzielnie sprawdzić zgodność z innymi wersjami)
+
+	
 ## Logowanie
 
 Otwarcie rejestru wymaga zalogowania operatora. Zalogowanie następuje przez dwukrotne kliknięcie na kontrolce wewnątrz ramki 'Zalogowany operator'. Po udanym zalogowaniu zostają udostępnione wszystkie przyciski na oknie dialogowym. Do wykonania poszczególnych czynności operator musi posiadać odpowiednie uprawnienia. Są one sprawdzane tuż przed wykonaniem danej czynności.
