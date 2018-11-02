@@ -1,10 +1,10 @@
-﻿# Opis projektu
+# Opis projektu
 
-Aplikacja na wewnętrzne potrzeby szkolenia szkolenie. Źródła projektu są zapisana w podkatalogu `projects`
+Aplikacja powstała na wewnętrzne potrzeby szkolenia. Źródła projektu są zapisana w podkatalogu `projects`
 
 ## Cel projektu
 
-Aplikacja 'Klienci' obsługuje prostą wersję rejestru klientów. Pozwala na wykonywania operacji:
+Aplikacja ```Klienci``` obsługuje prostą wersję rejestru klientów. Pozwala na wykonywania operacji:
 - dodania nowego klienta do rejestru,
 - aktualizacji danych klienta w rejestrze,
 - usunięcia danych klienta z rejestru,
@@ -17,7 +17,7 @@ Aplikacja 'Klienci' obsługuje prostą wersję rejestru klientów. Pozwala na wy
 2) Stworzenie bazy danych
 	* Proszę zweryfikować działanie lub zainstalować serwer Firebird
 		* Poprawne działanie aplikacji zostało sprawdzone na wersji Firebird 2.5
-		* Aplikacji powinna działać poprawnie również na wersji 3.0, jednak taka konfiguracja nie została sprawdzona
+		* Aplikacja powinna działać poprawnie również na wersji 3.0, jednak taka konfiguracja nie została sprawdzona
 	* Proszę przejść do podkatalogu `resources/database` 
 	* Proszę skopiować pliki (backup bazy oraz skrypt budujący) do folderu przeznaczonego docelowo na bazę danych
 	* Proszę zmienić zmienne w skrypcie (pliku BAT) i uruchomić go
