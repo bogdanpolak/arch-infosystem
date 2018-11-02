@@ -190,8 +190,15 @@ object MainForm: TMainForm
       Caption = 'Obs'#322'uga kont podatkowych'
       TabOrder = 3
       OnClick = btPropertyAccountClick
-      ExplicitLeft = 25
-      ExplicitTop = 186
+    end
+  end
+  object ActionManager1: TActionManager
+    Left = 184
+    StyleName = 'Platform Default'
+    object acAutoLogin: TAction
+      Caption = 'acAutoLogin'
+      ShortCut = 122
+      OnExecute = acAutoLoginExecute
     end
   end
 end

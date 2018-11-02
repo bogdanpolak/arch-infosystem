@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-
+
 #include <vcl.h>
 #pragma hdrstop
 
@@ -63,30 +63,8 @@ void __fastcall TMainForm::stUserDblClick(TObject *Sender) {
 	dlg->Login();
 
 	updateControls();
+	setupControlsAfterLogin();
 
-	Label1->Visible = false;
-	Label2->Visible = false;
-	Label3->Visible = false;
-
-	TWinControl* ParentControl = gbxLogin;
-	TControl* ChildControl;
-	int maxBottom = 0;
-	for (int i = 0; i < ParentControl->ControlCount; i++) {
-		ChildControl = ParentControl->Controls[i];
-		if (ChildControl->Visible) {
-			int bottom = ChildControl->Top + ChildControl->Height;
-			if (ChildControl->AlignWithMargins) {
-				bottom += ChildControl->Margins->Bottom;
-			}
-			if (bottom > maxBottom) {
-				maxBottom = bottom;
-			}
-		}
-	}
-	if (ParentControl->AlignWithMargins) {
-		maxBottom += ParentControl->Padding->Bottom;
-	}
-	gbxLogin->Height = maxBottom + 8;
 }
 // ---------------------------------------------------------------------------
 
@@ -159,10 +137,57 @@ void __fastcall TMainForm::btKlientBazaClick(TObject *Sender) {
 
 	BrowserDlg->ShowModal();
 }
+
 // ---------------------------------------------------------------------------
-void __fastcall TMainForm::btPropertyAccountClick(TObject *Sender)
-{
+void __fastcall TMainForm::btPropertyAccountClick(TObject *Sender) {
 	PropertyAccount->Show();
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
+boolean __fastcall TMainForm::inDeveloperMode() {
+#if defined _DEBUG
+	String projFileName = ChangeFileExt(ExtractFileName(Application->ExeName),
+		".cbproj");
+	bool isDeveloperLocation = FileExists("..\\..\\"+projFileName);
+	return isDeveloperLocation;
+#else
+	return false;
+#endif
+}
+
+// ---------------------------------------------------------------------------
+boolean __fastcall TMainForm::setupControlsAfterLogin() {
+	Label1->Visible = false;
+	Label2->Visible = false;
+	Label3->Visible = false;
+	TWinControl* ParentControl = gbxLogin;
+	TControl* ChildControl;
+	int maxBottom = 0;
+	for (int i = 0; i < ParentControl->ControlCount; i++) {
+		ChildControl = ParentControl->Controls[i];
+		if (ChildControl->Visible) {
+			int bottom = ChildControl->Top + ChildControl->Height;
+			if (ChildControl->AlignWithMargins) {
+				bottom += ChildControl->Margins->Bottom;
+			}
+			if (bottom > maxBottom) {
+				maxBottom = bottom;
+			}
+		}
+	}
+	if (ParentControl->AlignWithMargins) {
+		maxBottom += ParentControl->Padding->Bottom;
+	}
+	gbxLogin->Height = maxBottom + 8;
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TMainForm::acAutoLoginExecute(TObject *Sender) {
+	if (inDeveloperMode()) {
+		DatabaseModule->Login("admin", "admin");
+		updateControls();
+		setupControlsAfterLogin();
+	}
+}
+// ---------------------------------------------------------------------------
+

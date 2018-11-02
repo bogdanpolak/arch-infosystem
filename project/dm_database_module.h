@@ -43,7 +43,7 @@ public:		// User declarations
 
    klienci::UserInfo __fastcall GetUser();
 
-   bool __fastcall Login(const String& user, const String& passw);
+   bool __fastcall Login(const String user, const String passw);
 
 };
 //---------------------------------------------------------------------------

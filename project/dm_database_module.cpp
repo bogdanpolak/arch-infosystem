@@ -30,7 +30,7 @@ klienci::UserInfo __fastcall TDatabaseModule::GetUser() {
 }
 // ------------------------------------------------------------------------------
 
-bool __fastcall TDatabaseModule::Login(const String& user, const String& passw)
+bool __fastcall TDatabaseModule::Login(const String user, const String passw)
 {
 	m_user = klienci::UserInfo();
 
