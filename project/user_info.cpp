@@ -7,6 +7,89 @@
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 
+namespace klienci {
+
+	class UserInfoTools {
+	public:
+
+		static UserInfo::UserRights buildRightsForSystemBO
+			(UserInfo::UserAction action) {
+			UserInfo::UserRights rights;
+
+			rights.push_back("BOS$ADM");
+
+			switch (action) {
+			case UserInfo::uacView:
+				rights.push_back("BOS$INF");
+				break;
+
+			case UserInfo::uacEdit:
+				rights.push_back("BOS$MOD");
+				break;
+
+			case UserInfo::uacErase:
+				rights.push_back("BOS$USN");
+				break;
+
+			case UserInfo::uacAdd:
+				rights.push_back("BOS$DOD");
+				break;
+
+			case UserInfo::uacBrowse:
+				rights.push_back("BOS$INF");
+				rights.push_back("BOS$MOD");
+				rights.push_back("BOS$USN");
+				rights.push_back("BOS$DOD");
+				break;
+			}
+
+			return rights;
+		}
+		// ------------------------------------------------------------------------------
+
+		static UserInfo::UserRights buildRightsForSystemPD
+			(UserInfo::UserAction action) {
+			UserInfo::UserRights rights;
+
+			rights.push_back("PD$ADM");
+
+			switch (action) {
+			case UserInfo::uacView:
+				rights.push_back("PD$INF");
+				break;
+
+			case UserInfo::uacEdit:
+				rights.push_back("PD$MOD");
+				break;
+
+			case UserInfo::uacErase:
+				rights.push_back("PD$USN");
+				break;
+
+			case UserInfo::uacAdd:
+				rights.push_back("PD$DOD");
+				break;
+
+			case UserInfo::uacBrowse:
+				rights.push_back("PD$INF");
+				rights.push_back("PD$MOD");
+				rights.push_back("PD$USN");
+				rights.push_back("PD$DOD");
+				break;
+
+			case UserInfo::uacPayment:
+				rights.push_back("PD$KSG");
+				break;
+			}
+
+			return rights;
+		}
+		// ------------------------------------------------------------------------------
+
+	};
+
+}
+
 using namespace klienci;
 
 UserInfo::UserStatus UserInfo::stringToUserStatus(const String& status) {
@@ -50,33 +133,16 @@ bool UserInfo::checkRight(const String& right) const {
 }
 // ------------------------------------------------------------------------------
 
-bool UserInfo::checkRight(UserAction action) const {
+bool UserInfo::checkRight(UserAction action, System system) const {
 	UserRights rights;
 
-	rights.push_back("BOS$ADM");
-
-	switch (action) {
-	case uacView:
-		rights.push_back("BOS$INF");
+	switch (system) {
+	case sysBO:
+		rights = UserInfoTools::buildRightsForSystemBO(action);
 		break;
 
-	case uacEdit:
-		rights.push_back("BOS$MOD");
-		break;
-
-	case uacErase:
-		rights.push_back("BOS$USN");
-		break;
-
-	case uacAdd:
-		rights.push_back("BOS$DOD");
-		break;
-
-	case uacBrowse:
-		rights.push_back("BOS$INF");
-		rights.push_back("BOS$MOD");
-		rights.push_back("BOS$USN");
-		rights.push_back("BOS$DOD");
+	case sysPD:
+		rights = UserInfoTools::buildRightsForSystemPD(action);
 		break;
 	}
 

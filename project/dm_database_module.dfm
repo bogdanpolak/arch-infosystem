@@ -4,7 +4,7 @@ object DatabaseModule: TDatabaseModule
   Width = 294
   object ConnectionDB: TFDConnection
     Params.Strings = (
-      'Database=C:\dane\infosys_groszek\klienci.fdb'
+      'Database=C:\info-sys_groszek\db\klienci.fdb'
       'User_Name=sysdba'
       'Password=masterkey'
       'SQLDialect=1'

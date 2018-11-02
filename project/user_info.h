@@ -27,11 +27,20 @@ public:
    // Rodzaj czynnoœci do wykonania
    enum UserAction
    {
-      uacView,   // tylko podgl¹d danych klienta
-      uacEdit,   // edycja i podgl¹d danych klienta
-      uacErase,  // usuwanie i podgl¹d danych klienta
-      uacAdd,    // dodawanie nowego klienta i podgl¹d danych klienta
-      uacBrowse  // przegl¹danie danych klienta
+      uacView,   // tylko podgl¹d
+      uacEdit,   // edycja i podgl¹d
+      uacErase,  // usuwanie i podgl¹d
+      uacAdd,    // dodawanie
+      uacBrowse, // przegl¹danie
+      uacPayment // zaksiêgowanie wp³aty
+   };
+
+
+   // Oznaczenie systemu
+   enum System
+   {
+      sysBO,  // baza osobowa
+      sysPD   // podatki od nieruchomoœci
    };
 
 
@@ -57,7 +66,7 @@ public:
 
    bool checkRight(const String& right) const;
 
-   bool checkRight(UserAction action) const;
+   bool checkRight(UserAction action, System system = sysBO) const;
 
 };
 
