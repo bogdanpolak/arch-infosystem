@@ -11,6 +11,7 @@
 #include "fm_browser_dlg.h"
 #include "user_info.h"
 #include <memory>
+#include "fm_property_account_dlg.h"
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -159,3 +160,9 @@ void __fastcall TMainForm::btKlientBazaClick(TObject *Sender) {
 	BrowserDlg->ShowModal();
 }
 // ---------------------------------------------------------------------------
+void __fastcall TMainForm::btPropertyAccountClick(TObject *Sender)
+{
+	PropertyAccount->Show();
+}
+//---------------------------------------------------------------------------
+

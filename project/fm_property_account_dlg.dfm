@@ -32,22 +32,16 @@ object PropertyAccount: TPropertyAccount
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitLeft = 504
-    ExplicitTop = 260
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object PageControl1: TPageControl
       Left = 0
       Top = 0
       Width = 761
       Height = 298
-      ActivePage = TabSheet2
+      ActivePage = TabSheet1
       Align = alClient
       TabOrder = 0
       object TabSheet1: TTabSheet
         Caption = 'Sk'#322'adniki'
-        ExplicitWidth = 281
-        ExplicitHeight = 165
         object Panel4: TPanel
           Left = 0
           Top = 0
@@ -59,17 +53,11 @@ object PropertyAccount: TPropertyAccount
             'SKLADNIKI)'
           ParentBackground = False
           TabOrder = 0
-          ExplicitLeft = 68
-          ExplicitTop = 24
-          ExplicitWidth = 185
-          ExplicitHeight = 41
         end
       end
       object TabSheet2: TTabSheet
         Caption = 'Podatnicy'
         ImageIndex = 1
-        ExplicitWidth = 281
-        ExplicitHeight = 165
         object Panel5: TPanel
           Left = 0
           Top = 0
@@ -79,10 +67,6 @@ object PropertyAccount: TPropertyAccount
           Caption = 'Lista podatnik'#243'w podatku od nieruchomo'#347'ci (tabela PD_PODATNICY)'
           ParentBackground = False
           TabOrder = 0
-          ExplicitLeft = 100
-          ExplicitTop = 28
-          ExplicitWidth = 185
-          ExplicitHeight = 41
         end
       end
     end
@@ -94,7 +78,6 @@ object PropertyAccount: TPropertyAccount
     Height = 41
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 455
     object btCancel: TButton
       Left = 8
       Top = 8

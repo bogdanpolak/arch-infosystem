@@ -4,11 +4,11 @@ object DatabaseModule: TDatabaseModule
   Width = 294
   object ConnectionDB: TFDConnection
     Params.Strings = (
-      'Database=C:\info-sys_groszek\db\klienci.fdb'
+      'Database=C:\dane\infosys_groszek\klienci.fdb'
       'User_Name=sysdba'
       'Password=masterkey'
       'SQLDialect=1'
-      'CharacterSet=WIN1250'
+      'CharacterSet=UTF8'
       'DriverID=FB')
     FetchOptions.AssignedValues = [evAutoFetchAll]
     ResourceOptions.AssignedValues = [rvStoreItems, rvAutoConnect]

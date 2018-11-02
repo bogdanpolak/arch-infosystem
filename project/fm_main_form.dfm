@@ -3,7 +3,7 @@ object MainForm: TMainForm
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Obs'#322'uga klient'#243'w'
-  ClientHeight = 321
+  ClientHeight = 367
   ClientWidth = 259
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -112,7 +112,7 @@ object MainForm: TMainForm
     Left = 8
     Top = 156
     Width = 243
-    Height = 148
+    Height = 197
     Align = alTop
     Caption = 'Funkcje programu'
     Padding.Left = 4
@@ -121,6 +121,19 @@ object MainForm: TMainForm
     Padding.Bottom = 4
     TabOrder = 1
     object Bevel2: TBevel
+      AlignWithMargins = True
+      Left = 9
+      Top = 142
+      Width = 225
+      Height = 5
+      Margins.Top = 10
+      Margins.Bottom = 5
+      Align = alTop
+      Shape = bsTopLine
+      ExplicitLeft = 7
+      ExplicitTop = 162
+    end
+    object Bevel1: TBevel
       AlignWithMargins = True
       Left = 9
       Top = 91
@@ -166,6 +179,19 @@ object MainForm: TMainForm
       Caption = 'Dodaj nowego klienta'
       TabOrder = 2
       OnClick = btKlientDodajClick
+    end
+    object btPropertyAccount: TButton
+      AlignWithMargins = True
+      Left = 9
+      Top = 155
+      Width = 225
+      Height = 25
+      Align = alTop
+      Caption = 'Obs'#322'uga kont podatkowych'
+      TabOrder = 3
+      OnClick = btPropertyAccountClick
+      ExplicitLeft = 25
+      ExplicitTop = 186
     end
   end
 end
