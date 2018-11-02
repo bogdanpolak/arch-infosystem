@@ -1,6 +1,6 @@
 ﻿# Opis projektu
 
-Aplikacja na wewnętrzne potrzeby szkolenia szkolenie. Żródła projektu są zapisana w podkatalogu `projects`
+Aplikacja na wewnętrzne potrzeby szkolenia szkolenie. Źródła projektu są zapisana w podkatalogu `projects`
 
 ## Cel projektu
 
@@ -42,7 +42,7 @@ Tabele składające się na rejestr klientów:
 | --- | --- |
 | OP_OPER | operatorzy |
 | OP_SLFUN | słownik uprawnień |
-| OP_OPFUN | uprawnienia przyznane operatorm |
+| OP_OPFUN | uprawnienia przyznane operatorom |
 | BO_MAIN | główna tabela z danymi klienta |
 | BO_FIZ | dane klientów będącymi osobami fizycznymi |
 | BO_PRAWNE | dane klientów będącymi przedsiębiorstwami |
