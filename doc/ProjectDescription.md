@@ -16,7 +16,8 @@ Aplikacja 'Klienci' obsługuje prostą wersję rejestru klientów. Pozwala na wy
 	* Proszę sklonować to repozytorium przy pomocy polecenia ```git clone <repo-url>```
 2) Stworzenie bazy danych
 	* Proszę zweryfikować działanie lub zainstalować serwer Firebird
-		* Aktualnie wspierana jest tylko wersja Firebird 2.5 (nie działa z wersją 3.0 - dlaczego?)
+		* Poprawne działanie aplikacji zostało sprawdzone na wersji Firebird 2.5
+		* Aplikacji powinna działać poprawnie również na wersji 3.0, jednak taka konfiguracja nie została sprawdzona
 	* Proszę przejść do podkatalogu `resources/database` 
 	* Proszę skopiować pliki (backup bazy oraz skrypt budujący) do folderu przeznaczonego docelowo na bazę danych
 	* Proszę zmienić zmienne w skrypcie (pliku BAT) i uruchomić go
@@ -34,7 +35,7 @@ Otwarcie rejestru wymaga zalogowania operatora. Zalogowanie następuje przez dwu
 
 ## Baza danych
 
-Aplikacja działa na bazie Firebird. Do otwarcia załączone bazy należy użyć serwera 32 bitowego w najnowszej wersji 2.5 **Uwaga! wersja 3.0 nie będzie działać**.
+Aplikacja działa na bazie Firebird (została przetesotwana na wersji Firebird 2.5)
 
 Tabele składające się na rejestr klientów:
 
