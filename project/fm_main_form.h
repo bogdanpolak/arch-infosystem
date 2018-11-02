@@ -15,10 +15,13 @@ __published:	// IDE-managed Components
    TButton *btKlientDodaj;
    TButton *btKlientAkt;
    TButton *btKlientBaza;
-   TBevel *Bevel1;
-   TGroupBox *GroupBox1;
+	TGroupBox *gbxLogin;
    TBevel *Bevel2;
    TStaticText *stUser;
+	TGroupBox *gbxCommands;
+	TLabel *Label1;
+	TLabel *Label2;
+	TLabel *Label3;
    void __fastcall btKlientDodajClick(TObject *Sender);
    void __fastcall btKlientAktClick(TObject *Sender);
    void __fastcall btKlientBazaClick(TObject *Sender);

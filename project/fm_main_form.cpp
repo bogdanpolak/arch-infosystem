@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
@@ -11,144 +11,151 @@
 #include "fm_browser_dlg.h"
 #include "user_info.h"
 #include <memory>
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TMainForm *MainForm;
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-__fastcall TMainForm::TMainForm(TComponent* Owner)
-   : TForm(Owner)
-{
+__fastcall TMainForm::TMainForm(TComponent* Owner) : TForm(Owner) {
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TMainForm::updateControls()
-{
-   bool logged = DatabaseModule->IsUserLogged();
+void __fastcall TMainForm::updateControls() {
+	klienci::UserInfo user(DatabaseModule->GetUser());
 
-   btKlientDodaj->Enabled = logged;
-   btKlientAkt->Enabled   = logged;
-   btKlientBaza->Enabled  = logged;
+	bool logged = DatabaseModule->IsUserLogged();
+	bool active = (user.Status == klienci::UserInfo::ustActive);
 
-   klienci::UserInfo user(DatabaseModule->GetUser());
+	btKlientDodaj->Enabled = logged && active;
+	btKlientAkt->Enabled = logged && active;
+	btKlientBaza->Enabled = logged && active;
 
-   switch(user.Status)
-   {
-      case klienci::UserInfo::ustActive:
-         stUser->Caption = user.Name;
-         break;
+	switch (user.Status) {
+	case klienci::UserInfo::ustActive:
+		stUser->Caption = user.Name;
+		break;
 
-      case klienci::UserInfo::ustBlocked:
-         stUser->Caption = _T("<zablokowany> ") + user.Name;
-         break;
+	case klienci::UserInfo::ustBlocked:
+		stUser->Caption = _T("<zablokowany> ") + user.Name;
+		break;
 
-      case klienci::UserInfo::ustSuspended:
-         stUser->Caption = _T("<zawieszony> ") + user.Name;
-         break;
+	case klienci::UserInfo::ustSuspended:
+		stUser->Caption = _T("<zawieszony> ") + user.Name;
+		break;
 
-      case klienci::UserInfo::ustErased:
-         stUser->Caption = _T("<wykreœlony> ") + user.Name;
-         break;
-   }
+	case klienci::UserInfo::ustErased:
+		stUser->Caption = _T("<wykreœlony> ") + user.Name;
+		break;
+	}
 }
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 
-void __fastcall TMainForm::FormShow(TObject *Sender)
-{
-   updateControls();
+void __fastcall TMainForm::FormShow(TObject *Sender) {
+	updateControls();
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TMainForm::stUserDblClick(TObject *Sender)
-{
-   std::auto_ptr<TLoginDlg> dlg(new TLoginDlg(this));
+void __fastcall TMainForm::stUserDblClick(TObject *Sender) {
+	std::auto_ptr<TLoginDlg>dlg(new TLoginDlg(this));
 
-   dlg->Login();
+	dlg->Login();
 
-   updateControls();
+	updateControls();
+
+	Label1->Visible = false;
+	Label2->Visible = false;
+	Label3->Visible = false;
+
+	TWinControl* ParentControl = gbxLogin;
+	TControl* ChildControl;
+	int maxBottom = 0;
+	for (int i = 0; i < ParentControl->ControlCount; i++) {
+		ChildControl = ParentControl->Controls[i];
+		if (ChildControl->Visible) {
+			int bottom = ChildControl->Top + ChildControl->Height;
+			if (ChildControl->AlignWithMargins) {
+				bottom += ChildControl->Margins->Bottom;
+			}
+			if (bottom > maxBottom) {
+				maxBottom = bottom;
+			}
+		}
+	}
+	if (ParentControl->AlignWithMargins) {
+		maxBottom += ParentControl->Padding->Bottom;
+	}
+	gbxLogin->Height = maxBottom + 8;
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TMainForm::btKlientDodajClick(TObject *Sender)
-{
-   klienci::UserInfo user(DatabaseModule->GetUser());
+void __fastcall TMainForm::btKlientDodajClick(TObject *Sender) {
+	klienci::UserInfo user(DatabaseModule->GetUser());
 
-   if(user.Status != klienci::UserInfo::ustActive)
-   {
-      ShowMessage(_T("Zalogowany operator nie jest czynny."));
+	if (user.Status != klienci::UserInfo::ustActive) {
+		ShowMessage(_T("Zalogowany operator nie jest czynny."));
 
-      return;
-   }
+		return;
+	}
 
-   if(!user.checkRight(klienci::UserInfo::uacAdd))
-   {
-      ShowMessage(_T("Brak uprawnienia do dodawania nowych klientów."));
+	if (!user.checkRight(klienci::UserInfo::uacAdd)) {
+		ShowMessage(_T("Brak uprawnienia do dodawania nowych klientów."));
 
-      return;
-   }
+		return;
+	}
 
-   PersonDlg->Append();
+	PersonDlg->Append();
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TMainForm::btKlientAktClick(TObject *Sender)
-{
-   klienci::UserInfo user(DatabaseModule->GetUser());
+void __fastcall TMainForm::btKlientAktClick(TObject *Sender) {
+	klienci::UserInfo user(DatabaseModule->GetUser());
 
-   if(user.Status != klienci::UserInfo::ustActive)
-   {
-      ShowMessage(_T("Zalogowany operator nie jest czynny."));
+	if (user.Status != klienci::UserInfo::ustActive) {
+		ShowMessage(_T("Zalogowany operator nie jest czynny."));
 
-      return;
-   }
+		return;
+	}
 
-   if(!user.checkRight(klienci::UserInfo::uacEdit))
-   {
-      ShowMessage(_T("Brak uprawnienia do aktualizowania danych klientów."));
+	if (!user.checkRight(klienci::UserInfo::uacEdit)) {
+		ShowMessage(_T("Brak uprawnienia do aktualizowania danych klientów."));
 
-      return;
-   }
+		return;
+	}
 
-   int client_id;
+	int client_id;
 
-   client_id = SeekClientDlg->Display();
+	client_id = SeekClientDlg->Display();
 
-   if(client_id > 0)
-   {
-      if(SeekClientDlg->GetClientKind() != _T("F"))
-      {
-         // ta wersje obs³uguje tylko osoby fizyczne; obs³uga firm w kolejnej wersji
+	if (client_id > 0) {
+		if (SeekClientDlg->GetClientKind() != _T("F")) {
+			// ta wersje obs³uguje tylko osoby fizyczne; obs³uga firm w kolejnej wersji
 
-         ShowMessage(_T("Nieobs³ugiwany rodzaj klienta: '") + SeekClientDlg->GetClientKind() + _T("'"));
-      }
-      else
-      {
-         PersonDlg->Edit(client_id);
-      }
-   }
+			ShowMessage(_T("Nieobs³ugiwany rodzaj klienta: '") +
+				SeekClientDlg->GetClientKind() + _T("'"));
+		}
+		else {
+			PersonDlg->Edit(client_id);
+		}
+	}
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TMainForm::btKlientBazaClick(TObject *Sender)
-{
-   klienci::UserInfo user(DatabaseModule->GetUser());
+void __fastcall TMainForm::btKlientBazaClick(TObject *Sender) {
+	klienci::UserInfo user(DatabaseModule->GetUser());
 
-   if(user.Status != klienci::UserInfo::ustActive)
-   {
-      ShowMessage(_T("Zalogowany operator nie jest czynny."));
+	if (user.Status != klienci::UserInfo::ustActive) {
+		ShowMessage(_T("Zalogowany operator nie jest czynny."));
 
-      return;
-   }
+		return;
+	}
 
-   if(!user.checkRight(klienci::UserInfo::uacBrowse))
-   {
-      ShowMessage(_T("Brak uprawnienia dostêpu do bazy klientów."));
+	if (!user.checkRight(klienci::UserInfo::uacBrowse)) {
+		ShowMessage(_T("Brak uprawnienia dostêpu do bazy klientów."));
 
-      return;
-   }
+		return;
+	}
 
-   BrowserDlg->ShowModal();
+	BrowserDlg->ShowModal();
 }
-//---------------------------------------------------------------------------
-
+// ---------------------------------------------------------------------------
