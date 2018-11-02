@@ -64,7 +64,6 @@ object MainForm: TMainForm
       Font.Style = []
       ParentFont = False
       WordWrap = True
-      ExplicitTop = 106
       ExplicitWidth = 197
     end
     object Label3: TLabel
@@ -107,7 +106,6 @@ object MainForm: TMainForm
       ShowHint = True
       TabOrder = 0
       OnDblClick = stUserDblClick
-      ExplicitWidth = 231
     end
   end
   object gbxCommands: TGroupBox
@@ -122,7 +120,6 @@ object MainForm: TMainForm
     Padding.Right = 4
     Padding.Bottom = 4
     TabOrder = 1
-    ExplicitTop = 100
     object Bevel2: TBevel
       AlignWithMargins = True
       Left = 9
@@ -147,9 +144,6 @@ object MainForm: TMainForm
       Caption = 'Aktualizuj dane klienta'
       TabOrder = 0
       OnClick = btKlientAktClick
-      ExplicitLeft = 56
-      ExplicitTop = 108
-      ExplicitWidth = 157
     end
     object btKlientBaza: TButton
       AlignWithMargins = True
@@ -161,9 +155,6 @@ object MainForm: TMainForm
       Caption = 'Baza klient'#243'w'
       TabOrder = 1
       OnClick = btKlientBazaClick
-      ExplicitLeft = 56
-      ExplicitTop = 156
-      ExplicitWidth = 157
     end
     object btKlientDodaj: TButton
       AlignWithMargins = True
@@ -175,9 +166,6 @@ object MainForm: TMainForm
       Caption = 'Dodaj nowego klienta'
       TabOrder = 2
       OnClick = btKlientDodajClick
-      ExplicitLeft = 56
-      ExplicitTop = 77
-      ExplicitWidth = 157
     end
   end
 end
