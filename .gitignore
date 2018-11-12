@@ -6,6 +6,10 @@
 
 .DS_Store
 
+# ########## VSCode Editor configuration file 
+
+.vscode/settings.json
+
 # ########## Parallers Destop hidden meta links
 
 ._*
