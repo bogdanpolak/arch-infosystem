@@ -41,33 +41,48 @@ Tabele składające się na rejestr klientów:
 
 | Nazwa | Opis |
 | --- | --- |
+| | **`Operator`** |
 | OP_OPER | operatorzy |
 | OP_SLFUN | słownik uprawnień |
 | OP_OPFUN | uprawnienia przyznane operatorom |
+| | **`Baza Osób`** |
 | BO_MAIN | główna tabela z danymi klienta |
 | BO_FIZ | dane klientów będącymi osobami fizycznymi |
 | BO_PRAWNE | dane klientów będącymi przedsiębiorstwami |
 | BO_ADRES | dane adresowe klientów |
-
+| | **`Podatki`** |
+| PD_KONTA | konta podatku od nieruchomości |
+| PD_PODATNICY | podatnicy podatku od nieruchomości (dla danego konta podatkowego)|
+| PD_SKLADNIKI | składniki nieruchomości do obliczenia podatku (dla danego konta podatkowego) |
+| PD_RODZAJE_SKL | słownik rodzajów składników nieruchomości |
 
 ## Pliki tworzące aplikację
 
-* fm_main_form 
-   - główne okno aplikacji
-* dm_database_module 
-   - główny moduł danych aplikacji; dane dostępowe do bazy wpisane są bezpośrednio w komponent połączeniowy ConnectionDB; moduł udostępnia funkcję logowania operatora i przechowuje dane zalogowanego operatora
-* dm_person_module
-   - moduł danych udostępniający dane klientów będących osobami fizycznymi
-* fm_login_dlg
-   - okno dialogowe do logowania operatora
-* fm_person_dlg
-   - okno dialogowe do manipulowania danymi klienta, który jest osobą fizyczną
-* fm_seek_client_dlg
-   - okno dialogowe do wyszukiwania danych klientów na podstawie ich identyfikatora lub nazwy
-* fm_select_client_dlg
-   - okno dialogowe do wybrania klienta z dostarczonej listy; używane, gdy wyszukiwanie klientów da w odpowiedzi więcej niż jeden rekord
-* fm_browser_dlg
-   - okno dialogowe do przeglądania rejestru klientów; z poziomu okna można modyfikować
-   rejestr dodając, edytując i usuwając poszczególnych klientów
-* user_info
-   - definicja klasy z informacją o zalogowanym operatorze (użytkowniku).
+* **Okno główne**
+	* `fm_main_form` 
+		- główne okno aplikacji
+	* `dm_database_module` 
+		- główny moduł danych aplikacji; dane dostępowe do bazy wpisane są bezpośrednio w komponent połączeniowy ConnectionDB; moduł udostępnia funkcję logowania operatora i przechowuje dane zalogowanego operatora
+	* `dm_person_module`
+		- moduł danych udostępniający dane klientów będących osobami fizycznymi
+	* `fm_login_dlg`
+		- okno dialogowe do logowania operatora
+* **Okna zarządzania danymi klienta**
+	* `fm_person_dlg`
+		- okno dialogowe do manipulowania danymi klienta, który jest osobą fizyczną
+	* `fm_seek_client_dlg`
+		- okno dialogowe do wyszukiwania danych klientów na podstawie ich identyfikatora lub nazwy
+	* `fm_select_client_dlg`
+		- okno dialogowe do wybrania klienta z dostarczonej listy; używane, gdy wyszukiwanie klientów da w odpowiedzi więcej niż jeden rekord
+	* `fm_browser_dlg`
+		- okno dialogowe do przeglądania rejestru klientów; z poziomu okna można modyfikować rejestr dodając, edytując i usuwając poszczególnych klientów
+* **Okna zarządzania danymi klienta**
+	* `fm_property_account_dlg`
+		- okno dialogowe do edycji/podglądu danych konta podatkowego. Zakładki rozdzielają składników i podatników.
+* **Rejestr uprawnień**
+	* `user_info`
+		- definicja klasy z informacją o zalogowanym operatorze (użytkowniku).
+
+## Rejestr istotnych zmian
+
+[Czytaj (Changes.md) ...](./Changes.md)
