@@ -197,6 +197,7 @@ object MainForm: TMainForm
     StyleName = 'Platform Default'
     object acAutoLogin: TAction
       Caption = 'acAutoLogin'
+      Enabled = False
       ShortCut = 122
       OnExecute = acAutoLoginExecute
     end

@@ -32,6 +32,7 @@ void __fastcall TMainForm::updateControls() {
 	btKlientDodaj->Enabled = logged && active;
 	btKlientAkt->Enabled = logged && active;
 	btKlientBaza->Enabled = logged && active;
+	btPropertyAccount->Enabled = logged && active;
 
 	switch (user.Status) {
 	case klienci::UserInfo::ustActive:
@@ -55,6 +56,7 @@ void __fastcall TMainForm::updateControls() {
 
 void __fastcall TMainForm::FormShow(TObject *Sender) {
 	updateControls();
+	acAutoLogin->Enabled = inDeveloperMode();
 }
 // ---------------------------------------------------------------------------
 
