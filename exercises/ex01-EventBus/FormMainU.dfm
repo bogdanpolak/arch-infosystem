@@ -3,7 +3,7 @@ object FormMain: TFormMain
   Top = 0
   ActiveControl = btnPostMessage1
   Caption = 'FormMain'
-  ClientHeight = 331
+  ClientHeight = 367
   ClientWidth = 210
   Color = clWindow
   Font.Charset = DEFAULT_CHARSET
@@ -20,11 +20,12 @@ object FormMain: TFormMain
     Left = 3
     Top = 3
     Width = 204
-    Height = 325
+    Height = 361
     Align = alClient
     Caption = 'GroupBox1'
     Padding.Top = 10
     TabOrder = 0
+    ExplicitHeight = 325
     object Bevel1: TBevel
       AlignWithMargins = True
       Left = 5
@@ -60,9 +61,19 @@ object FormMain: TFormMain
       Margins.Top = 5
       Margins.Bottom = 5
       Align = alTop
-      ExplicitLeft = 3
-      ExplicitTop = 181
-      ExplicitWidth = 176
+      ExplicitLeft = 7
+    end
+    object Bevel4: TBevel
+      AlignWithMargins = True
+      Left = 5
+      Top = 209
+      Width = 194
+      Height = 3
+      Margins.Top = 5
+      Margins.Bottom = 5
+      Align = alTop
+      ExplicitLeft = 7
+      ExplicitTop = 222
     end
     object btnPostMessage1: TButton
       AlignWithMargins = True
@@ -111,13 +122,14 @@ object FormMain: TFormMain
     object btnExit: TButton
       AlignWithMargins = True
       Left = 5
-      Top = 295
+      Top = 331
       Width = 194
       Height = 25
       Align = alBottom
       Caption = 'Exit'
       TabOrder = 4
       OnClick = btnExitClick
+      ExplicitTop = 295
     end
     object ColorBox1: TColorBox
       AlignWithMargins = True
@@ -130,6 +142,24 @@ object FormMain: TFormMain
       Align = alTop
       TabOrder = 5
       OnChange = ColorBox1Change
+    end
+    object ToggleSwitch1: TToggleSwitch
+      AlignWithMargins = True
+      Left = 15
+      Top = 220
+      Width = 174
+      Height = 18
+      Margins.Left = 13
+      Margins.Right = 13
+      Align = alTop
+      State = tssOn
+      StateCaptions.CaptionOn = 'Animate'
+      StateCaptions.CaptionOff = 'Pause'
+      SwitchHeight = 18
+      TabOrder = 6
+      ThumbWidth = 25
+      OnClick = ToggleSwitch1Click
+      ExplicitWidth = 95
     end
   end
 end

@@ -25,6 +25,8 @@ void __fastcall TFormMain::UpdateControlsEnable(bool Registered) {
 	btnPostMessage1->Enabled = Registered;
 	Edit1->Enabled = Registered;
 	chkFastAnimataion->Enabled = Registered;
+	ColorBox1->Enabled = Registered;
+	ToggleSwitch1->Enabled = Registered;
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::FormCreate(TObject *Sender)
@@ -102,6 +104,14 @@ void __fastcall TFormMain::ColorBox1Change(TObject *Sender)
 void __fastcall TFormMain::btnExitClick(TObject *Sender)
 {
 	this->Close();
+}
+//---------------------------------------------------------------------------
+void __fastcall TFormMain::ToggleSwitch1Click(TObject *Sender)
+{
+	if (ToggleSwitch1->State ==  tssOn)
+		GetDefaultEventBus()->PostPing(EB_BOARD_Animate);
+	else
+		GetDefaultEventBus()->PostPing(EB_BOARD_Pause);
 }
 //---------------------------------------------------------------------------
 

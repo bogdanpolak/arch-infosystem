@@ -44,6 +44,7 @@ public:
 	void UnregisterSubscriber (int MessageId, TSubscriber* Subscriber);
 	void UnregisterMethod (int MessageId, TEventPostMethod Method);
 	void PostMessage (int MessageId, TEvenMessage* mess);
+	void PostPing (int MessageId);
 };
 
 TEventBus* GetDefaultEventBus();

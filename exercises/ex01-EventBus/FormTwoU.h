@@ -21,6 +21,8 @@ private:	// User declarations
     unsigned int DefualtTimerInterval;
 	void EvenBusOnChangeSpeed (int MessageID, TEvenMessage *message);
 	void EvenBusOnChangeColor (int MessageID, TEvenMessage *message);
+	void EvenBusOnPause (int MessageID, TEvenMessage *message);
+	void EvenBusOnAnimate (int MessageID, TEvenMessage *message);
 public:		// User declarations
 	__fastcall TForm2(TComponent* Owner);
 	__fastcall virtual ~TForm2(void);

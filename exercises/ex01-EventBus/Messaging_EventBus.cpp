@@ -79,6 +79,10 @@ void TEventBus::PostMessage (int MessageId, TEvenMessage* mess) {
 
 }
 //---------------------------------------------------------------------------
+void TEventBus::PostPing (int MessageId) {
+	this->PostMessage(MessageId,0);
+}
+//---------------------------------------------------------------------------
 TEventBus* GlobalEventBus = 0;
 //---------------------------------------------------------------------------
 TEventBus* GetDefaultEventBus()
