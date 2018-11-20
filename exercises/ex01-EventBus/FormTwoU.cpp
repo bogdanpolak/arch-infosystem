@@ -21,6 +21,7 @@ void __fastcall TForm2::FormCreate(TObject *Sender)
 	Label1->Visible = false;
 	GetDefaultEventBus()->RegisterSubscriber(1,this);
 	GetDefaultEventBus()->RegisterMethod(2,this->EvenBusOnChangeSpeed);
+	GetDefaultEventBus()->RegisterMethod(3,this->EvenBusOnChangeColor);
 }
 //---------------------------------------------------------------------------
 void TForm2::OnEvent (int MessageID, TEvenMessage *message) {
@@ -38,6 +39,10 @@ void TForm2::EvenBusOnChangeSpeed (int MessageID, TEvenMessage *message) {
 		tmrAnimate->Interval = DefualtTimerInterval / 2;
 	else
 		tmrAnimate->Interval = DefualtTimerInterval;
+}
+//---------------------------------------------------------------------------
+void TForm2::EvenBusOnChangeColor (int MessageID, TEvenMessage *message) {
+    Label1->Font->Color = (TColor) message->TagInt;
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm2::tmrAnimateTimer(TObject *Sender)

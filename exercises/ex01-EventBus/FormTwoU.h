@@ -20,6 +20,7 @@ __published:	// IDE-managed Components
 private:	// User declarations
     unsigned int DefualtTimerInterval;
 	void EvenBusOnChangeSpeed (int MessageID, TEvenMessage *message);
+	void EvenBusOnChangeColor (int MessageID, TEvenMessage *message);
 public:		// User declarations
 	__fastcall TForm2(TComponent* Owner);
 	virtual void OnEvent (int MessageID, TEvenMessage *message);

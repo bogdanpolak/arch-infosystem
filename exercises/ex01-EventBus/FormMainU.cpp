@@ -46,32 +46,52 @@ void __fastcall TFormMain::btnShowSubscribersClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::btnPostMessage1Click(TObject *Sender)
 {
-	TEventBus* EBus = GetDefaultEventBus();
 	TEvenMessage* AMessage = new TEvenMessage();
-	this->Tag = this->Tag + 1;
-	AMessage->TagString = Edit1->Text;
-	EBus->PostMessage(1,AMessage);
-	delete AMessage;
+	try
+	{
+		this->Tag = this->Tag + 1;
+		AMessage->TagString = Edit1->Text;
+		GetDefaultEventBus()->PostMessage(1,AMessage);
+	}
+	 __finally
+	{
+		delete AMessage;
+	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::chkFastAnimataionClick(TObject *Sender)
 {
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	// TEvenMessage* AMessage = new TEvenMessage();
-	// ...
-	// delete AMessage;
-	// -------------------
+	// try
+	// {
+	//     ...
+	// }
+	//  __finally
+	// {
+	//     delete AMessage;
+	// }
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	// #include <memory>
 	// std::unique_ptr<TEvenMessage> AMessage(new TEvenMessage);
 	// ...
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	std::unique_ptr<TEvenMessage> AMessage(new TEvenMessage);
 	AMessage->TagBoolean = chkFastAnimataion->Checked;
 	GetDefaultEventBus()->PostMessage(2,AMessage.get());
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TFormMain::btnExitClick(TObject *Sender)
+void __fastcall TFormMain::ColorBox1Change(TObject *Sender)
 {
-    this->Close();
+	TColor col = ColorBox1->Selected;
+	std::unique_ptr<TEvenMessage> AMessage(new TEvenMessage);
+	AMessage->TagInt = col;
+	GetDefaultEventBus()->PostMessage(3,AMessage.get());
 }
 //---------------------------------------------------------------------------
-
+void __fastcall TFormMain::btnExitClick(TObject *Sender)
+{
+	this->Close();
+}
+//---------------------------------------------------------------------------
 

@@ -129,8 +129,7 @@ object FormMain: TFormMain
       Margins.Right = 15
       Align = alTop
       TabOrder = 5
-      ExplicitLeft = 24
-      ExplicitWidth = 145
+      OnChange = ColorBox1Change
     end
   end
 end

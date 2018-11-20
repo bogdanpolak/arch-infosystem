@@ -27,6 +27,7 @@ __published:	// IDE-managed Components
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall chkFastAnimataionClick(TObject *Sender);
 	void __fastcall btnExitClick(TObject *Sender);
+	void __fastcall ColorBox1Change(TObject *Sender);
 private:	// User declarations
 	void __fastcall UpdateControlsEnable(bool Registered);
 public:		// User declarations
