@@ -36,12 +36,21 @@ void __fastcall TFormMain::FormCreate(TObject *Sender)
 void __fastcall TFormMain::btnShowSubscribersClick(TObject *Sender)
 {
 	UpdateControlsEnable (true);
-	Form1->Visible = true;
-	Form2->Visible = true;
-	Form1->Left = this->Left + this->Width;
-	Form1->Top = this->Top;
-	Form2->Left = Form1->Left + Form1->Width;
-	Form2->Top = this->Top;
+	// ---
+	TForm1* frm1;
+	Application->CreateForm(__classid(TForm1), &frm1);
+	frm1->Visible = true;
+	frm1->Left = this->Left + this->Width;
+	frm1->Top = this->Top;
+	frm1->Show();
+	// ---
+	TForm2* frm2;
+	Application->CreateForm(__classid(TForm2), &frm2);
+	// TForm2* frm2 = new TForm2(this);
+	frm2->Visible = true;
+	frm2->Left = frm1->Left + frm1->Width;
+	frm2->Top = this->Top;
+	frm2->Show();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::btnPostMessage1Click(TObject *Sender)

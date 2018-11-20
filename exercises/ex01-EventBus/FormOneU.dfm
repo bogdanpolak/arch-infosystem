@@ -11,7 +11,6 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBox1: TGroupBox
@@ -23,10 +22,6 @@ object Form1: TForm1
     Align = alClient
     Caption = 'GroupBox1'
     TabOrder = 0
-    ExplicitLeft = 24
-    ExplicitTop = 88
-    ExplicitWidth = 185
-    ExplicitHeight = 105
     object ListBox1: TListBox
       AlignWithMargins = True
       Left = 5
@@ -36,10 +31,6 @@ object Form1: TForm1
       Align = alClient
       ItemHeight = 13
       TabOrder = 0
-      ExplicitLeft = 8
-      ExplicitTop = 8
-      ExplicitWidth = 121
-      ExplicitHeight = 97
     end
   end
 end

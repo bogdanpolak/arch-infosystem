@@ -23,9 +23,8 @@ private:	// User declarations
 	void EvenBusOnChangeColor (int MessageID, TEvenMessage *message);
 public:		// User declarations
 	__fastcall TForm2(TComponent* Owner);
+	__fastcall virtual ~TForm2(void);
 	virtual void OnEvent (int MessageID, TEvenMessage *message);
 };
-//---------------------------------------------------------------------------
-extern PACKAGE TForm2 *Form2;
 //---------------------------------------------------------------------------
 #endif

@@ -9,19 +9,22 @@
 #pragma resource "*.dfm"
 TForm2 *Form2;
 //---------------------------------------------------------------------------
-__fastcall TForm2::TForm2(TComponent* Owner)
-	: TForm(Owner)
-{
-	Label1->Visible = false;
+__fastcall TForm2::TForm2(TComponent* Owner) : TForm(Owner) {
+	GetDefaultEventBus()->RegisterSubscriber(1,this);
+	GetDefaultEventBus()->RegisterMethod(2,this->EvenBusOnChangeSpeed);
+	GetDefaultEventBus()->RegisterMethod(3,this->EvenBusOnChangeColor);
+}
+//---------------------------------------------------------------------------
+__fastcall TForm2::~TForm2(void) {
+	GetDefaultEventBus()->UnregisterSubscriber(1,this);
+	GetDefaultEventBus()->UnregisterMethod(2,this->EvenBusOnChangeSpeed);
+	GetDefaultEventBus()->UnregisterMethod(3,this->EvenBusOnChangeColor);
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm2::FormCreate(TObject *Sender)
 {
 	DefualtTimerInterval = tmrAnimate->Interval;
 	Label1->Visible = false;
-	GetDefaultEventBus()->RegisterSubscriber(1,this);
-	GetDefaultEventBus()->RegisterMethod(2,this->EvenBusOnChangeSpeed);
-	GetDefaultEventBus()->RegisterMethod(3,this->EvenBusOnChangeColor);
 }
 //---------------------------------------------------------------------------
 void TForm2::OnEvent (int MessageID, TEvenMessage *message) {
