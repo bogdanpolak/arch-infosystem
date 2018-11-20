@@ -4,21 +4,26 @@
 #pragma hdrstop
 
 #include "FormTwoU.h"
+#include "EventBus_Consts.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm2 *Form2;
 //---------------------------------------------------------------------------
 __fastcall TForm2::TForm2(TComponent* Owner) : TForm(Owner) {
-	GetDefaultEventBus()->RegisterSubscriber(1,this);
-	GetDefaultEventBus()->RegisterMethod(2,this->EvenBusOnChangeSpeed);
-	GetDefaultEventBus()->RegisterMethod(3,this->EvenBusOnChangeColor);
+	GetDefaultEventBus()->RegisterSubscriber(EB_BOARD_StartScroll,this);
+	GetDefaultEventBus()->RegisterMethod(EB_BOARD_ChangeSpeed,
+		this->EvenBusOnChangeSpeed);
+	GetDefaultEventBus()->RegisterMethod(EB_BOARD_ChangeColor,
+		this->EvenBusOnChangeColor);
 }
 //---------------------------------------------------------------------------
 __fastcall TForm2::~TForm2(void) {
-	GetDefaultEventBus()->UnregisterSubscriber(1,this);
-	GetDefaultEventBus()->UnregisterMethod(2,this->EvenBusOnChangeSpeed);
-	GetDefaultEventBus()->UnregisterMethod(3,this->EvenBusOnChangeColor);
+	GetDefaultEventBus()->UnregisterSubscriber(EB_BOARD_StartScroll,this);
+	GetDefaultEventBus()->UnregisterMethod(EB_BOARD_ChangeSpeed,
+		this->EvenBusOnChangeSpeed);
+	GetDefaultEventBus()->UnregisterMethod(EB_BOARD_ChangeColor,
+		this->EvenBusOnChangeColor);
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm2::FormCreate(TObject *Sender)

@@ -7,6 +7,7 @@
 #include "Messaging_EventBus.h"
 #include "FormOneU.h"
 #include "FormTwoU.h"
+#include "EventBus_Consts.h"
 //---------------------------------------------------------------------------
 #include <memory>
 //---------------------------------------------------------------------------
@@ -60,7 +61,7 @@ void __fastcall TFormMain::btnPostMessage1Click(TObject *Sender)
 	{
 		this->Tag = this->Tag + 1;
 		AMessage->TagString = Edit1->Text;
-		GetDefaultEventBus()->PostMessage(1,AMessage);
+		GetDefaultEventBus()->PostMessage(EB_BOARD_StartScroll,AMessage);
 	}
 	 __finally
 	{
@@ -87,7 +88,7 @@ void __fastcall TFormMain::chkFastAnimataionClick(TObject *Sender)
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	std::unique_ptr<TEvenMessage> AMessage(new TEvenMessage);
 	AMessage->TagBoolean = chkFastAnimataion->Checked;
-	GetDefaultEventBus()->PostMessage(2,AMessage.get());
+	GetDefaultEventBus()->PostMessage(EB_BOARD_ChangeSpeed,AMessage.get());
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::ColorBox1Change(TObject *Sender)
@@ -95,7 +96,7 @@ void __fastcall TFormMain::ColorBox1Change(TObject *Sender)
 	TColor col = ColorBox1->Selected;
 	std::unique_ptr<TEvenMessage> AMessage(new TEvenMessage);
 	AMessage->TagInt = col;
-	GetDefaultEventBus()->PostMessage(3,AMessage.get());
+	GetDefaultEventBus()->PostMessage(EB_BOARD_ChangeColor,AMessage.get());
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::btnExitClick(TObject *Sender)
