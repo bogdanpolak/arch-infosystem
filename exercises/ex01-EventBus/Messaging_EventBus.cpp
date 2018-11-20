@@ -9,19 +9,19 @@
 //---------------------------------------------------------------------------
 int TEventBus::LocateSubscriber (int MessageId, TSubscriber* Subscriber){
 	for(unsigned int i = 0; i < vSubscribers.size(); i++) {
-		bool isSame = (vSubscribers[i].messageID == MessageId)
-			&& (vSubscribers[i].kind == mkSubscriber)
-			&& (vSubscribers[i].subscriber == Subscriber);
+		TRegistrationInfo* info = &vSubscribers[i];
+		bool isSame = (info->messageID == MessageId)
+			&& (info->kind == mkSubscriber) && (info->subscriber == Subscriber);
 		if (isSame)
 			return i;
 	}
-    return -1;
+	return -1;
 }
 int TEventBus::LocateMethod (int MessageId, TEventPostMethod Method){
 	for(unsigned int i = 0; i < vSubscribers.size(); i++) {
-		bool isSame = (vSubscribers[i].messageID == MessageId)
-			&& (vSubscribers[i].kind == mkMethod)
-			&& (vSubscribers[i].method == Method);
+		TRegistrationInfo* info = &vSubscribers[i];
+		bool isSame = (info->messageID == MessageId)
+			&& (info->kind == mkMethod) && (info->method == Method);
 		if (isSame)
 			return i;
 	}
@@ -31,8 +31,8 @@ int TEventBus::LocateMethod (int MessageId, TEventPostMethod Method){
 void TEventBus::RegisterSubscriber (int MessageId, TSubscriber* Subscriber) {
 	int idx = LocateSubscriber(MessageId, Subscriber);
 	if (idx<0) {
-		vSubscribers.push_back( RegistrationInfo() );
-		RegistrationInfo* regInfo = &vSubscribers.back();
+		vSubscribers.push_back( TRegistrationInfo() );
+		TRegistrationInfo* regInfo = &vSubscribers.back();
 		regInfo->messageID = MessageId;
 		regInfo->kind = mkSubscriber;
 		regInfo->subscriber = Subscriber;
@@ -42,8 +42,8 @@ void TEventBus::RegisterSubscriber (int MessageId, TSubscriber* Subscriber) {
 void TEventBus::RegisterMethod (int MessageId, TEventPostMethod Method) {
 	int idx = LocateMethod(MessageId, Method);
 	if (idx<0) {
-		vSubscribers.push_back( RegistrationInfo() );
-		RegistrationInfo* regInfo = &vSubscribers.back();
+		vSubscribers.push_back( TRegistrationInfo() );
+		TRegistrationInfo* regInfo = &vSubscribers.back();
 		regInfo->messageID = MessageId;
 		regInfo->kind = mkMethod;
 		regInfo->method = Method;
@@ -51,9 +51,15 @@ void TEventBus::RegisterMethod (int MessageId, TEventPostMethod Method) {
 }
 //---------------------------------------------------------------------------
 void TEventBus::UnregisterSubscriber (int MessageId, TSubscriber* Subscriber){
+	int idx = LocateSubscriber(MessageId, Subscriber);
+	if (idx>=0)
+		vSubscribers.erase(vSubscribers.begin() + idx);
 }
 //---------------------------------------------------------------------------
 void TEventBus::UnregisterMethod (int MessageId, TEventPostMethod Method){
+	int idx = LocateMethod(MessageId, Method);
+	if (idx>=0)
+		vSubscribers.erase(vSubscribers.begin() + idx);
 }
 //---------------------------------------------------------------------------
 void TEventBus::PostMessage (int MessageId, TEvenMessage* mess) {

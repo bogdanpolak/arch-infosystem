@@ -24,7 +24,7 @@ typedef void (__closure *TEventPostMethod)(int MessageID, TEvenMessage* em);
 
 enum TMessageKind {mkSubscriber, mkMethod};
 
-struct RegistrationInfo {
+struct TRegistrationInfo {
 	int messageID;
 	TMessageKind kind;
 	TSubscriber* subscriber;
@@ -34,7 +34,7 @@ struct RegistrationInfo {
 class TEventBus : public TComponent
 {
 private:
-	std::vector<RegistrationInfo> vSubscribers;
+	std::vector<TRegistrationInfo> vSubscribers;
 	int LocateSubscriber (int MessageId, TSubscriber* Subscriber);
 	int LocateMethod (int MessageId, TEventPostMethod Method);
 public:
