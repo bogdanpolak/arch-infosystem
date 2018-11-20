@@ -117,8 +117,10 @@ __recovery/
 # (*.o) C++ object file or compiled translation unit.
 # (*.pdi) explain it
 # (*.#00) explain it
+# (*.il?) C++ incremental linking state file
 
 *.obj
 *.pch
 *.pdi
 *.#00
+*.il?
