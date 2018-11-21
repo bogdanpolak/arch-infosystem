@@ -25,7 +25,6 @@ object FormMain: TFormMain
     Caption = 'GroupBox1'
     Padding.Top = 10
     TabOrder = 0
-    ExplicitHeight = 325
     object Bevel1: TBevel
       AlignWithMargins = True
       Left = 5
@@ -129,7 +128,6 @@ object FormMain: TFormMain
       Caption = 'Exit'
       TabOrder = 4
       OnClick = btnExitClick
-      ExplicitTop = 295
     end
     object ColorBox1: TColorBox
       AlignWithMargins = True
@@ -143,23 +141,68 @@ object FormMain: TFormMain
       TabOrder = 5
       OnChange = ColorBox1Change
     end
-    object ToggleSwitch1: TToggleSwitch
-      AlignWithMargins = True
-      Left = 15
-      Top = 220
-      Width = 174
-      Height = 18
-      Margins.Left = 13
-      Margins.Right = 13
+    object GridPanel1: TGridPanel
+      Left = 2
+      Top = 217
+      Width = 200
+      Height = 33
       Align = alTop
-      State = tssOn
-      StateCaptions.CaptionOn = 'Animate'
-      StateCaptions.CaptionOff = 'Pause'
-      SwitchHeight = 18
+      Caption = 'GridPanel1'
+      ColumnCollection = <
+        item
+          Value = 50.000000000000000000
+        end
+        item
+          Value = 50.000000000000000000
+        end>
+      ControlCollection = <
+        item
+          Column = 0
+          Control = btnPause
+          Row = 0
+        end
+        item
+          Column = 1
+          Control = btnAnimate
+          Row = 0
+        end>
+      RowCollection = <
+        item
+          Value = 100.000000000000000000
+        end>
+      ShowCaption = False
       TabOrder = 6
-      ThumbWidth = 25
-      OnClick = ToggleSwitch1Click
-      ExplicitWidth = 95
+      ExplicitLeft = 5
+      ExplicitTop = 220
+      ExplicitWidth = 194
+      object btnPause: TButton
+        AlignWithMargins = True
+        Left = 4
+        Top = 4
+        Width = 93
+        Height = 25
+        Align = alClient
+        Caption = 'btnPause'
+        TabOrder = 0
+        OnClick = btnPauseClick
+        ExplicitLeft = 64
+        ExplicitTop = 0
+        ExplicitWidth = 75
+      end
+      object btnAnimate: TButton
+        AlignWithMargins = True
+        Left = 103
+        Top = 4
+        Width = 93
+        Height = 25
+        Align = alClient
+        Caption = 'btnAnimate'
+        TabOrder = 1
+        OnClick = btnAnimateClick
+        ExplicitLeft = 64
+        ExplicitTop = 0
+        ExplicitWidth = 75
+      end
     end
   end
 end
