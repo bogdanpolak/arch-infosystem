@@ -18,7 +18,7 @@
 ## Rozgrzewka z GitHub
 
 * Założenie konta GitHub i sklonowanie repozytorium
-![Fork - skolonowanie repozytorium w GitHub](./resources/01-fork-repo.png)
+![Fork - skolonowanie repozytorium w GitHub](./resources/github01-fork-repo.png)
 * Edycja pliku przez serwis GitHub
     * plik: [./doc/lista.md](./doc/lista.md)
     * Dopisanie swoich danych (imię, nazwisko, nick)
