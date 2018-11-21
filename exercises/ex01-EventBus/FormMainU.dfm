@@ -172,9 +172,6 @@ object FormMain: TFormMain
         end>
       ShowCaption = False
       TabOrder = 6
-      ExplicitLeft = 5
-      ExplicitTop = 220
-      ExplicitWidth = 194
       object btnPause: TButton
         AlignWithMargins = True
         Left = 4
@@ -185,9 +182,6 @@ object FormMain: TFormMain
         Caption = 'btnPause'
         TabOrder = 0
         OnClick = btnPauseClick
-        ExplicitLeft = 64
-        ExplicitTop = 0
-        ExplicitWidth = 75
       end
       object btnAnimate: TButton
         AlignWithMargins = True
@@ -199,9 +193,6 @@ object FormMain: TFormMain
         Caption = 'btnAnimate'
         TabOrder = 1
         OnClick = btnAnimateClick
-        ExplicitLeft = 64
-        ExplicitTop = 0
-        ExplicitWidth = 75
       end
     end
   end
