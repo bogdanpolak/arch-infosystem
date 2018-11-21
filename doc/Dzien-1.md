@@ -21,7 +21,7 @@
 ## Rozgrzewka z GitHub
 
 * Założenie konta GitHub i sklonowanie repozytorium
-![Fork - klonowanie repozytorium w GitHub](./resources/01-fork-repo.png)
+![Fork - sklonowanie repozytorium w GitHub](./resources/github01-fork-repo.png)
 * Edycja pliku przez serwis GitHub
     * plik: [./doc/lista.md](./doc/lista.md)
     * Dopisanie swoich danych (imię, nazwisko, nick)
@@ -117,7 +117,7 @@ Na przykład:
 git remote add upstream https://github.com/andrea-magni/MARS.git
 ```
 
-Po zgłoszeniu żądania aktualizacji `pull request` autor przeglada zmiany i decyduje co z nimi zrobić: może poprosić o naniesienie poprawek lub sam dokonuje korekt. Takie poprawki mogą rozciagnąć się na kilka rewizji. Czasem są to ważne zmiany, a czasem drobne literówki. Na koniec autor decyduje w jaki sposób taki pakiet zmian "przenieść" do swojego głównego repozytorium. Mamy tutaj kilka strategi takiego przenoszenia. 
+Po zgłoszeniu żądania aktualizacji `pull request` autor przegląda zmiany i decyduje co z nimi zrobić: może poprosić o naniesienie poprawek lub sam dokonuje korekt. Takie poprawki mogą rozciągnąć się na kilka rewizji. Czasem są to ważne zmiany, a czasem drobne literówki. Na koniec autor decyduje w jaki sposób taki pakiet zmian "przenieść" do swojego głównego repozytorium. Mamy tutaj kilka strategi takiego przenoszenia. 
 
 Zazwyczaj autorzy decydują się na scalenie zmian, czyli łączą wszystkie rewizje wchodzące w skład jednego żądania (`pull request`) w jedną, scaloną rewizję. W takim scenariuszu w repozytorium autora (`upstream`) powstaje nowa rewizja, której nie ma ani w moim repozytorium zdalnym (`origin`), ani lokalnym. Stąd konieczne jest pobranie zmian z repozytorium zdalnego `upstream` do naszego lokalnego repozytorium, scalenie różnic i aktualizacja naszego zdalnego repozytorium (`origin`).
 
