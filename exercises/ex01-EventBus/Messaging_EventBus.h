@@ -8,7 +8,7 @@
 #include <System.Classes.hpp>
 //---------------------------------------------------------------------------
 
-class TEvenMessage {
+class TEventMessage {
 public:
 	int TagInt;
 	String TagString;
@@ -17,10 +17,10 @@ public:
 
 class TSubscriber : public IUnknown {
 public:
-	virtual void OnEvent (int MessageID, TEvenMessage *message) = 0;
+	virtual void OnEvent (int MessageID, TEventMessage *message) = 0;
 };
 
-typedef void (__closure *TEventPostMethod)(int MessageID, TEvenMessage* em);
+typedef void (__closure *TEventPostMethod)(int MessageID, TEventMessage* em);
 
 enum TMessageKind {mkSubscriber, mkMethod};
 
@@ -43,7 +43,7 @@ public:
 	void RegisterMethod (int MessageId, TEventPostMethod Method);
 	void UnregisterSubscriber (int MessageId, TSubscriber* Subscriber);
 	void UnregisterMethod (int MessageId, TEventPostMethod Method);
-	void PostMessage (int MessageId, TEvenMessage* mess);
+	void PostMessage (int MessageId, TEventMessage* mess);
 	void PostPing (int MessageId);
 };
 

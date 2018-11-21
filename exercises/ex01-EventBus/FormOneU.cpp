@@ -18,7 +18,7 @@ __fastcall TForm1::~TForm1(void) {
 	GetDefaultEventBus()->UnregisterSubscriber(EB_BOARD_StartScroll,this);
 }
 //---------------------------------------------------------------------------
-void TForm1::OnEvent (int MessageID, TEvenMessage *message) {
+void TForm1::OnEvent (int MessageID, TEventMessage *message) {
 	this->ListBox1->Items->Add(message->TagString);
 }
 //---------------------------------------------------------------------------

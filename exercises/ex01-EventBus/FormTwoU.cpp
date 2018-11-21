@@ -34,7 +34,7 @@ void __fastcall TForm2::FormCreate(TObject *Sender)
 	Label1->Visible = false;
 }
 //---------------------------------------------------------------------------
-void TForm2::OnEvent (int MessageID, TEvenMessage *message) {
+void TForm2::OnEvent (int MessageID, TEventMessage *message) {
 	tmrAnimate->Enabled = false;
 	Label1->Left = this->ClientWidth - 150;
 	Label1->Top = 8;
@@ -44,22 +44,22 @@ void TForm2::OnEvent (int MessageID, TEvenMessage *message) {
 	tmrAnimate->Enabled = true;
 }
 //---------------------------------------------------------------------------
-void TForm2::EvenBusOnChangeSpeed (int MessageID, TEvenMessage *message) {
+void TForm2::EvenBusOnChangeSpeed (int MessageID, TEventMessage *message) {
 	if (message->TagBoolean)
 		tmrAnimate->Interval = DefualtTimerInterval / 2;
 	else
 		tmrAnimate->Interval = DefualtTimerInterval;
 }
 //---------------------------------------------------------------------------
-void TForm2::EvenBusOnChangeColor (int MessageID, TEvenMessage *message) {
+void TForm2::EvenBusOnChangeColor (int MessageID, TEventMessage *message) {
     Label1->Font->Color = (TColor) message->TagInt;
 }
 //---------------------------------------------------------------------------
-void TForm2::EvenBusOnPause (int MessageID, TEvenMessage *message) {
+void TForm2::EvenBusOnPause (int MessageID, TEventMessage *message) {
 	tmrAnimate->Enabled = false;
 }
 //---------------------------------------------------------------------------
-void TForm2::EvenBusOnAnimate (int MessageID, TEvenMessage *message) {
+void TForm2::EvenBusOnAnimate (int MessageID, TEventMessage *message) {
 	tmrAnimate->Enabled = true;
 }
 //---------------------------------------------------------------------------

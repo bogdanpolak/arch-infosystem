@@ -18,7 +18,7 @@ private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 	__fastcall virtual ~TForm1(void);
-	virtual void OnEvent (int MessageID, TEvenMessage *message);
+	virtual void OnEvent (int MessageID, TEventMessage *message);
 };
 //---------------------------------------------------------------------------
 #endif

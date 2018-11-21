@@ -62,7 +62,7 @@ void TEventBus::UnregisterMethod (int MessageId, TEventPostMethod Method){
 		vSubscribers.erase(vSubscribers.begin() + idx);
 }
 //---------------------------------------------------------------------------
-void TEventBus::PostMessage (int MessageId, TEvenMessage* mess) {
+void TEventBus::PostMessage (int MessageId, TEventMessage* mess) {
 	for(unsigned int i = 0; i < vSubscribers.size(); i++)
 		if (vSubscribers[i].messageID == MessageId) {
 			switch (vSubscribers[i].kind) {

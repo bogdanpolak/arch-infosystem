@@ -57,9 +57,14 @@ void __fastcall TFormMain::btnShowSubscribersClick(TObject *Sender)
 	frm2->Show();
 }
 //---------------------------------------------------------------------------
+void __fastcall TFormMain::btnExitClick(TObject *Sender)
+{
+	this->Close();
+}
+//---------------------------------------------------------------------------
 void __fastcall TFormMain::btnPostMessage1Click(TObject *Sender)
 {
-	TEvenMessage* AMessage = new TEvenMessage();
+	TEventMessage* AMessage = new TEventMessage();
 	try
 	{
 		this->Tag = this->Tag + 1;
@@ -75,7 +80,7 @@ void __fastcall TFormMain::btnPostMessage1Click(TObject *Sender)
 void __fastcall TFormMain::chkFastAnimataionClick(TObject *Sender)
 {
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	// TEvenMessage* AMessage = new TEvenMessage();
+	// TEventMessage* AMessage = new TEventMessage();
 	// try
 	// {
 	//     ...
@@ -86,10 +91,10 @@ void __fastcall TFormMain::chkFastAnimataionClick(TObject *Sender)
 	// }
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	// #include <memory>
-	// std::unique_ptr<TEvenMessage> AMessage(new TEvenMessage);
+	// std::unique_ptr<TEvetnMessage> AMessage(new TEventMessage);
 	// ...
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	std::unique_ptr<TEvenMessage> AMessage(new TEvenMessage);
+	std::unique_ptr<TEventMessage> AMessage(new TEventMessage);
 	AMessage->TagBoolean = chkFastAnimataion->Checked;
 	GetDefaultEventBus()->PostMessage(EB_BOARD_ChangeSpeed,AMessage.get());
 }
@@ -97,14 +102,9 @@ void __fastcall TFormMain::chkFastAnimataionClick(TObject *Sender)
 void __fastcall TFormMain::ColorBox1Change(TObject *Sender)
 {
 	TColor col = ColorBox1->Selected;
-	std::unique_ptr<TEvenMessage> AMessage(new TEvenMessage);
+	std::unique_ptr<TEventMessage> AMessage(new TEventMessage);
 	AMessage->TagInt = col;
 	GetDefaultEventBus()->PostMessage(EB_BOARD_ChangeColor,AMessage.get());
-}
-//---------------------------------------------------------------------------
-void __fastcall TFormMain::btnExitClick(TObject *Sender)
-{
-	this->Close();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMain::btnPauseClick(TObject *Sender)
