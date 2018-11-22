@@ -1,17 +1,17 @@
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 #ifndef FormMainUH
 #define FormMainUH
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 #include <Vcl.ExtCtrls.hpp>
-//---------------------------------------------------------------------------
-class TFormMain : public TForm
-{
-__published:	// IDE-managed Components
+
+// ---------------------------------------------------------------------------
+class TFormMain : public TForm {
+__published: // IDE-managed Components
 	TButton *btnShowSubscribers;
 	TButton *btnPostMessage1;
 	TGroupBox *GroupBox1;
@@ -26,6 +26,7 @@ __published:	// IDE-managed Components
 	TGridPanel *GridPanel1;
 	TButton *btnPause;
 	TButton *btnAnimate;
+
 	void __fastcall btnShowSubscribersClick(TObject *Sender);
 	void __fastcall btnPostMessage1Click(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
@@ -34,12 +35,15 @@ __published:	// IDE-managed Components
 	void __fastcall ColorBox1Change(TObject *Sender);
 	void __fastcall btnPauseClick(TObject *Sender);
 	void __fastcall btnAnimateClick(TObject *Sender);
-private:	// User declarations
+
+private: // User declarations
 	void __fastcall UpdateControlsEnable(bool Registered);
-public:		// User declarations
+
+public: // User declarations
 	__fastcall TFormMain(TComponent* Owner);
 };
-//---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
 extern PACKAGE TFormMain *FormMain;
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 #endif

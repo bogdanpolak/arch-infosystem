@@ -1,32 +1,36 @@
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 #ifndef FormTwoUH
 #define FormTwoUH
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 #include "Messaging_EventBus.h"
 #include <Vcl.ExtCtrls.hpp>
-//---------------------------------------------------------------------------
-class TForm2 : public TForm, public TSubscriber
-{
-__published:	// IDE-managed Components
+
+// ---------------------------------------------------------------------------
+class TForm2 : public TForm, public TSubscriber {
+__published: // IDE-managed Components
 	TTimer *tmrAnimate;
 	TLabel *Label1;
+
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall tmrAnimateTimer(TObject *Sender);
-private:	// User declarations
-    unsigned int DefualtTimerInterval;
-	void EvenBusOnChangeSpeed (int MessageID, TEventMessage *message);
-	void EvenBusOnChangeColor (int MessageID, TEventMessage *message);
-	void EvenBusOnPause (int MessageID, TEventMessage *message);
-	void EvenBusOnAnimate (int MessageID, TEventMessage *message);
-public:		// User declarations
+
+private: // User declarations
+	unsigned int DefualtTimerInterval;
+
+	void EvenBusOnChangeSpeed(int MessageID, TEventMessage *message);
+	void EvenBusOnChangeColor(int MessageID, TEventMessage *message);
+	void EvenBusOnPause(int MessageID, TEventMessage *message);
+	void EvenBusOnAnimate(int MessageID, TEventMessage *message);
+
+public: // User declarations
 	__fastcall TForm2(TComponent* Owner);
 	__fastcall virtual ~TForm2(void);
-	virtual void OnEvent (int MessageID, TEventMessage *message);
+	virtual void OnEvent(int MessageID, TEventMessage *message);
 };
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 #endif
