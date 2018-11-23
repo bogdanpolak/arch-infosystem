@@ -8,6 +8,7 @@
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 #include <Vcl.ExtCtrls.hpp>
+#include <Vcl.ComCtrls.hpp>
 
 // ---------------------------------------------------------------------------
 #include <vector>
@@ -18,18 +19,24 @@ __published: // IDE-managed Components
 	TGroupBox *GroupBox1;
 	TSplitter *Splitter1;
 	TMemo *Memo1;
+	TButton *btnClearLog;
+	TPageControl *PageControl1;
+	TTabSheet *tshVector;
+	TTabSheet *tshMap;
+	TLabel *Label4;
 	TButton *btnCapasity;
 	TLabel *Label1;
+	TButton *btnElementAccess;
+	TLabel *Label5;
 	TButton *btnIterators;
 	TLabel *Label2;
 	TButton *btnSortInt;
-	TButton *btnClearLog;
-	TButton *btnElementAccess;
-	TLabel *Label4;
-	TBevel *Bevel1;
-	TLabel *Label5;
-	TButton *btnStructDemo;
 	TButton *btnBinarySerachInt;
+	TButton *btnStructDemo;
+	TLabel *Label3;
+	TButton *btnFillCustomersMap;
+	TButton *btnFindMapKey;
+	TButton *btnFilterMap;
 
 	void __fastcall btnCapasityClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
@@ -39,6 +46,9 @@ __published: // IDE-managed Components
 	void __fastcall btnElementAccessClick(TObject *Sender);
 	void __fastcall btnStructDemoClick(TObject *Sender);
 	void __fastcall btnBinarySerachIntClick(TObject *Sender);
+	void __fastcall btnFillCustomersMapClick(TObject *Sender);
+	void __fastcall btnFindMapKeyClick(TObject *Sender);
+	void __fastcall btnFilterMapClick(TObject *Sender);
 
 private: // User declarations
 	void ReportCompilerPlatform();

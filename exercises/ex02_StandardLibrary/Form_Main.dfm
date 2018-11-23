@@ -15,7 +15,7 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object Splitter1: TSplitter
-    Left = 213
+    Left = 233
     Top = 0
     Width = 5
     Height = 470
@@ -26,171 +26,228 @@ object Form1: TForm1
     AlignWithMargins = True
     Left = 3
     Top = 3
-    Width = 210
+    Width = 230
     Height = 464
     Margins.Right = 0
     Align = alLeft
     Caption = 'GroupBox1'
     TabOrder = 0
-    object Label1: TLabel
-      AlignWithMargins = True
-      Left = 5
-      Top = 75
-      Width = 200
-      Height = 26
-      Margins.Top = 0
-      Margins.Bottom = 8
-      Align = alTop
-      Caption = 
-        'Polecenia: reserve, resize, clear, size, capacity, max_size, emp' +
-        'ty, shrink_to_fit'
-      WordWrap = True
-      ExplicitWidth = 195
-    end
-    object Label2: TLabel
-      AlignWithMargins = True
-      Left = 5
-      Top = 205
-      Width = 200
-      Height = 26
-      Margins.Top = 0
-      Margins.Bottom = 8
-      Align = alTop
-      Caption = 
-        'Inicjalizacja std::vector danymi.   Iteratory: begin, end, rbegi' +
-        'n, rend'
-      WordWrap = True
-      ExplicitWidth = 168
-    end
-    object Label4: TLabel
-      AlignWithMargins = True
-      Left = 5
-      Top = 20
-      Width = 200
-      Height = 19
-      Margins.Top = 5
-      Margins.Bottom = 5
-      Align = alTop
-      Alignment = taCenter
-      Caption = 'std::vector'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      ExplicitWidth = 76
-    end
-    object Bevel1: TBevel
-      AlignWithMargins = True
-      Left = 5
-      Top = 337
-      Width = 200
-      Height = 3
-      Margins.Top = 5
-      Margins.Bottom = 5
-      Align = alTop
-      ExplicitLeft = 4
-      ExplicitTop = 275
-    end
-    object Label5: TLabel
-      AlignWithMargins = True
-      Left = 5
-      Top = 140
-      Width = 200
-      Height = 26
-      Margins.Top = 0
-      Margins.Bottom = 8
-      Align = alTop
-      Caption = 'Polecenia: at(), [], push_back(), pop_back(), insert(), erase()'
-      WordWrap = True
-      ExplicitWidth = 158
-    end
-    object btnCapasity: TButton
-      AlignWithMargins = True
-      Left = 5
-      Top = 47
-      Width = 200
-      Height = 25
-      Align = alTop
-      Caption = 'btnCapasity'
-      TabOrder = 0
-      OnClick = btnCapasityClick
-    end
-    object btnSortInt: TButton
-      AlignWithMargins = True
-      Left = 5
-      Top = 242
-      Width = 200
-      Height = 25
-      Align = alTop
-      Caption = 'btnSortInt'
-      TabOrder = 3
-      OnClick = btnSortIntClick
-    end
-    object btnIterators: TButton
-      AlignWithMargins = True
-      Left = 5
-      Top = 177
-      Width = 200
-      Height = 25
-      Align = alTop
-      Caption = 'btnIterators'
-      TabOrder = 2
-      OnClick = btnIteratorsClick
-    end
     object btnClearLog: TButton
       AlignWithMargins = True
       Left = 5
       Top = 434
-      Width = 200
+      Width = 220
       Height = 25
       Align = alBottom
       Caption = 'btnClearLog'
-      TabOrder = 6
+      TabOrder = 1
       OnClick = btnClearLogClick
     end
-    object btnElementAccess: TButton
+    object PageControl1: TPageControl
       AlignWithMargins = True
       Left = 5
-      Top = 112
-      Width = 200
-      Height = 25
-      Align = alTop
-      Caption = 'btnElementAccess'
-      TabOrder = 1
-      OnClick = btnElementAccessClick
-    end
-    object btnStructDemo: TButton
-      AlignWithMargins = True
-      Left = 5
-      Top = 304
-      Width = 200
-      Height = 25
-      Align = alTop
-      Caption = 'btnStructDemo'
-      TabOrder = 5
-      OnClick = btnStructDemoClick
-      ExplicitTop = 294
-    end
-    object btnBinarySerachInt: TButton
-      AlignWithMargins = True
-      Left = 5
-      Top = 273
-      Width = 200
-      Height = 25
-      Align = alTop
-      Caption = 'btnBinarySerachInt'
-      TabOrder = 4
-      OnClick = btnBinarySerachIntClick
-      ExplicitLeft = 4
-      ExplicitTop = 285
+      Top = 18
+      Width = 220
+      Height = 410
+      ActivePage = tshMap
+      Align = alClient
+      TabOrder = 0
+      object tshVector: TTabSheet
+        Caption = 'sdt::vector demos'
+        object Label4: TLabel
+          AlignWithMargins = True
+          Left = 3
+          Top = 5
+          Width = 206
+          Height = 19
+          Margins.Top = 5
+          Margins.Bottom = 5
+          Align = alTop
+          Alignment = taCenter
+          Caption = 'std::vector'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ExplicitWidth = 76
+        end
+        object Label1: TLabel
+          AlignWithMargins = True
+          Left = 3
+          Top = 60
+          Width = 206
+          Height = 26
+          Margins.Top = 0
+          Margins.Bottom = 8
+          Align = alTop
+          Caption = 
+            'Polecenia: reserve, resize, clear, size, capacity, max_size, emp' +
+            'ty, shrink_to_fit'
+          WordWrap = True
+          ExplicitWidth = 195
+        end
+        object Label5: TLabel
+          AlignWithMargins = True
+          Left = 3
+          Top = 125
+          Width = 206
+          Height = 26
+          Margins.Top = 0
+          Margins.Bottom = 8
+          Align = alTop
+          Caption = 'Polecenia: at(), [], push_back(), pop_back(), insert(), erase()'
+          WordWrap = True
+          ExplicitWidth = 158
+        end
+        object Label2: TLabel
+          AlignWithMargins = True
+          Left = 3
+          Top = 190
+          Width = 206
+          Height = 26
+          Margins.Top = 0
+          Margins.Bottom = 8
+          Align = alTop
+          Caption = 
+            'Inicjalizacja std::vector danymi.   Iteratory: begin, end, rbegi' +
+            'n, rend'
+          WordWrap = True
+          ExplicitWidth = 168
+        end
+        object btnCapasity: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 32
+          Width = 206
+          Height = 25
+          Align = alTop
+          Caption = 'btnCapasity'
+          TabOrder = 0
+          OnClick = btnCapasityClick
+        end
+        object btnElementAccess: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 97
+          Width = 206
+          Height = 25
+          Align = alTop
+          Caption = 'btnElementAccess'
+          TabOrder = 1
+          OnClick = btnElementAccessClick
+        end
+        object btnIterators: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 162
+          Width = 206
+          Height = 25
+          Align = alTop
+          Caption = 'btnIterators'
+          TabOrder = 2
+          OnClick = btnIteratorsClick
+        end
+        object btnSortInt: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 227
+          Width = 206
+          Height = 25
+          Align = alTop
+          Caption = 'btnSortInt'
+          TabOrder = 3
+          OnClick = btnSortIntClick
+        end
+        object btnBinarySerachInt: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 258
+          Width = 206
+          Height = 25
+          Align = alTop
+          Caption = 'btnBinarySerachInt'
+          TabOrder = 4
+          OnClick = btnBinarySerachIntClick
+        end
+        object btnStructDemo: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 289
+          Width = 206
+          Height = 25
+          Align = alTop
+          Caption = 'btnStructDemo'
+          TabOrder = 5
+          OnClick = btnStructDemoClick
+        end
+      end
+      object tshMap: TTabSheet
+        Caption = 'std::map demos'
+        ImageIndex = 1
+        object Label3: TLabel
+          AlignWithMargins = True
+          Left = 3
+          Top = 5
+          Width = 206
+          Height = 19
+          Margins.Top = 5
+          Margins.Bottom = 5
+          Align = alTop
+          Alignment = taCenter
+          Caption = 'std::map'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ExplicitWidth = 64
+        end
+        object btnFillCustomersMap: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 32
+          Width = 206
+          Height = 25
+          Align = alTop
+          Caption = 'btnFillCustomersMap'
+          TabOrder = 0
+          OnClick = btnFillCustomersMapClick
+        end
+        object btnFindMapKey: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 63
+          Width = 206
+          Height = 25
+          Align = alTop
+          Caption = 'btnFindMapKey'
+          TabOrder = 1
+          OnClick = btnFindMapKeyClick
+        end
+        object btnFilterMap: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 94
+          Width = 206
+          Height = 25
+          Align = alTop
+          Caption = 'btnFilterMap'
+          TabOrder = 2
+          OnClick = btnFilterMapClick
+          ExplicitLeft = 137
+          ExplicitTop = 240
+          ExplicitWidth = 75
+        end
+      end
     end
   end
   object Memo1: TMemo
     AlignWithMargins = True
-    Left = 232
-    Top = 24
+    Left = 256
+    Top = 13
     Width = 185
     Height = 89
     Margins.Left = 0
