@@ -56,7 +56,7 @@ void TForm1::LogSparator() {
 
 // ---------------------------------------------------------------------------
 void TForm1::LogMessageAndInt(String Message, int value) {
-	Memo1->Lines->Add(Message+": "+value);
+	Memo1->Lines->Add(Message + ": " + value);
 }
 
 // ---------------------------------------------------------------------------
@@ -112,7 +112,7 @@ void __fastcall TForm1::btnIteratorsClick(TObject *Sender) {
 #else
 	static const int arr[] = {1, 2, 5, 7, 11, 13, 17, 19};
 	int arrSize = ARRAY_SIZE(arr);
-	std::vector<int>vecInt(arr, arr+arrSize); // ARRAY_END(arr));
+	std::vector<int>vecInt(arr, arr + arrSize); // ARRAY_END(arr));
 	std::vector<int>::iterator it1;
 	for (it1 = vecInt.begin(); it1 != vecInt.end(); it1++)
 		elems1 += IntToStr(*it1) + " ";
@@ -131,26 +131,26 @@ void __fastcall TForm1::btnElementAccessClick(TObject *Sender) {
 	static const int prime[] = {1, 2, 5, 7, 11, 13, 17, 19};
 	std::vector<int>vecInt(prime, ARRAY_END(prime));
 	int initCount = vecInt.size();
-	Log(L"Prime numbers. First "+IntToStr(initCount));
-	LogVectorElems(4,vecInt);
+	Log(L"Prime numbers. First " + IntToStr(initCount));
+	LogVectorElems(4, vecInt);
 	int value = vecInt.at(4);
-	LogMessageAndInt("Fifth prime number is: ", value );
+	LogMessageAndInt("Fifth prime number is: ", value);
 	value = vecInt[5];
-	LogMessageAndInt("Sixth prime number is: ", value );
+	LogMessageAndInt("Sixth prime number is: ", value);
 	Log(L"Adding 9th prime number");
 	vecInt.push_back(23);
-	LogVectorElems(4,vecInt);
+	LogVectorElems(4, vecInt);
 	Log(L"Removing last item");
 	vecInt.pop_back();
-	LogVectorElems(4,vecInt);
+	LogVectorElems(4, vecInt);
 	Log(L"Adding two non prime numbers (3 and 4)");
-	vecInt.insert(vecInt.begin()+2,3);
-	vecInt.insert(vecInt.begin()+3,4);
-	LogVectorElems(4,vecInt);
+	vecInt.insert(vecInt.begin() + 2, 3);
+	vecInt.insert(vecInt.begin() + 3, 4);
+	LogVectorElems(4, vecInt);
 	Log(L"Remove two non prime numbers");
-	vecInt.erase(vecInt.begin()+2);
-	vecInt.erase(vecInt.begin()+2);
-	LogVectorElems(4,vecInt);
+	vecInt.erase(vecInt.begin() + 2);
+	vecInt.erase(vecInt.begin() + 2);
+	LogVectorElems(4, vecInt);
 	// ---------------------------------------------------
 	// **** Ró¿nica miedzy emplace a insert ****
 	// **** emplace - C++11
@@ -184,6 +184,50 @@ void __fastcall TForm1::btnSortIntegersClick(TObject *Sender) {
 	std::sort(vecInt.begin(), vecInt.end(), std::greater<int>());
 #endif
 	LogVectorElems(4, vecInt);
+}
+
+// ---------------------------------------------------------------------------
+struct Person {
+	String fullname;
+	TDateTime birthday;
+
+	Person(String fullname, TDateTime birthday) {
+		this->fullname = fullname;
+		this->birthday = birthday;
+	}
+
+	operator String() {
+		return fullname + ", " + FormatDateTime("dd mmmm", birthday) + " (" +
+			FormatDateTime("yyyy", birthday) + ")";
+	}
+
+	bool operator < (const Person& rsh) {
+		Word yyL, mmL, ddL;
+		Word yyR, mmR, ddR;
+		DecodeDate(this->birthday, yyL, mmL, ddL);
+		DecodeDate(rsh.birthday, yyR, mmR, ddR);
+		return (mmL < mmR) || (mmL == mmR) && (ddL < ddR);
+	}
+};
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::btnStructDemoClick(TObject *Sender) {
+	TFormatSettings fs = TFormatSettings::Create();
+	fs.DateSeparator = '-';
+	fs.ShortDateFormat = "yyyy-MM-dd";
+	std::vector<Person>birthdays;
+	birthdays.push_back(Person("Bogdan Polak", StrToDate("1971-04-20", fs)));
+	birthdays.push_back(Person("Jan Kowalski", StrToDate("1978-02-12", fs)));
+	birthdays.push_back(Person("Tomasz Tulski", StrToDate("1968-12-15", fs)));
+	birthdays.push_back(Person("Pawe³ Monacki", StrToDate("1989-11-02", fs)));
+	birthdays.push_back(Person("Dariusz Darski", StrToDate("1986-05-15", fs)));
+	birthdays.push_back(Person("Rafa³ Rogalski", StrToDate("1995-05-01", fs)));
+	for (unsigned int i = 0; i < birthdays.size(); i++)
+		Log("  - " + birthdays[i]);
+	std::sort(birthdays.begin(), birthdays.end());
+	Log("Sortowanie wg daty urdzin (dzieñ i miesi¹c)");
+	for (unsigned int i = 0; i < birthdays.size(); i++)
+		Log("  - " + birthdays[i]);
 }
 
 // ---------------------------------------------------------------------------

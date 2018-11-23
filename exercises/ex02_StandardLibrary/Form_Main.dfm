@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 425
+  ClientHeight = 470
   ClientWidth = 636
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,7 +18,7 @@ object Form1: TForm1
     Left = 213
     Top = 0
     Width = 5
-    Height = 425
+    Height = 470
     ExplicitLeft = 188
     ExplicitHeight = 243
   end
@@ -27,11 +27,12 @@ object Form1: TForm1
     Left = 3
     Top = 3
     Width = 210
-    Height = 419
+    Height = 464
     Margins.Right = 0
     Align = alLeft
     Caption = 'GroupBox1'
     TabOrder = 0
+    ExplicitHeight = 419
     object Label1: TLabel
       AlignWithMargins = True
       Left = 5
@@ -60,7 +61,6 @@ object Form1: TForm1
         'Inicjalizacja std::vector danymi.   Iteratory: begin, end, rbegi' +
         'n, rend'
       WordWrap = True
-      ExplicitTop = 192
       ExplicitWidth = 168
     end
     object Label3: TLabel
@@ -74,7 +74,6 @@ object Form1: TForm1
       Align = alTop
       Caption = 'Polecenie:  sort (vector)'
       WordWrap = True
-      ExplicitTop = 257
       ExplicitWidth = 116
     end
     object Label4: TLabel
@@ -99,7 +98,7 @@ object Form1: TForm1
     object Bevel1: TBevel
       AlignWithMargins = True
       Left = 5
-      Top = 296
+      Top = 327
       Width = 200
       Height = 3
       Margins.Top = 5
@@ -142,7 +141,6 @@ object Form1: TForm1
       Caption = 'btnSortIntegers'
       TabOrder = 3
       OnClick = btnSortIntegersClick
-      ExplicitTop = 229
     end
     object btnIterators: TButton
       AlignWithMargins = True
@@ -154,18 +152,18 @@ object Form1: TForm1
       Caption = 'btnIterators'
       TabOrder = 2
       OnClick = btnIteratorsClick
-      ExplicitTop = 164
     end
     object btnClearLog: TButton
       AlignWithMargins = True
       Left = 5
-      Top = 389
+      Top = 434
       Width = 200
       Height = 25
       Align = alBottom
       Caption = 'btnClearLog'
       TabOrder = 4
       OnClick = btnClearLogClick
+      ExplicitTop = 389
     end
     object btnElementAccess: TButton
       AlignWithMargins = True
@@ -177,6 +175,19 @@ object Form1: TForm1
       Caption = 'btnElementAccess'
       TabOrder = 1
       OnClick = btnElementAccessClick
+    end
+    object btnStructDemo: TButton
+      AlignWithMargins = True
+      Left = 5
+      Top = 294
+      Width = 200
+      Height = 25
+      Align = alTop
+      Caption = 'btnStructDemo'
+      TabOrder = 5
+      OnClick = btnStructDemoClick
+      ExplicitLeft = 39
+      ExplicitWidth = 75
     end
   end
   object Memo1: TMemo

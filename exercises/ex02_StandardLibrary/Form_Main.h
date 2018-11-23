@@ -29,6 +29,7 @@ __published: // IDE-managed Components
 	TLabel *Label4;
 	TBevel *Bevel1;
 	TLabel *Label5;
+	TButton *btnStructDemo;
 
 	void __fastcall btnCapasityClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
@@ -36,6 +37,7 @@ __published: // IDE-managed Components
 	void __fastcall btnSortIntegersClick(TObject *Sender);
 	void __fastcall btnIteratorsClick(TObject *Sender);
 	void __fastcall btnElementAccessClick(TObject *Sender);
+	void __fastcall btnStructDemoClick(TObject *Sender);
 
 private: // User declarations
 	void ReportCompilerPlatform();
