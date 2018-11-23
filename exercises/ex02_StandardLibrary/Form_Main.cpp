@@ -129,6 +129,7 @@ void __fastcall TForm1::btnIteratorsClick(TObject *Sender) {
 
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::btnElementAccessClick(TObject *Sender) {
+	LogSparator();
 	static const int prime[] = {1, 2, 5, 7, 11, 13, 17, 19};
 	std::vector<int>vecInt(prime, ARRAY_END(prime));
 	int initCount = vecInt.size();
@@ -232,6 +233,7 @@ struct Person {
 
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::btnStructDemoClick(TObject *Sender) {
+	LogSparator();
 	TFormatSettings fs = TFormatSettings::Create();
 	fs.DateSeparator = '-';
 	fs.ShortDateFormat = "yyyy-MM-dd";
@@ -350,26 +352,24 @@ void __fastcall TForm1::btnFillCustomersMapClick(TObject *Sender) {
 }
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm1::btnFindMapKeyClick(TObject *Sender)
-{
+void __fastcall TForm1::btnFindMapKeyClick(TObject *Sender) {
 	LogSparator();
 	std::map<String, Customer>customers;
 	fillCustomersData(customers);
 	std::map<String, Customer>::iterator it;
 	it = customers.find("AROUT");
-	Log("Found: "+it->second);
+	Log("Found: " + it->second);
 	customers.erase(it);
-	customers.erase( customers.find("ALFKI") );
-	customers.erase( customers.find("ANATR") );
-	customers.erase( customers.find("ANTON") );
+	customers.erase(customers.find("ALFKI"));
+	customers.erase(customers.find("ANATR"));
+	customers.erase(customers.find("ANTON"));
 	Log("-");
 	for (it = customers.begin(); it != customers.end(); it++)
-		Log("    "+it->second);
+		Log("    " + it->second);
 }
 
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::btnClearLogClick(TObject *Sender) {
 	Memo1->Clear();
 }
-//---------------------------------------------------------------------------
-
+// ---------------------------------------------------------------------------
