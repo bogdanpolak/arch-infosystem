@@ -32,7 +32,6 @@ object Form1: TForm1
     Align = alLeft
     Caption = 'GroupBox1'
     TabOrder = 0
-    ExplicitHeight = 419
     object Label1: TLabel
       AlignWithMargins = True
       Left = 5
@@ -63,19 +62,6 @@ object Form1: TForm1
       WordWrap = True
       ExplicitWidth = 168
     end
-    object Label3: TLabel
-      AlignWithMargins = True
-      Left = 5
-      Top = 270
-      Width = 200
-      Height = 13
-      Margins.Top = 0
-      Margins.Bottom = 8
-      Align = alTop
-      Caption = 'Polecenie:  sort (vector)'
-      WordWrap = True
-      ExplicitWidth = 116
-    end
     object Label4: TLabel
       AlignWithMargins = True
       Left = 5
@@ -98,7 +84,7 @@ object Form1: TForm1
     object Bevel1: TBevel
       AlignWithMargins = True
       Left = 5
-      Top = 327
+      Top = 337
       Width = 200
       Height = 3
       Margins.Top = 5
@@ -131,16 +117,16 @@ object Form1: TForm1
       TabOrder = 0
       OnClick = btnCapasityClick
     end
-    object btnSortIntegers: TButton
+    object btnSortInt: TButton
       AlignWithMargins = True
       Left = 5
       Top = 242
       Width = 200
       Height = 25
       Align = alTop
-      Caption = 'btnSortIntegers'
+      Caption = 'btnSortInt'
       TabOrder = 3
-      OnClick = btnSortIntegersClick
+      OnClick = btnSortIntClick
     end
     object btnIterators: TButton
       AlignWithMargins = True
@@ -161,9 +147,8 @@ object Form1: TForm1
       Height = 25
       Align = alBottom
       Caption = 'btnClearLog'
-      TabOrder = 4
+      TabOrder = 6
       OnClick = btnClearLogClick
-      ExplicitTop = 389
     end
     object btnElementAccess: TButton
       AlignWithMargins = True
@@ -179,15 +164,27 @@ object Form1: TForm1
     object btnStructDemo: TButton
       AlignWithMargins = True
       Left = 5
-      Top = 294
+      Top = 304
       Width = 200
       Height = 25
       Align = alTop
       Caption = 'btnStructDemo'
       TabOrder = 5
       OnClick = btnStructDemoClick
-      ExplicitLeft = 39
-      ExplicitWidth = 75
+      ExplicitTop = 294
+    end
+    object btnBinarySerachInt: TButton
+      AlignWithMargins = True
+      Left = 5
+      Top = 273
+      Width = 200
+      Height = 25
+      Align = alTop
+      Caption = 'btnBinarySerachInt'
+      TabOrder = 4
+      OnClick = btnBinarySerachIntClick
+      ExplicitLeft = 4
+      ExplicitTop = 285
     end
   end
   object Memo1: TMemo

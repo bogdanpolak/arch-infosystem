@@ -22,22 +22,23 @@ __published: // IDE-managed Components
 	TLabel *Label1;
 	TButton *btnIterators;
 	TLabel *Label2;
-	TButton *btnSortIntegers;
-	TLabel *Label3;
+	TButton *btnSortInt;
 	TButton *btnClearLog;
 	TButton *btnElementAccess;
 	TLabel *Label4;
 	TBevel *Bevel1;
 	TLabel *Label5;
 	TButton *btnStructDemo;
+	TButton *btnBinarySerachInt;
 
 	void __fastcall btnCapasityClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall btnClearLogClick(TObject *Sender);
-	void __fastcall btnSortIntegersClick(TObject *Sender);
+	void __fastcall btnSortIntClick(TObject *Sender);
 	void __fastcall btnIteratorsClick(TObject *Sender);
 	void __fastcall btnElementAccessClick(TObject *Sender);
 	void __fastcall btnStructDemoClick(TObject *Sender);
+	void __fastcall btnBinarySerachIntClick(TObject *Sender);
 
 private: // User declarations
 	void ReportCompilerPlatform();

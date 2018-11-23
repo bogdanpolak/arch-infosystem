@@ -161,7 +161,7 @@ void __fastcall TForm1::btnElementAccessClick(TObject *Sender) {
 }
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm1::btnSortIntegersClick(TObject *Sender) {
+void __fastcall TForm1::btnSortIntClick(TObject *Sender) {
 	LogSparator();
 	std::vector<int>vecInt;
 	Log(L"* Fill vector with random data:");
@@ -184,6 +184,26 @@ void __fastcall TForm1::btnSortIntegersClick(TObject *Sender) {
 	std::sort(vecInt.begin(), vecInt.end(), std::greater<int>());
 #endif
 	LogVectorElems(4, vecInt);
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::btnBinarySerachIntClick(TObject *Sender) {
+	LogSparator();
+	static const int prime[] = {1, 2, 5, 7, 11, 13, 17, 19, 23, 29};
+	std::vector<int>v(prime, ARRAY_END(prime));
+	LogVectorElems(4, v);
+	std::vector<int>::iterator low1, low2;
+	// std :: lower_bound
+	low1 = std::lower_bound(v.begin(), v.end(), 11);
+	low2 = std::lower_bound(v.begin(), v.end(), 25);
+	Log(String().sprintf(L"Search(11) lower_bound = vaule: %d position: %d",
+		*low1, low1 - v.begin()));
+	Log(String().sprintf(L"Search(25) lower_bound = vaule: %d position: %d",
+	 	*low2, low2 - v.begin()));
+	std::vector<int>::iterator up1 =
+		std::upper_bound(v.begin(), v.end(), 11);
+	Log(String().sprintf(L"Search(11) upper_bound = vaule: %d position: %d",
+		*up1, up1 - v.begin()));
 }
 
 // ---------------------------------------------------------------------------
