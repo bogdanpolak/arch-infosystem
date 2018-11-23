@@ -5,6 +5,7 @@
 
 #include "Form_Main.h"
 // ---------------------------------------------------------------------------
+#include <map>
 #include <algorithm>
 #include <functional>
 // using namespace std;
@@ -199,9 +200,8 @@ void __fastcall TForm1::btnBinarySerachIntClick(TObject *Sender) {
 	Log(String().sprintf(L"Search(11) lower_bound = vaule: %d position: %d",
 		*low1, low1 - v.begin()));
 	Log(String().sprintf(L"Search(25) lower_bound = vaule: %d position: %d",
-	 	*low2, low2 - v.begin()));
-	std::vector<int>::iterator up1 =
-		std::upper_bound(v.begin(), v.end(), 11);
+		*low2, low2 - v.begin()));
+	std::vector<int>::iterator up1 = std::upper_bound(v.begin(), v.end(), 11);
 	Log(String().sprintf(L"Search(11) upper_bound = vaule: %d position: %d",
 		*up1, up1 - v.begin()));
 }
@@ -251,7 +251,125 @@ void __fastcall TForm1::btnStructDemoClick(TObject *Sender) {
 }
 
 // ---------------------------------------------------------------------------
+struct Customer {
+	String id;
+	String name;
+	String country;
+
+	Customer() {
+	};
+
+	Customer(String id, String name, String country) {
+		this->id = id;
+		this->name = name;
+		this->country = country;
+	};
+
+	operator String() {
+		return id + ", " + name + ", " + country;
+	}
+
+};
+
+// ---------------------------------------------------------------------------
+void fillCustomersData(std::map<String, Customer> &dat) {
+	dat["ALFKI"] = Customer("ALFKI", "Alfreds Futterkiste", "Germany");
+	dat["ANATR"] = Customer("ANATR", "Ana Trujillo Emparedados y helados",
+		"Mexico");
+	dat["ANTON"] = Customer("ANTON", "Antonio Moreno Taqueria", "Mexico");
+	dat["AROUT"] = Customer("AROUT", "Around the Horn", "UK");
+	dat["BLAUS"] = Customer("BLAUS", "Blauer See Delikatessen", "Germany");
+	dat["BLONP"] = Customer("BLONP", "Blondesddsl pere et fils", "France");
+	dat["BOLID"] = Customer("BOLID", "Bolido Comidas preparadas", "Spain");
+	dat["BONAP"] = Customer("BONAP", "Bon app'", "France");
+	dat["BOTTM"] = Customer("BOTTM", "Bottom-Dollar Markets", "Canada");
+	dat["BSBEV"] = Customer("BSBEV", "B's Beverages", "UK");
+	dat["CENTC"] = Customer("CENTC", "Centro comercial Moctezuma", "Mexico");
+	dat["CONSH"] = Customer("CONSH", "Consolidated Holdings", "UK");
+	dat["DRACD"] = Customer("DRACD", "Drachenblut Delikatessen", "Germany");
+	dat["DUMON"] = Customer("DUMON", "Du monde entier", "France");
+	dat["EASTC"] = Customer("EASTC", "Eastern Connection", "UK");
+	dat["FAMIA"] = Customer("FAMIA", "Familia Arquibaldo", "Brazil");
+	dat["FISSA"] = Customer("FISSA", "FISSA Fabrica Inter. Salchichas S.A.",
+		"Spain");
+	dat["FOLIG"] = Customer("FOLIG", "Folies gourmandes", "France");
+	dat["FRANK"] = Customer("FRANK", "Frankenversand", "Germany");
+	dat["FRANR"] = Customer("FRANR", "France restauration", "France");
+	dat["GALED"] = Customer("GALED", "Galeria del gastronomo", "Spain");
+	dat["GODOS"] = Customer("GODOS", "Godos Cocina Tipica", "Spain");
+	dat["GOURL"] = Customer("GOURL", "Gourmet Lanchonetes", "Brazil");
+	dat["GREAL"] = Customer("GREAL", "Great Lakes Food Market", "USA");
+	dat["HUNGC"] = Customer("HUNGC", "Hungry Coyote Import Store", "USA");
+	dat["ISLAT"] = Customer("ISLAT", "Island Trading", "UK");
+	dat["KOENE"] = Customer("KOENE", "Koniglich Essen", "Germany");
+	dat["LACOR"] = Customer("LACOR", "La corne d'abondance", "France");
+	dat["LAMAI"] = Customer("LAMAI", "La maison d'Asie", "France");
+	dat["LAUGB"] = Customer("LAUGB", "Laughing Bacchus Wine Cellars", "Canada");
+	dat["LAZYK"] = Customer("LAZYK", "Lazy K Kountry Store", "USA");
+	dat["LEHMS"] = Customer("LEHMS", "Lehmanns Marktstand", "Germany");
+	dat["LETSS"] = Customer("LETSS", "Let's Stop N Shop", "USA");
+	dat["LONEP"] = Customer("LONEP", "Lonesome Pine Restaurant", "USA");
+	dat["MEREP"] = Customer("MEREP", "Mere Paillarde", "Canada");
+	dat["MORGK"] = Customer("MORGK", "Morgenstern Gesundkost", "Germany");
+	dat["NORTS"] = Customer("NORTS", "North/South", "UK");
+	dat["OLDWO"] = Customer("OLDWO", "Old World Delicatessen", "USA");
+	dat["OTTIK"] = Customer("OTTIK", "Ottilies Kaseladen", "Germany");
+	dat["PARIS"] = Customer("PARIS", "Paris specialites", "France");
+	dat["PERIC"] = Customer("PERIC", "Pericles Comidas clasicas", "Mexico");
+	dat["QUEDE"] = Customer("QUEDE", "Que Delicia", "Brazil");
+	dat["QUEEN"] = Customer("QUEEN", "Queen Cozinha", "Brazil");
+	dat["QUICK"] = Customer("QUICK", "QUICK-Stop", "Germany");
+	dat["RATTC"] = Customer("RATTC", "Rattlesnake Canyon Grocery", "USA");
+	dat["RICAR"] = Customer("RICAR", "Ricardo Adocicados", "Brazil");
+	dat["ROMEY"] = Customer("ROMEY", "Romero y tomillo", "Spain");
+	dat["SAVEA"] = Customer("SAVEA", "Save-a-lot Markets", "USA");
+	dat["SEVES"] = Customer("SEVES", "Seven Seas Imports", "UK");
+	dat["SIMOB"] = Customer("SIMOB", "Simons bistro", "Denmark");
+	dat["SPECD"] = Customer("SPECD", "Specialites du monde", "France");
+	dat["SPLIR"] = Customer("SPLIR", "Split Rail Beer & Ale", "USA");
+	dat["THECR"] = Customer("THECR", "The Cracker Box", "USA");
+	dat["VINET"] = Customer("VINET", "Vins et alcools Chevalier", "France");
+	dat["WANDK"] = Customer("WANDK", "Die Wandernde Kuh", "Germany");
+	dat["WELLI"] = Customer("WELLI", "Wellington Importadora", "Brazil");
+	dat["WHITC"] = Customer("WHITC", "White Clover Markets", "USA");
+	dat["WOLZA"] = Customer("WOLZA", "Wolski  Zajazd", "Poland");
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::btnFillCustomersMapClick(TObject *Sender) {
+	LogSparator();
+	std::map<String, Customer>customers;
+	customers["ALFKI"] = Customer("ALFKI", "Alfreds Futterkiste", "Germany");
+	customers["CONSH"] = Customer("CONSH", "Consolidated Holdings", "UK");
+	customers["LACOR"] = Customer("LACOR", "La corne d'abondance", "France");
+	customers["RATTC"] = Customer("RATTC", "Rattlesnake Grocery", "USA");
+	customers["WOLZA"] = Customer("WOLZA", "Wolski  Zajazd", "Poland");
+	std::map<String, Customer>::iterator it;
+	for (it = customers.begin(); it != customers.end(); it++)
+		Log(it->second);
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::btnFindMapKeyClick(TObject *Sender)
+{
+	LogSparator();
+	std::map<String, Customer>customers;
+	fillCustomersData(customers);
+	std::map<String, Customer>::iterator it;
+	it = customers.find("AROUT");
+	Log("Found: "+it->second);
+	customers.erase(it);
+	customers.erase( customers.find("ALFKI") );
+	customers.erase( customers.find("ANATR") );
+	customers.erase( customers.find("ANTON") );
+	Log("-");
+	for (it = customers.begin(); it != customers.end(); it++)
+		Log("    "+it->second);
+}
+
+// ---------------------------------------------------------------------------
 void __fastcall TForm1::btnClearLogClick(TObject *Sender) {
 	Memo1->Clear();
 }
-// ---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+
