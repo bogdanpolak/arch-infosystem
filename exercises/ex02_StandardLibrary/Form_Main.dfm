@@ -32,8 +32,6 @@ object Form1: TForm1
     Align = alLeft
     Caption = 'GroupBox1'
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = -2
     object btnClearLog: TButton
       AlignWithMargins = True
       Left = 5
@@ -44,7 +42,6 @@ object Form1: TForm1
       Caption = 'btnClearLog'
       TabOrder = 1
       OnClick = btnClearLogClick
-      ExplicitWidth = 200
     end
     object PageControl1: TPageControl
       AlignWithMargins = True
@@ -55,12 +52,8 @@ object Form1: TForm1
       ActivePage = tshMap
       Align = alClient
       TabOrder = 0
-      ExplicitLeft = -16
-      ExplicitWidth = 231
       object tshVector: TTabSheet
         Caption = 'sdt::vector demos'
-        ExplicitLeft = 7
-        ExplicitTop = 28
         object Label4: TLabel
           AlignWithMargins = True
           Left = 3
@@ -93,7 +86,7 @@ object Form1: TForm1
             'Polecenia: reserve, resize, clear, size, capacity, max_size, emp' +
             'ty, shrink_to_fit'
           WordWrap = True
-          ExplicitWidth = 233
+          ExplicitWidth = 195
         end
         object Label5: TLabel
           AlignWithMargins = True
@@ -106,7 +99,7 @@ object Form1: TForm1
           Align = alTop
           Caption = 'Polecenia: at(), [], push_back(), pop_back(), insert(), erase()'
           WordWrap = True
-          ExplicitWidth = 261
+          ExplicitWidth = 158
         end
         object Label2: TLabel
           AlignWithMargins = True
@@ -121,7 +114,7 @@ object Form1: TForm1
             'Inicjalizacja std::vector danymi.   Iteratory: begin, end, rbegi' +
             'n, rend'
           WordWrap = True
-          ExplicitWidth = 271
+          ExplicitWidth = 168
         end
         object btnCapasity: TButton
           AlignWithMargins = True
@@ -133,7 +126,6 @@ object Form1: TForm1
           Caption = 'btnCapasity'
           TabOrder = 0
           OnClick = btnCapasityClick
-          ExplicitWidth = 217
         end
         object btnElementAccess: TButton
           AlignWithMargins = True
@@ -145,7 +137,6 @@ object Form1: TForm1
           Caption = 'btnElementAccess'
           TabOrder = 1
           OnClick = btnElementAccessClick
-          ExplicitWidth = 217
         end
         object btnIterators: TButton
           AlignWithMargins = True
@@ -157,7 +148,6 @@ object Form1: TForm1
           Caption = 'btnIterators'
           TabOrder = 2
           OnClick = btnIteratorsClick
-          ExplicitWidth = 217
         end
         object btnSortInt: TButton
           AlignWithMargins = True
@@ -169,7 +159,6 @@ object Form1: TForm1
           Caption = 'btnSortInt'
           TabOrder = 3
           OnClick = btnSortIntClick
-          ExplicitWidth = 217
         end
         object btnBinarySerachInt: TButton
           AlignWithMargins = True
@@ -181,7 +170,6 @@ object Form1: TForm1
           Caption = 'btnBinarySerachInt'
           TabOrder = 4
           OnClick = btnBinarySerachIntClick
-          ExplicitWidth = 217
         end
         object btnStructDemo: TButton
           AlignWithMargins = True
@@ -193,7 +181,6 @@ object Form1: TForm1
           Caption = 'btnStructDemo'
           TabOrder = 5
           OnClick = btnStructDemoClick
-          ExplicitWidth = 217
         end
       end
       object tshMap: TTabSheet
@@ -228,9 +215,6 @@ object Form1: TForm1
           Caption = 'btnFillCustomersMap'
           TabOrder = 0
           OnClick = btnFillCustomersMapClick
-          ExplicitLeft = 72
-          ExplicitTop = 176
-          ExplicitWidth = 75
         end
         object btnFindMapKey: TButton
           AlignWithMargins = True
@@ -242,8 +226,19 @@ object Form1: TForm1
           Caption = 'btnFindMapKey'
           TabOrder = 1
           OnClick = btnFindMapKeyClick
-          ExplicitLeft = 72
-          ExplicitTop = 176
+        end
+        object btnFilterMap: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 94
+          Width = 206
+          Height = 25
+          Align = alTop
+          Caption = 'btnFilterMap'
+          TabOrder = 2
+          OnClick = btnFilterMapClick
+          ExplicitLeft = 137
+          ExplicitTop = 240
           ExplicitWidth = 75
         end
       end

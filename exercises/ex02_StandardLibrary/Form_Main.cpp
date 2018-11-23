@@ -273,9 +273,12 @@ struct Customer {
 
 };
 
+typedef std::map<String, Customer>Customers;
+
 // ---------------------------------------------------------------------------
-void fillCustomersData(std::map<String, Customer> &dat) {
+void fillCustomersData(Customers &dat) {
 	dat["ALFKI"] = Customer("ALFKI", "Alfreds Futterkiste", "Germany");
+#pragma region ... Wype³nienie danych pozosta³ych klientów
 	dat["ANATR"] = Customer("ANATR", "Ana Trujillo Emparedados y helados",
 		"Mexico");
 	dat["ANTON"] = Customer("ANTON", "Antonio Moreno Taqueria", "Mexico");
@@ -335,18 +338,19 @@ void fillCustomersData(std::map<String, Customer> &dat) {
 	dat["WELLI"] = Customer("WELLI", "Wellington Importadora", "Brazil");
 	dat["WHITC"] = Customer("WHITC", "White Clover Markets", "USA");
 	dat["WOLZA"] = Customer("WOLZA", "Wolski  Zajazd", "Poland");
+#pragma end_region
 }
 
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::btnFillCustomersMapClick(TObject *Sender) {
 	LogSparator();
-	std::map<String, Customer>customers;
+	Customers customers;
 	customers["ALFKI"] = Customer("ALFKI", "Alfreds Futterkiste", "Germany");
 	customers["CONSH"] = Customer("CONSH", "Consolidated Holdings", "UK");
 	customers["LACOR"] = Customer("LACOR", "La corne d'abondance", "France");
 	customers["RATTC"] = Customer("RATTC", "Rattlesnake Grocery", "USA");
 	customers["WOLZA"] = Customer("WOLZA", "Wolski  Zajazd", "Poland");
-	std::map<String, Customer>::iterator it;
+	Customers::iterator it;
 	for (it = customers.begin(); it != customers.end(); it++)
 		Log(it->second);
 }
@@ -354,9 +358,9 @@ void __fastcall TForm1::btnFillCustomersMapClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::btnFindMapKeyClick(TObject *Sender) {
 	LogSparator();
-	std::map<String, Customer>customers;
+	Customers customers;
 	fillCustomersData(customers);
-	std::map<String, Customer>::iterator it;
+	Customers::iterator it;
 	it = customers.find("AROUT");
 	Log("Found: " + it->second);
 	customers.erase(it);
@@ -366,6 +370,24 @@ void __fastcall TForm1::btnFindMapKeyClick(TObject *Sender) {
 	Log("-");
 	for (it = customers.begin(); it != customers.end(); it++)
 		Log("    " + it->second);
+}
+
+// ---------------------------------------------------------------------------
+bool CustomerIsNotUSA(Customer cust) {
+	return (cust.country != "USA");
+}
+
+void __fastcall TForm1::btnFilterMapClick(TObject *Sender) {
+	/*
+	LogSparator();
+	Customers customers;
+	fillCustomersData(customers);
+	Customers::iterator lastCountry =
+		std::remove_if(customers.begin(), customers.end(), CustomerIsNotUSA);
+	Customers::iterator it;
+	for (it = customers.begin(); it != lastCountry; it++)
+		Log("    " + it->second);
+    */
 }
 
 // ---------------------------------------------------------------------------

@@ -36,6 +36,7 @@ __published: // IDE-managed Components
 	TLabel *Label3;
 	TButton *btnFillCustomersMap;
 	TButton *btnFindMapKey;
+	TButton *btnFilterMap;
 
 	void __fastcall btnCapasityClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
@@ -47,6 +48,7 @@ __published: // IDE-managed Components
 	void __fastcall btnBinarySerachIntClick(TObject *Sender);
 	void __fastcall btnFillCustomersMapClick(TObject *Sender);
 	void __fastcall btnFindMapKeyClick(TObject *Sender);
+	void __fastcall btnFilterMapClick(TObject *Sender);
 
 private: // User declarations
 	void ReportCompilerPlatform();
