@@ -32,11 +32,25 @@
     * Używaj jak najwięcej stałych `const`
     * Preferuj operacje na stosach do operacji sterty
 
-* Project Chromium - C++ style guide
+* Project Chromium (Blink) - C++ Style Guide
     * https://chromium.googlesource.com/chromium/src/+/master/styleguide/c++/
-    * Chromium C++ style guide
-    * Blink C++ Style Guide
-    * C++ Dos and Don'ts
+    * [Chromium C++ style guide](https://chromium.googlesource.com/chromium/src/+/master/styleguide/c++/c++.md)
+        * Ogólny dokument
+    * [Blink C++ Style Guide](https://chromium.googlesource.com/chromium/src/+/master/styleguide/c++/blink-c++.md)
+        * Style Guide dla projektu Blink (silnik przeglądarki Google)
+        * [Repozytorium projektu Blink](https://chromium.googlesource.com/chromium/src/+/master/third_party/blink/)
+        * Kilka ciekawych przykładów konwencji nazywania
+    * [C++ Dos and Don'ts](https://sites.google.com/a/chromium.org/dev/developers/coding-style/cpp-dos-and-donts)
+        * Minimalizuj kod w nagłówkach
+        * Nie wpisuj kodu w nagłówkach
+            * Dużo ważnych porad w tym temacie
+        * Zmienne statyczne
+        * Zmienna inicjalizacja
+        * Preferuj `struct` bardziej niż  `pairs` / `tuples`
+        * Preferuj `std::make_unique` niż `base::WrapUnique`
+        * Nie używaj auto do dedukcji bezpośredniego wskaźnika
+        * Używaj poprawnie `const`
+        * Staraj się używać `=default` 
 
 * Google C++ Style Guide
     * https://google.github.io/styleguide/cppguide.html
