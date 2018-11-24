@@ -1,6 +1,6 @@
 # Agenda
 
-1. [Czysty oraz bezpieczny kod C++](#czysty-oraz-bezpieczny-kod-c++)
+1. [Czysty oraz bezpieczny kod C++](#czysty-oraz-bezpieczny-kod-c)
 2. Zasady Clean Code
 3. Użycie biblioteki STL
 4. Refaktoryzacja kodu i reguły DRY w tym samym projekcie
@@ -22,6 +22,7 @@
     * Deklaruj struktury w plikach nagłówkowych, kiedy to tylko możliwe
     * Zawsze używaj przestrzeni nazw
     * Unikaj makr kompilatora
+    
 * [Jason Turner - C++ Coding Standards: Performanceand Safety](./CodingStandardsPerformanceSafety.md)
     * Ogranicz zasięg (widoczność) zmiennych
     * Użyj wyjątków zamiast zwracania nr błędów jako wyniku
