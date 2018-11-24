@@ -2,7 +2,7 @@
 
 1. [Czysty oraz bezpieczny kod C++](#czysty-oraz-bezpieczny-kod-c)
 2. [Zasady Clean Code](#zasady-clean-code)
-3. [Użycie bibliotek STL, stdlib, Boost](#biblioteka-stl-/-stdlib)
+3. [Użycie bibliotek STL, stdlib, Boost](#biblioteka-stl--stdlib)
 4. Refaktoryzacja kodu i reguły DRY w tym samym projekcie
 
 # Czysty oraz bezpieczny kod C++
