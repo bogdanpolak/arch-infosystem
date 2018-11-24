@@ -385,9 +385,16 @@ void __fastcall TForm1::btnFilterMapClick(TObject *Sender) {
 	// ----------
 	Customers usaCustomers;
 #ifdef __clang__
+	for (const auto& kv : customers) {
+		if (isCustomerFromUSA(kv.second))
+			usaCustomers.insert(kv);
+	}
+	/*
+	// Overengineered version with: std::copy_if, std::inserter, lambda expr !!!
 	std::copy_if(customers.begin(), customers.end(), std::inserter(usaCustomers,
 		usaCustomers.end()), [](decltype(customers)::value_type const & kv_pair)
 	{return isCustomerFormUSA(kv_pair.second);});
+	*/
 #else
 	for (Customers::iterator iter = customers.begin();
 	iter != customers.end(); ++iter) {
