@@ -1,7 +1,7 @@
 # Agenda
 
 1. [Czysty oraz bezpieczny kod C++](#czysty-oraz-bezpieczny-kod-c)
-2. Zasady Clean Code
+2. [Zasady Clean Code](#zasady-clean-code)
 3. Użycie biblioteki STL
 4. Refaktoryzacja kodu i reguły DRY w tym samym projekcie
 
@@ -55,12 +55,95 @@
 * Google C++ Style Guide
     * https://google.github.io/styleguide/cppguide.html
 
-Przejrzyj:
+* [Programming in C++Builder](http://www.informit.com/articles/article.aspx?p=130844)
+    * By Jamie Allsop, Daniel Butterfield, Jarrod Hollingworth, Bob Swart
+    * Date: Dec 8, 2000 (C++Builder 5 Developer's Guide)
+	* Coding Style to Improve Readability
+		* Code Layout
+		* Sensible Naming
+		* Comments
+	* Better Programming Practices in C++Builder
+		* Use a String Class Instead of char*
+		* Understand References and Use Them Where Appropriate
+		* Avoid Using Global Variables
+		* Understand and Use const in Your Code
+		* Be Familiar with the Principles of Exceptions
+		* Understand and Use C++-Style Casts
+		* Know When to Use the Preprocessor
+		* Learn About and Use the C++ Standard Library
 
-* Programming in C++Builder (book)
-    * http://www.informit.com/articles/article.aspx?p=130844
-* Object Pascal to C++ Builder Coding
-    * https://www.davidghoyle.co.uk/WordPress/?page_id=1327
+* [Object Pascal to C++ Builder Coding](https://www.davidghoyle.co.uk/WordPress/?page_id=1327)
+    * Proste przykłady jak kod Delphi mapuje się na kod C++
+
+# Zasady Clean Code
+
+ Klucz | Treść |
+| - | - |
+| Tytuł | Czysty kod. Podręcznik dobrego programisty |
+| Autor | [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) |
+| Wydawnictwo | Helion, [link do książki na stronie helion.pl](https://helion.pl/ksiazki/czysty-kod-podrecznik-dobrego-programisty-robert-c-martin,czykov.htm#section7_shift) |
+| Tytuł oryginału | Clean Code: A Handbook of Agile Software Craftsmanship |
+
+Poniżej podane są tylko wybrane sekcje z każdego rozdziału
+
+* Rozdział 2. Znaczące nazwy
+    * Używaj nazw przedstawiających intencje
+    * Tworzenie nazw, które można wymówić
+    * Unikanie odwzorowania mentalnego (nie nazywaj zmiennej tekstowej i)
+    * Nazwy klas (TFoo)
+    * Nazwy metod (Z dużej litery)
+* Rozdział 3. Funkcje
+    * Małe funkcje!
+    * Wykonuj jedną czynność
+    * Czytanie kodu od góry do dołu zasada zstępująca
+    * Instrukcje switch
+    * Korzystanie z nazw opisowych
+    * Argumenty funkcji
+    * Listy argumentów
+    * Wyodrębnienie bloków try-catch
+* Rozdział 4. Komentarze
+    * Czytelny kod nie wymaga komentarzy
+    * Wyjaśnianie zamierzeń
+    * Ostrzeżenia o konsekwencjach
+    * Komentarze TODO
+    * Wzmocnienie
+    * Komentarze Javadoc w publicznym API
+    * Nie używaj komentarzy, jeżeli można użyć funkcji lub zmiennej
+    * Zakomentowany kod
+* Rozdział 5. Formatowanie
+    * Zasady zespołowe
+    * Zasady formatowania wujka Boba
+* Rozdział 6. Obiekty i struktury danych
+    * Abstrakcja danych
+    * Antysymetria danych i obiektów
+    * Prawo Demeter
+    * Obiekty transferu danych (Active Record)
+* Rozdział 7. Obsługa błędów
+    * Użycie wyjątków zamiast kodów powrotu
+    * Rozpoczynanie od pisania instrukcji try-catch-finally
+    * Nie zwracamy null
+* Rozdział 9. Testy jednostkowe
+    * Trzy prawa TDD
+    * ...
+* Rozdział 10. Klasy
+    * Organizacja klas
+        * Hermetyzacja
+    * Klasy powinny być małe!
+        * Zasada pojedynczej odpowiedzialności
+        * Spójność
+        * Utrzymywanie spójności powoduje powstanie wielu małych klas
+    * Organizowanie zmian
+        * Izolowanie modułów kodu przed zmianami
+* Rozdział 11. Systemy
+    * Jak budowałbyś miasto?
+    * Oddzielenie konstruowania systemu od jego używania
+        * Wydzielenie modułu main
+        * Fabryki
+        * Wstrzykiwanie zależności
+    * Testowanie architektury systemu
+* Rozdział 17. Zapachy kodu i heurystyki
+
+
 
 
 
