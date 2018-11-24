@@ -2,7 +2,7 @@
 
 1. [Czysty oraz bezpieczny kod C++](#czysty-oraz-bezpieczny-kod-c)
 2. [Zasady Clean Code](#zasady-clean-code)
-3. Użycie biblioteki STL
+3. [Użycie bibliotek STL, stdlib, Boost](#biblioteka-stl-/-stdlib)
 4. Refaktoryzacja kodu i reguły DRY w tym samym projekcie
 
 # Czysty oraz bezpieczny kod C++
@@ -144,20 +144,27 @@ Poniżej podane są tylko wybrane sekcje z każdego rozdziału
 * Rozdział 17. Zapachy kodu i heurystyki
 
 
-
-
-
 # Biblioteka STL / stdlib
 
-## Struktury STL
+> Dużo większe możliwości i większą czytelność kodu zapewniają wersje zgodne z C++11, C++14 oraz C++17
 
-https://en.wikipedia.org/wiki/Standard_Template_Library
+* Struktury STL
+    * https://en.wikipedia.org/wiki/Standard_Template_Library
+    * `vector`
+    * `map`
+    * `set`
+    * `pair`
+    * iteratory
+* Algorytmy STL
+    * https://en.wikipedia.org/wiki/Algorithm_(C%2B%2B)
+    * sortowanie
+    * redukcja
+    * podział
+    * wyłączanie
+    * kopiowanie (kopiowanie warunkowe)
+* Zarządzanie pamięcią (stdlib)
 
-## Algorytmy STL
-
-https://en.wikipedia.org/wiki/Algorithm_(C%2B%2B)
-
-## Zarządzanie pamięcią (stdlib)
+> Zobacz ćwiczenie: ex02_STL_Demo
 
 Wersja klasyczna:
 
@@ -180,3 +187,18 @@ wersja STD:
 std::unique_ptr<TCustomer> cust(new TCustomer);
 ...
 ```
+
+Wsparcie C++Builder-a dla biblioteki STD:
+
+* [David Millington - Blog Post](https://community.idera.com/developer-tools/b/blog/posts/new-in-rad-studio-10-3-c-17-asynchronous-c-code-completion-and-more)
+* [RAD Studio 10.3 Rio - What's New](http://docwiki.embarcadero.com/RADStudio/Rio/en/What%27s_New#C.2B.2B)
+
+
+### Biblioteka Boost
+* Instalacja przez GetIt Package Manager (po zainstalowaniu IDE)
+* Ogromne możliwości zarówno przez bardzo użyteczne szablony, jak również zaawansowane struktury oraz wydajne algorytmy
+* Bibliotek Boost może zastępować w wielu miejscach możliwości oferowane przez kompilatory C++17
+* Przykładowe struktury danych:
+    * Drzewo i wyszukiwanie po drzewie
+    * Graf i algorytmy grafowe (przejście w szerz, przejście w głąb)
+    * Maszyna stanowa
