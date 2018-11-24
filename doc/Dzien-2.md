@@ -22,7 +22,7 @@
     * Deklaruj struktury w plikach nagłówkowych, kiedy to tylko możliwe
     * Zawsze używaj przestrzeni nazw
     * Unikaj makr kompilatora
-    
+
 * [Jason Turner - C++ Coding Standards: Performanceand Safety](./CodingStandardsPerformanceSafety.md)
     * Ogranicz zasięg (widoczność) zmiennych
     * Użyj wyjątków zamiast zwracania nr błędów jako wyniku
@@ -32,10 +32,14 @@
     * Używaj jak najwięcej stałych `const`
     * Preferuj operacje na stosach do operacji sterty
 
+* Project Chromium - C++ style guide
+    * https://chromium.googlesource.com/chromium/src/+/master/styleguide/c++/
+    * Chromium C++ style guide
+    * Blink C++ Style Guide
+    * C++ Dos and Don'ts
 
-https://www.chromium.org/developers/coding-style/cpp-dos-and-donts
-
-https://google.github.io/styleguide/cppguide.html
+* Google C++ Style Guide
+    * https://google.github.io/styleguide/cppguide.html
 
 Przejrzyj:
 
