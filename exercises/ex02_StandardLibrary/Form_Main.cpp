@@ -227,7 +227,7 @@ struct Person {
 		Word yyR, mmR, ddR;
 		DecodeDate(this->birthday, yyL, mmL, ddL);
 		DecodeDate(rsh.birthday, yyR, mmR, ddR);
-		return (mmL < mmR) || (mmL == mmR) && (ddL < ddR);
+		return (mmL < mmR) || ((mmL == mmR) && (ddL < ddR));
 	}
 };
 
@@ -359,35 +359,48 @@ void __fastcall TForm1::btnFillCustomersMapClick(TObject *Sender) {
 void __fastcall TForm1::btnFindMapKeyClick(TObject *Sender) {
 	LogSparator();
 	Customers customers;
-	fillCustomersData(customers);
-	Customers::iterator it;
-	it = customers.find("AROUT");
-	Log("Found: " + it->second);
-	customers.erase(it);
-	customers.erase(customers.find("ALFKI"));
-	customers.erase(customers.find("ANATR"));
-	customers.erase(customers.find("ANTON"));
-	Log("-");
-	for (it = customers.begin(); it != customers.end(); it++)
-		Log("    " + it->second);
+	customers["ALFKI"] = Customer("ALFKI", "Alfreds Futterkiste", "Germany");
+	customers["CONSH"] = Customer("CONSH", "Consolidated Holdings", "UK");
+	customers["LACOR"] = Customer("LACOR", "La corne d'abondance", "France");
+	customers["RATTC"] = Customer("RATTC", "Rattlesnake Grocery", "USA");
+	customers["WOLZA"] = Customer("WOLZA", "Wolski  Zajazd", "Poland");
+	Customers::iterator iter = customers.find("ALFKI");
+	customers.erase(iter);
+	customers.erase(customers.find("LACOR"));
+	for (Customers::iterator it = customers.begin();
+	it != customers.end(); it++)
+		Log(it->second);
 }
 
 // ---------------------------------------------------------------------------
-bool CustomerIsNotUSA(Customer cust) {
-	return (cust.country != "USA");
+
+bool isCustomerFromUSA(Customer const &cust) {
+	return (cust.country == "USA");
 }
 
 void __fastcall TForm1::btnFilterMapClick(TObject *Sender) {
-	/*
 	LogSparator();
 	Customers customers;
 	fillCustomersData(customers);
-	Customers::iterator lastCountry =
-		std::remove_if(customers.begin(), customers.end(), CustomerIsNotUSA);
-	Customers::iterator it;
-	for (it = customers.begin(); it != lastCountry; it++)
+	// ----------
+	Customers usaCustomers;
+#ifdef __clang__
+	std::copy_if(customers.begin(), customers.end(), std::inserter(usaCustomers,
+		usaCustomers.end()), [](decltype(customers)::value_type const & kv_pair)
+	{return isCustomerFormUSA(kv_pair.second);});
+#else
+	for (Customers::iterator iter = customers.begin();
+	iter != customers.end(); ++iter) {
+		if (isCustomerFromUSA(iter->second))
+			usaCustomers.insert(*iter);
+	}
+#endif
+	// ----------
+	for (Customers::iterator it = usaCustomers.begin();
+	it != usaCustomers.end(); it++)
 		Log("    " + it->second);
-    */
+	LogMessageAndInt("customers map size:", customers.size());
+	LogMessageAndInt("usaCustomers map size:", usaCustomers.size());
 }
 
 // ---------------------------------------------------------------------------

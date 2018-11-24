@@ -237,9 +237,6 @@ object Form1: TForm1
           Caption = 'btnFilterMap'
           TabOrder = 2
           OnClick = btnFilterMapClick
-          ExplicitLeft = 137
-          ExplicitTop = 240
-          ExplicitWidth = 75
         end
       end
     end
