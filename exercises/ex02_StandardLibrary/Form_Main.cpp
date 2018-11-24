@@ -63,7 +63,7 @@ void TForm1::LogMessageAndInt(String Message, int value) {
 // ---------------------------------------------------------------------------
 void TForm1::LogVectorElems(int ident, const std::vector<int>vector) {
 	String elems = "";
-	for (unsigned int i = 0; i < vector.size(); i++) {
+	for (unsigned int i = 0; i < vector.size(); ++i) {
 		elems += (i == 0 ? IntToStr(vector[i]) : ", " + IntToStr(vector[i]));
 	}
 	String echo = String().StringOfChar(' ', ident) + "[" + elems + "]";
@@ -105,20 +105,20 @@ void __fastcall TForm1::btnIteratorsClick(TObject *Sender) {
 	std::vector<int>vecInt {
 		1, 2, 5, 7, 11, 13, 17, 19
 	};
-	for (auto it1 = vecInt.begin(); it1 != vecInt.end(); it1++) {
+	for (auto it1 = vecInt.begin(); it1 != vecInt.end(); ++it1) {
 		elems1 += IntToStr(*it1) + " ";
 	}
-	for (auto it2 = vecInt.rbegin(); it2 != vecInt.rend(); it2++)
+	for (auto it2 = vecInt.rbegin(); it2 != vecInt.rend(); ++it2)
 		elems2 += IntToStr(*it2) + " ";
 #else
 	static const int arr[] = {1, 2, 5, 7, 11, 13, 17, 19};
 	int arrSize = ARRAY_SIZE(arr);
 	std::vector<int>vecInt(arr, arr + arrSize); // ARRAY_END(arr));
 	std::vector<int>::iterator it1;
-	for (it1 = vecInt.begin(); it1 != vecInt.end(); it1++)
+	for (it1 = vecInt.begin(); it1 != vecInt.end(); ++it1)
 		elems1 += IntToStr(*it1) + " ";
 	std::reverse_iterator<std::vector<int>::iterator>it2;
-	for (it2 = vecInt.rbegin(); it2 != vecInt.rend(); it2++)
+	for (it2 = vecInt.rbegin(); it2 != vecInt.rend(); ++it2)
 		elems2 += IntToStr(*it2) + " ";
 #endif
 	Log(L"List using iterator:");
@@ -167,7 +167,7 @@ void __fastcall TForm1::btnSortIntClick(TObject *Sender) {
 	LogSparator();
 	std::vector<int>vecInt;
 	Log(L"* Fill vector with random data:");
-	for (int i = 1; i <= 10; i++)
+	for (int i = 1; i <= 10; ++i)
 		vecInt.push_back(random(100));
 	LogVectorElems(4, vecInt);
 	Log(L"* Sorts vector:");
@@ -244,11 +244,11 @@ void __fastcall TForm1::btnStructDemoClick(TObject *Sender) {
 	birthdays.push_back(Person("Pawe³ Monacki", StrToDate("1989-11-02", fs)));
 	birthdays.push_back(Person("Dariusz Darski", StrToDate("1986-05-15", fs)));
 	birthdays.push_back(Person("Rafa³ Rogalski", StrToDate("1995-05-01", fs)));
-	for (unsigned int i = 0; i < birthdays.size(); i++)
+	for (unsigned int i = 0; i < birthdays.size(); ++i)
 		Log("  - " + birthdays[i]);
 	std::sort(birthdays.begin(), birthdays.end());
 	Log("Sortowanie wg daty urdzin (dzieñ i miesi¹c)");
-	for (unsigned int i = 0; i < birthdays.size(); i++)
+	for (unsigned int i = 0; i < birthdays.size(); ++i)
 		Log("  - " + birthdays[i]);
 }
 
@@ -351,7 +351,7 @@ void __fastcall TForm1::btnFillCustomersMapClick(TObject *Sender) {
 	customers["RATTC"] = Customer("RATTC", "Rattlesnake Grocery", "USA");
 	customers["WOLZA"] = Customer("WOLZA", "Wolski  Zajazd", "Poland");
 	Customers::iterator it;
-	for (it = customers.begin(); it != customers.end(); it++)
+	for (it = customers.begin(); it != customers.end(); ++it)
 		Log(it->second);
 }
 
@@ -368,7 +368,7 @@ void __fastcall TForm1::btnFindMapKeyClick(TObject *Sender) {
 	customers.erase(iter);
 	customers.erase(customers.find("LACOR"));
 	for (Customers::iterator it = customers.begin();
-	it != customers.end(); it++)
+	it != customers.end(); ++it)
 		Log(it->second);
 }
 
@@ -385,26 +385,26 @@ void __fastcall TForm1::btnFilterMapClick(TObject *Sender) {
 	// ----------
 	Customers usaCustomers;
 #ifdef __clang__
-	for (const auto& kv : customers) {
+	for (const auto&kv : customers) {
 		if (isCustomerFromUSA(kv.second))
 			usaCustomers.insert(kv);
 	}
 	/*
-	// Overengineered version with: std::copy_if, std::inserter, lambda expr !!!
-	std::copy_if(customers.begin(), customers.end(), std::inserter(usaCustomers,
-		usaCustomers.end()), [](decltype(customers)::value_type const & kv_pair)
-	{return isCustomerFormUSA(kv_pair.second);});
-	*/
+	 // Overengineered version with: std::copy_if, std::inserter, lambda expr !!!
+	 std::copy_if(customers.begin(), customers.end(), std::inserter(usaCustomers,
+	 usaCustomers.end()), [](decltype(customers)::value_type const & kv_pair)
+	 {return isCustomerFormUSA(kv_pair.second);});
+	 */
 #else
-	for (Customers::iterator iter = customers.begin();
-	iter != customers.end(); ++iter) {
+	for (Customers::iterator iter = customers.begin(); iter != customers.end();
+	++iter) {
 		if (isCustomerFromUSA(iter->second))
 			usaCustomers.insert(*iter);
 	}
 #endif
 	// ----------
 	for (Customers::iterator it = usaCustomers.begin();
-	it != usaCustomers.end(); it++)
+	it != usaCustomers.end(); ++it)
 		Log("    " + it->second);
 	LogMessageAndInt("customers map size:", customers.size());
 	LogMessageAndInt("usaCustomers map size:", usaCustomers.size());

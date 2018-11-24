@@ -186,11 +186,15 @@ object Form1: TForm1
       object tshMap: TTabSheet
         Caption = 'std::map demos'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Label3: TLabel
           AlignWithMargins = True
           Left = 3
           Top = 5
-          Width = 206
+          Width = 64
           Height = 19
           Margins.Top = 5
           Margins.Bottom = 5
@@ -203,7 +207,6 @@ object Form1: TForm1
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
-          ExplicitWidth = 64
         end
         object btnFillCustomersMap: TButton
           AlignWithMargins = True
