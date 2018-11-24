@@ -49,7 +49,7 @@ object Form1: TForm1
       Top = 18
       Width = 220
       Height = 410
-      ActivePage = tshMap
+      ActivePage = tshVector
       Align = alClient
       TabOrder = 0
       object tshVector: TTabSheet
