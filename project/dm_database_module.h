@@ -37,14 +37,10 @@ private:	// User declarations
 
 public:		// User declarations
    __fastcall TDatabaseModule(TComponent* Owner);
-
-
    bool __fastcall IsUserLogged();
-
+   bool IsValidDatabaseVersion();
    klienci::UserInfo __fastcall GetUser();
-
    bool __fastcall Login(const String user, const String passw);
-
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TDatabaseModule *DatabaseModule;

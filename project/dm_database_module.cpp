@@ -3,6 +3,7 @@
 #pragma hdrstop
 
 #include "dm_database_module.h"
+#include "app_globals.h"
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma classgroup "Vcl.Controls.TControl"
@@ -25,13 +26,19 @@ bool __fastcall TDatabaseModule::IsUserLogged() {
 }
 // ------------------------------------------------------------------------------
 
+bool TDatabaseModule::IsValidDatabaseVersion() {
+	int CurrentDBVersion = ConnectionDB->ExecSQLScalar
+		("SELECT max(VERSION) FROM DB_VERSIONS");
+	return (AppGlobals::RequiredDatabaseVersion == CurrentDBVersion);
+}
+// ------------------------------------------------------------------------------
+
 klienci::UserInfo __fastcall TDatabaseModule::GetUser() {
 	return m_user;
 }
 // ------------------------------------------------------------------------------
 
-bool __fastcall TDatabaseModule::Login(const String user, const String passw)
-{
+bool __fastcall TDatabaseModule::Login(const String user, const String passw) {
 	m_user = klienci::UserInfo();
 
 	UserData->ParamByName("NAZWA")->AsString = user;

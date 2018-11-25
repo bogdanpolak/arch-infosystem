@@ -4,6 +4,8 @@
 #include <vcl.h>
 #pragma hdrstop
 
+#include <memory>
+// ---------------------------------------------------------------------------
 #include "fm_main_form.h"
 #include "dm_database_module.h"
 #include "fm_login_dlg.h"
@@ -11,7 +13,6 @@
 #include "fm_seek_client_dlg.h"
 #include "fm_browser_dlg.h"
 #include "user_info.h"
-#include <memory>
 #include "fm_property_account_dlg.h"
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -63,8 +64,12 @@ void __fastcall TMainForm::FormShow(TObject *Sender) {
 void __fastcall TMainForm::stUserDblClick(TObject *Sender) {
 	std::auto_ptr<TLoginDlg> dlg(new TLoginDlg(this));
 	dlg->Login();
-	updateControls();
-	setupControlsAfterLogin();
+	if ( DatabaseModule->IsValidDatabaseVersion() ) {
+		updateControls();
+		setupControlsAfterLogin();
+	} else {
+		ShowMessage(L"Nieporawna wersja bazy danych.");
+	}
 }
 // ---------------------------------------------------------------------------
 
@@ -121,7 +126,8 @@ void __fastcall TMainForm::btKlientAktClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TMainForm::btKlientBazaClick(TObject *Sender) {
-	klienci::UserInfo user(DatabaseModule->GetUser());
+	klienci::UserInfo user = DatabaseModule->GetUser();
+	// klienci::UserInfo user(DatabaseModule->GetUser());
 
 	if (user.Status != klienci::UserInfo::ustActive) {
 		ShowMessage(_T("Zalogowany operator nie jest czynny."));
