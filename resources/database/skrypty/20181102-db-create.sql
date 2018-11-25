@@ -1,4 +1,4 @@
-/* 2018-11-02
+﻿/* 2018-11-02
 *
 * Baza danych do przeprowadzenia szkolenia
 */
