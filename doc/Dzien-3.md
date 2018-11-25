@@ -68,10 +68,19 @@ Nie programuj zawsze w ten sam sposób. Ucz się i eksperymentuj z nowymi sposob
 
 Lektury:
 
-* Książka: Refactoring - Improving the Design of Existing Code
+* Refactoring - Improving the Design of Existing Code
    * autorzy: Martin Fowler, Kent Beck, John Brant, William Opdyke, Don Roberts, Erich Gamma
+   * Polski tytuł: Refaktoryzacja. Ulepszanie struktury istniejącego kodu
    * [Tłumaczenie na polski (Helion)](https://helion.pl/ksiazki/refaktoryzacja-ulepszanie-struktury-istniejacego-kodu-martin-fowler-kent-beck-john-brant-william-opdy,refukv.htm)
-
+* Patterns of Enterprise Application Architecture
+    * autor: Martin Fowler
+    * Polski tytuł: Architektura systemów zarządzania przedsiębiorstwem. Wzorce projektowe
+    * [Tłumaczenie na polski (Helion)](https://helion.pl/ksiazki/architektura-systemow-zarzadzania-przedsiebiorstwem-wzorce-projektowe-martin-fowler,szabko.htm)
+* Working Effectively with Legacy Code
+    * Autor: Michael Feathers
+    * Polski tytuł: Praca z zastanym kodem. Najlepsze techniki
+    * [Tłumaczenie na polski (Helion)](https://helion.pl/ksiazki/praca-z-zastanym-kodem-najlepsze-techniki-michael-feathers,prazav.htm)
+    
 
 # Zasady SOLID
 
