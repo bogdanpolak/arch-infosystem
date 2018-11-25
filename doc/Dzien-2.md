@@ -75,6 +75,16 @@
 * [Object Pascal to C++ Builder Coding](https://www.davidghoyle.co.uk/WordPress/?page_id=1327)
     * Proste przykłady jak kod Delphi mapuje się na kod C++
 
+Lektura:
+* [Czysty kod w C++17. Oprogramowanie łatwe w utrzymaniu](https://helion.pl/ksiazki/czysty-kod-w-c-17-oprogramowanie-latwe-w-utrzymaniu-stephan-roth,czkc17.htm)
+    * Helion, 296 stron, Tłumaczenie: Tomasz Walczak
+    * autor: Stephan Roth
+    * Tytuł oryginału: Clean C++: Sustainable Software Development Patterns and Best Practices with C++ 17
+    * Oceniona przez: Paweł K., 2018-10-27: Tytuł jest trochę zwodniczy, bo książka w zasadzie bardziej skupia się na zmianach wprowadzonych od C++11. Poza tym, przedstawione są tutaj dobre praktyki pisania kodu w dosyć skondensowanej formie. Dobrze się czyta.
+
+
+
+
 # Zasady Clean Code
 
  Klucz | Treść |
