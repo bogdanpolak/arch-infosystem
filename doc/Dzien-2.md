@@ -75,6 +75,16 @@
 * [Object Pascal to C++ Builder Coding](https://www.davidghoyle.co.uk/WordPress/?page_id=1327)
     * Proste przykłady jak kod Delphi mapuje się na kod C++
 
+Lektura:
+* [C++17 STL. Receptury](https://helion.pl/ksiazki/c-17-stl-receptury-jacek-galowicz,cpp17r.htm)
+    * Helion, 456  stron, Tłumaczenie: Robert Górczyński
+    * Autor: Jacek Galowicz
+    * Tytuł oryginału: C++17 STL Cookbook
+    * O autorze: Jacek Galowicz do niedawna implementował sterowniki jądra w C i C++. Tworzył też grafiki 3D i bazy danych, zajmował się również komunikacją sieciową. Ostatnio pracuje w firmach Intel oraz FireEye, gdzie programuje systemy operacyjne o dużej wydajności i wysokim poziomie bezpieczeństwa, wykorzystując wirtualizację Intel x86. Jego ogromną pasją są nowoczesne implementacje C++ na niskim poziomie i łączenie w kodzie wysokiej wydajności z eleganckim stylem.
+    * Przykładowa recenzja: Pretty much the only real resource for large quantities of example code using C++17 and experimental C++ features. I primarily used the filesystem stuff, and the experimental filesystem is absolutely awesome for how much easier it makes iterating through directories, checking a file's existence, and querying information about files (regardless of platform!). Otherwise, it covers useful but obscure utility classes pretty well, and espouses the use of important things like the lock classes that wrap mutexes in a safer manner.
+
+
+
 # Zasady Clean Code
 
  Klucz | Treść |
