@@ -146,17 +146,12 @@ bool UserInfo::checkRight(UserAction action, System system) const {
 		break;
 	}
 
-	bool has_right = false;
-
 	for (UserRights::const_iterator it(rights.begin());
 	it != rights.end(); ++it) {
 		if (checkRight(*it)) {
-			has_right = true;
-
-			break;
+			return true;
 		}
 	}
-
-	return has_right;
+	return false;
 }
 // ------------------------------------------------------------------------------

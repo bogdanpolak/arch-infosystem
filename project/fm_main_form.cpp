@@ -40,15 +40,15 @@ void __fastcall TMainForm::updateControls() {
 		break;
 
 	case klienci::UserInfo::ustBlocked:
-		stUser->Caption = _T("<zablokowany> ") + user.Name;
+		stUser->Caption = L"<zablokowany> " + user.Name;
 		break;
 
 	case klienci::UserInfo::ustSuspended:
-		stUser->Caption = _T("<zawieszony> ") + user.Name;
+		stUser->Caption = L"<zawieszony> " + user.Name;
 		break;
 
 	case klienci::UserInfo::ustErased:
-		stUser->Caption = _T("<wykreœlony> ") + user.Name;
+		stUser->Caption = L"<wykreœlony> " + user.Name;
 		break;
 	}
 }
@@ -61,13 +61,10 @@ void __fastcall TMainForm::FormShow(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TMainForm::stUserDblClick(TObject *Sender) {
-	std::auto_ptr<TLoginDlg>dlg(new TLoginDlg(this));
-
+	std::auto_ptr<TLoginDlg> dlg(new TLoginDlg(this));
 	dlg->Login();
-
 	updateControls();
 	setupControlsAfterLogin();
-
 }
 // ---------------------------------------------------------------------------
 
@@ -75,13 +72,13 @@ void __fastcall TMainForm::btKlientDodajClick(TObject *Sender) {
 	klienci::UserInfo user(DatabaseModule->GetUser());
 
 	if (user.Status != klienci::UserInfo::ustActive) {
-		ShowMessage(_T("Zalogowany operator nie jest czynny."));
+		ShowMessage(L"Zalogowany operator nie jest czynny.");
 
 		return;
 	}
 
 	if (!user.checkRight(klienci::UserInfo::uacAdd)) {
-		ShowMessage(_T("Brak uprawnienia do dodawania nowych klientów."));
+		ShowMessage(L"Brak uprawnienia do dodawania nowych klientów.");
 
 		return;
 	}
