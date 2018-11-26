@@ -9,3 +9,6 @@ Zespół C
   * Rafał
   * Stachu
   * Grybek
+Zespół D
+ * Ryszad
+ * Władek
