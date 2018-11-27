@@ -21,8 +21,21 @@ object PropertyAccount: TPropertyAccount
     Width = 761
     Height = 161
     Align = alTop
-    Caption = 'G'#322#243'wne dane konta podatkowego (tabela PD_KONTA)'
     TabOrder = 0
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 1
+      Width = 759
+      Height = 159
+      Align = alClient
+      DataSource = DataSource1
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
   end
   object Panel2: TPanel
     Left = 0
@@ -92,5 +105,18 @@ object PropertyAccount: TPropertyAccount
       Height = 25
       TabOrder = 1
     end
+  end
+  object FDQuery1: TFDQuery
+    Active = True
+    Connection = DatabaseModule.ConnectionDB
+    SQL.Strings = (
+      'SELECT * FROM PD_KONTA')
+    Left = 448
+    Top = 256
+  end
+  object DataSource1: TDataSource
+    DataSet = FDQuery1
+    Left = 388
+    Top = 249
   end
 end
