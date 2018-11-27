@@ -61,11 +61,22 @@ object PropertyAccount: TPropertyAccount
           Width = 753
           Height = 270
           Align = alClient
-          Caption = 
-            'Lista sk'#322'adnik'#243'w nieruchomo'#347'ci do obliczenia podatku (tabela PD_' +
-            'SKLADNIKI)'
           ParentBackground = False
           TabOrder = 0
+          object DBGrid2: TDBGrid
+            Left = 1
+            Top = 1
+            Width = 751
+            Height = 268
+            Align = alClient
+            DataSource = DataSource2
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+          end
         end
       end
       object TabSheet2: TTabSheet
@@ -80,6 +91,20 @@ object PropertyAccount: TPropertyAccount
           Caption = 'Lista podatnik'#243'w podatku od nieruchomo'#347'ci (tabela PD_PODATNICY)'
           ParentBackground = False
           TabOrder = 0
+          object DBGrid3: TDBGrid
+            Left = 1
+            Top = 1
+            Width = 751
+            Height = 268
+            Align = alClient
+            DataSource = DataSource3
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+          end
         end
       end
     end
@@ -118,5 +143,53 @@ object PropertyAccount: TPropertyAccount
     DataSet = FDQuery1
     Left = 388
     Top = 249
+  end
+  object DataSource2: TDataSource
+    DataSet = FDQuery2
+    Left = 132
+    Top = 377
+  end
+  object FDQuery2: TFDQuery
+    Active = True
+    MasterSource = DataSource1
+    MasterFields = 'ID_KONTA'
+    Connection = DatabaseModule.ConnectionDB
+    FetchOptions.AssignedValues = [evCache]
+    FetchOptions.Cache = [fiBlobs, fiMeta]
+    SQL.Strings = (
+      'SELECT s.* FROM PD_SKLADNIKI s WHERE s.ID_KONTA = :ID_KONTA ')
+    Left = 192
+    Top = 384
+    ParamData = <
+      item
+        Name = 'ID_KONTA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = 1001
+      end>
+  end
+  object DataSource3: TDataSource
+    DataSet = FDQuery3
+    Left = 468
+    Top = 409
+  end
+  object FDQuery3: TFDQuery
+    Active = True
+    MasterSource = DataSource1
+    MasterFields = 'ID_KONTA'
+    Connection = DatabaseModule.ConnectionDB
+    FetchOptions.AssignedValues = [evCache]
+    FetchOptions.Cache = [fiBlobs, fiMeta]
+    SQL.Strings = (
+      'SELECT p.* FROM PD_PODATNICY p WHERE p.ID_KONTA = :ID_KONTA')
+    Left = 528
+    Top = 416
+    ParamData = <
+      item
+        Name = 'ID_KONTA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = 1001
+      end>
   end
 end

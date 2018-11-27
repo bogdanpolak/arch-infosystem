@@ -51,6 +51,12 @@ __published:	// IDE-managed Components
 	TFDQuery *FDQuery1;
 	TDataSource *DataSource1;
 	TDBGrid *DBGrid1;
+	TDataSource *DataSource2;
+	TFDQuery *FDQuery2;
+	TDataSource *DataSource3;
+	TFDQuery *FDQuery3;
+	TDBGrid *DBGrid2;
+	TDBGrid *DBGrid3;
 private:	// User declarations
 public:		// User declarations
    __fastcall TPropertyAccount(TComponent* Owner);
