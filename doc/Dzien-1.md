@@ -15,6 +15,8 @@
 3. [Praca z Git](#praca-z-git)
     * Klonowanie repozytorium
     * Używanie git-a z linii poleceń
+4. Artykuł wprowadzający `GitLearn.md` [zobacz](./GitLearn.md).
+5. Artykuł praca z gałęziami w Git `WorkingWithBranches.md` [zobacz](./WorkingWithBranches.md)
 
 ***
 
