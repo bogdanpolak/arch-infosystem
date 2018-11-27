@@ -17,6 +17,8 @@
     * Używanie git-a z linii poleceń
 4. Artykuł wprowadzający `GitLearn.md` [zobacz](./GitLearn.md).
 5. Artykuł praca z gałęziami w Git `WorkingWithBranches.md` [zobacz](./WorkingWithBranches.md)
+6. Strategie scalania gałęzi - odpowiedzi ze `stackoverflow.com`
+    * [Q: What is the difference between `git merge` and `git merge --no-ff`?](https://stackoverflow.com/questions/9069061/what-is-the-difference-between-git-merge-and-git-merge-no-ff)
 
 ***
 
