@@ -5,7 +5,7 @@
 //---------------------------------------------------------------------------
 
 namespace AppGlobals {
-	static int  RequiredDatabaseVersion = 3;
+	static int  RequiredDatabaseVersion = 4;
 };
 
 #endif

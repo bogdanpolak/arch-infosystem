@@ -44,6 +44,7 @@ private: // User declarations
 	void __fastcall updateControls();
 	boolean __fastcall inDeveloperMode();
 	boolean __fastcall setupControlsAfterLogin();
+    bool    __fastcall isValidDataBase();
 
 public: // User declarations
 	__fastcall TMainForm(TComponent* Owner);

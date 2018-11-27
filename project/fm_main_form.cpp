@@ -61,15 +61,15 @@ void __fastcall TMainForm::FormShow(TObject *Sender) {
 }
 // ---------------------------------------------------------------------------
 
-void __fastcall TMainForm::stUserDblClick(TObject *Sender) {
-	std::auto_ptr<TLoginDlg> dlg(new TLoginDlg(this));
-	dlg->Login();
-	if ( DatabaseModule->IsValidDatabaseVersion() ) {
-		updateControls();
-		setupControlsAfterLogin();
-	} else {
-		ShowMessage(L"Nieporawna wersja bazy danych.");
-	}
+void __fastcall TMainForm::stUserDblClick(TObject *Sender)
+{
+  if (!isValidDataBase()) return;
+
+  std::auto_ptr<TLoginDlg> dlg(new TLoginDlg(this));
+  dlg->Login();
+
+  updateControls();
+  setupControlsAfterLogin();
 }
 // ---------------------------------------------------------------------------
 
@@ -188,12 +188,23 @@ boolean __fastcall TMainForm::setupControlsAfterLogin() {
 }
 
 // ---------------------------------------------------------------------------
-void __fastcall TMainForm::acAutoLoginExecute(TObject *Sender) {
-	if (inDeveloperMode()) {
-		DatabaseModule->Login("admin", "admin");
-		updateControls();
-		setupControlsAfterLogin();
-	}
+void __fastcall TMainForm::acAutoLoginExecute(TObject *Sender)
+{
+  if (!inDeveloperMode()) return;
+
+  if (!isValidDataBase()) return;
+
+  DatabaseModule->Login("admin", "admin");
+  updateControls();
+  setupControlsAfterLogin();
 }
 // ---------------------------------------------------------------------------
+bool __fastcall TMainForm::isValidDataBase()
+{
+  bool isValidDataBase = DatabaseModule->IsValidDatabaseVersion();
 
+  if(!isValidDataBase)
+	ShowMessage(L"Niepoprawna wersja bazy danych.");
+
+  return isValidDataBase;
+}
