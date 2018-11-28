@@ -5,7 +5,7 @@
 
 #include "fm_login_dlg.h"
 #include "dm_database_module.h"
-#include "fm_main_form.h"
+//#include "fm_main_form.h"
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -33,8 +33,10 @@ boolean __fastcall TLoginDlg::signInDeveloperMode()
 	#if defined _DEBUG
 		String projFileName = ChangeFileExt(ExtractFileName(Application->ExeName),
 		".cbproj");
-		bool isDeveloperLocation = FileExists("..\\..\\"+projFileName);
-		return isDeveloperLocation;
+		if(FileExists("..\\..\\"+projFileName))
+		{
+			return true;
+		}
 	#else
 		return false;
 	#endif
