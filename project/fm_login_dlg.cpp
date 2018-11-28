@@ -5,6 +5,7 @@
 
 #include "fm_login_dlg.h"
 #include "dm_database_module.h"
+#include "fm_main_form.h"
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -38,3 +39,25 @@ bool __fastcall TLoginDlg::Login() {
 	return ModalResult == mrOk;
 }
 // ------------------------------------------------------------------------------
+void __fastcall TLoginDlg::FormShow(TObject *Sender)
+{
+  bb1->Visible = MainForm->inDeveloperMode();
+
+/* Wladek
+	#if defined _DEBUG
+		bb1->Visible = true;
+	#else
+		bb1->Visible = false;
+	#endif
+*/
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TLoginDlg::bb1Click(TObject *Sender)
+{
+	edUser->Text = L"admin";
+	edPassw->Text = L"admin";
+    btLogin->SetFocus();
+}
+//---------------------------------------------------------------------------
+

@@ -64,10 +64,14 @@ void __fastcall TMainForm::FormShow(TObject *Sender) {
 void __fastcall TMainForm::stUserDblClick(TObject *Sender) {
 	std::auto_ptr<TLoginDlg> dlg(new TLoginDlg(this));
 	dlg->Login();
-	if ( DatabaseModule->IsValidDatabaseVersion() ) {
+
+
+	if (DatabaseModule->IsValidDatabaseVersion() )
+	{
 		updateControls();
 		setupControlsAfterLogin();
-	} else {
+	} else
+	{
 		ShowMessage(L"Nieporawna wersja bazy danych.");
 	}
 }
@@ -76,13 +80,15 @@ void __fastcall TMainForm::stUserDblClick(TObject *Sender) {
 void __fastcall TMainForm::btKlientDodajClick(TObject *Sender) {
 	klienci::UserInfo user(DatabaseModule->GetUser());
 
-	if (user.Status != klienci::UserInfo::ustActive) {
+	if (user.Status != klienci::UserInfo::ustActive)
+	{
 		ShowMessage(L"Zalogowany operator nie jest czynny.");
 
 		return;
 	}
 
-	if (!user.checkRight(klienci::UserInfo::uacAdd)) {
+	if (!user.checkRight(klienci::UserInfo::uacAdd))
+	{
 		ShowMessage(L"Brak uprawnienia do dodawania nowych klientów.");
 
 		return;

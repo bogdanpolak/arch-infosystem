@@ -4,8 +4,9 @@
 #define app_globalsH
 //---------------------------------------------------------------------------
 
-namespace AppGlobals {
-	static int  RequiredDatabaseVersion = 3;
+namespace AppGlobals
+{
+	static int RequiredDatabaseVersion = 3;
 };
 
 #endif

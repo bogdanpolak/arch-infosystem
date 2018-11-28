@@ -42,11 +42,12 @@ __published: // IDE-managed Components
 private: // User declarations
 
 	void __fastcall updateControls();
-	boolean __fastcall inDeveloperMode();
+
 	boolean __fastcall setupControlsAfterLogin();
 
 public: // User declarations
 	__fastcall TMainForm(TComponent* Owner);
+	boolean __fastcall inDeveloperMode();
 };
 
 // ---------------------------------------------------------------------------
