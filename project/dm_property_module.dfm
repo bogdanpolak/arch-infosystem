@@ -10,8 +10,6 @@ object PropertyModule: TPropertyModule
     Top = 16
   end
   object quSkladniki: TFDQuery
-    MasterSource = dsKonta
-    MasterFields = 'ID_KONTA'
     Connection = DatabaseModule.ConnectionDB
     FetchOptions.AssignedValues = [evCache]
     FetchOptions.Cache = [fiBlobs, fiMeta]
@@ -27,8 +25,6 @@ object PropertyModule: TPropertyModule
     Top = 65
   end
   object quPodatnicy: TFDQuery
-    MasterSource = dsKonta
-    MasterFields = 'ID_KONTA'
     Connection = DatabaseModule.ConnectionDB
     FetchOptions.AssignedValues = [evCache]
     FetchOptions.Cache = [fiBlobs, fiMeta]
