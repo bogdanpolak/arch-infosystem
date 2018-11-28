@@ -13,6 +13,7 @@ object PropertyAccount: TPropertyAccount
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -22,13 +23,13 @@ object PropertyAccount: TPropertyAccount
     Height = 161
     Align = alTop
     TabOrder = 0
-    object DBGrid1: TDBGrid
+    object dbgKonta: TDBGrid
       Left = 1
       Top = 1
       Width = 759
       Height = 159
       Align = alClient
-      DataSource = DataSource1
+      DataSource = dsKonta
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -50,7 +51,7 @@ object PropertyAccount: TPropertyAccount
       Top = 0
       Width = 761
       Height = 298
-      ActivePage = TabSheet1
+      ActivePage = TabSheet2
       Align = alClient
       TabOrder = 0
       object TabSheet1: TTabSheet
@@ -63,13 +64,13 @@ object PropertyAccount: TPropertyAccount
           Align = alClient
           ParentBackground = False
           TabOrder = 0
-          object DBGrid2: TDBGrid
+          object dbgSkladniki: TDBGrid
             Left = 1
             Top = 1
             Width = 751
             Height = 268
             Align = alClient
-            DataSource = DataSource2
+            DataSource = dsSkladniki
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText
@@ -91,13 +92,13 @@ object PropertyAccount: TPropertyAccount
           Caption = 'Lista podatnik'#243'w podatku od nieruchomo'#347'ci (tabela PD_PODATNICY)'
           ParentBackground = False
           TabOrder = 0
-          object DBGrid3: TDBGrid
+          object dbgPodatnicy: TDBGrid
             Left = 1
             Top = 1
             Width = 751
             Height = 268
             Align = alClient
-            DataSource = DataSource3
+            DataSource = dsPodatnicy
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText
@@ -131,65 +132,16 @@ object PropertyAccount: TPropertyAccount
       TabOrder = 1
     end
   end
-  object FDQuery1: TFDQuery
-    Active = True
-    Connection = DatabaseModule.ConnectionDB
-    SQL.Strings = (
-      'SELECT * FROM PD_KONTA')
-    Left = 448
-    Top = 256
-  end
-  object DataSource1: TDataSource
-    DataSet = FDQuery1
+  object dsKonta: TDataSource
     Left = 388
     Top = 249
   end
-  object DataSource2: TDataSource
-    DataSet = FDQuery2
+  object dsSkladniki: TDataSource
     Left = 132
     Top = 377
   end
-  object FDQuery2: TFDQuery
-    Active = True
-    MasterSource = DataSource1
-    MasterFields = 'ID_KONTA'
-    Connection = DatabaseModule.ConnectionDB
-    FetchOptions.AssignedValues = [evCache]
-    FetchOptions.Cache = [fiBlobs, fiMeta]
-    SQL.Strings = (
-      'SELECT s.* FROM PD_SKLADNIKI s WHERE s.ID_KONTA = :ID_KONTA ')
-    Left = 192
-    Top = 384
-    ParamData = <
-      item
-        Name = 'ID_KONTA'
-        DataType = ftInteger
-        ParamType = ptInput
-        Value = 1001
-      end>
-  end
-  object DataSource3: TDataSource
-    DataSet = FDQuery3
+  object dsPodatnicy: TDataSource
     Left = 468
     Top = 409
-  end
-  object FDQuery3: TFDQuery
-    Active = True
-    MasterSource = DataSource1
-    MasterFields = 'ID_KONTA'
-    Connection = DatabaseModule.ConnectionDB
-    FetchOptions.AssignedValues = [evCache]
-    FetchOptions.Cache = [fiBlobs, fiMeta]
-    SQL.Strings = (
-      'SELECT p.* FROM PD_PODATNICY p WHERE p.ID_KONTA = :ID_KONTA')
-    Left = 528
-    Top = 416
-    ParamData = <
-      item
-        Name = 'ID_KONTA'
-        DataType = ftInteger
-        ParamType = ptInput
-        Value = 1001
-      end>
   end
 end

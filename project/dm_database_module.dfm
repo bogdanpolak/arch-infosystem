@@ -1,7 +1,7 @@
 object DatabaseModule: TDatabaseModule
   OldCreateOrder = False
-  Height = 229
-  Width = 294
+  Height = 283
+  Width = 285
   object ConnectionDB: TFDConnection
     Params.Strings = (
       'Database=C:\dane\infosys_groszek\klienci.fdb'
@@ -13,6 +13,7 @@ object DatabaseModule: TDatabaseModule
     FetchOptions.AssignedValues = [evAutoFetchAll]
     ResourceOptions.AssignedValues = [rvStoreItems, rvAutoConnect]
     ResourceOptions.StoreItems = [siMeta, siDelta]
+    Connected = True
     LoginPrompt = False
     Left = 52
     Top = 28
