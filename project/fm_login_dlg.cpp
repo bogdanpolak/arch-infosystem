@@ -58,6 +58,8 @@ void __fastcall TLoginDlg::FormShow(TObject *Sender){
 	{
 		bbSignIn->Visible = true;
 		btLogin->Enabled  = false;
+		edUser->Text      = L"admin";
+		edPassw->Text     = L"admin";
 	}
 	else
 	{
@@ -68,9 +70,6 @@ void __fastcall TLoginDlg::FormShow(TObject *Sender){
 //---------------------------------------------------------------------------
 
 void __fastcall TLoginDlg::bbSignInClick(TObject *Sender) {
-
-	edUser->Text = L"admin";
-	edPassw->Text = L"admin";
 
 	btLoginClick(Sender);
 }
