@@ -5,7 +5,6 @@
 
 #include "fm_login_dlg.h"
 #include "dm_database_module.h"
-//#include "fm_main_form.h"
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
