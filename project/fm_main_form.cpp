@@ -166,7 +166,6 @@ boolean __fastcall TMainForm::inDeveloperMode() {
 	return false;
 #endif
 }
-
 // ---------------------------------------------------------------------------
 boolean __fastcall TMainForm::setupControlsAfterLogin() {
 	Label1->Visible = false;

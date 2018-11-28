@@ -23,6 +23,8 @@ __published:	// IDE-managed Components
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall bbSignInClick(TObject *Sender);
 private:	// User declarations
+	boolean __fastcall signInDeveloperMode();
+
 public:		// User declarations
    __fastcall TLoginDlg(TComponent* Owner);
 

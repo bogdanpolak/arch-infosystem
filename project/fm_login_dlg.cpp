@@ -28,6 +28,19 @@ void __fastcall TLoginDlg::btLoginClick(TObject *Sender) {
 }
 // ---------------------------------------------------------------------------
 
+boolean __fastcall TLoginDlg::signInDeveloperMode()
+{
+	#if defined _DEBUG
+		String projFileName = ChangeFileExt(ExtractFileName(Application->ExeName),
+		".cbproj");
+		bool isDeveloperLocation = FileExists("..\\..\\"+projFileName);
+		return isDeveloperLocation;
+	#else
+		return false;
+	#endif
+}
+// ---------------------------------------------------------------------------
+
 UnicodeString __fastcall TLoginDlg::GetUser() {
 	return edUser->Text;
 }
@@ -41,17 +54,21 @@ bool __fastcall TLoginDlg::Login() {
 // ------------------------------------------------------------------------------
 void __fastcall TLoginDlg::FormShow(TObject *Sender){
 
-	#if defined _DEBUG
+	if(signInDeveloperMode())
+	{
 		bbSignIn->Visible = true;
 		btLogin->Enabled  = false;
-	#else
+	}
+	else
+	{
 		bbSignIn->Visible = false;
 		btLogin->Enabled  = true;
-	#endif
+	}
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TLoginDlg::bbSignInClick(TObject *Sender) {
+
 	edUser->Text = L"admin";
 	edPassw->Text = L"admin";
 
