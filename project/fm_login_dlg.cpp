@@ -39,25 +39,23 @@ bool __fastcall TLoginDlg::Login() {
 	return ModalResult == mrOk;
 }
 // ------------------------------------------------------------------------------
-void __fastcall TLoginDlg::FormShow(TObject *Sender)
-{
-  bb1->Visible = MainForm->inDeveloperMode();
+void __fastcall TLoginDlg::FormShow(TObject *Sender){
 
-/* Wladek
 	#if defined _DEBUG
-		bb1->Visible = true;
+		bbSignIn->Visible = true;
+		btLogin->Enabled  = false;
 	#else
-		bb1->Visible = false;
+		bbSignIn->Visible = false;
+		btLogin->Enabled  = true;
 	#endif
-*/
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TLoginDlg::bb1Click(TObject *Sender)
-{
+void __fastcall TLoginDlg::bbSignInClick(TObject *Sender) {
 	edUser->Text = L"admin";
 	edPassw->Text = L"admin";
-    btLogin->SetFocus();
+
+	btLoginClick(Sender);
 }
 //---------------------------------------------------------------------------
 

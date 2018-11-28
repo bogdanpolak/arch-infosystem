@@ -65,13 +65,13 @@ object LoginDlg: TLoginDlg
     ModalResult = 2
     TabOrder = 4
   end
-  object bb1: TBitBtn
-    Left = 272
+  object bbSignIn: TBitBtn
+    Left = 240
     Top = 8
-    Width = 43
+    Width = 75
     Height = 25
-    Caption = 'go'
+    Caption = 'Logowanie'
     TabOrder = 0
-    OnClick = bb1Click
+    OnClick = bbSignInClick
   end
 end
