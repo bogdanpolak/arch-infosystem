@@ -62,15 +62,20 @@ void __fastcall TMainForm::FormShow(TObject *Sender) {
 }
 // ---------------------------------------------------------------------------
 
-void __fastcall TMainForm::stUserDblClick(TObject *Sender) {
-	std::auto_ptr<TLoginDlg> dlg(new TLoginDlg(this));
-	dlg->Login();
-	if ( DatabaseModule->IsValidDatabaseVersion() ) {
-		updateControls();
-		setupControlsAfterLogin();
-	} else {
-		ShowMessage(L"Nieporawna wersja bazy danych.");
-	}
+void __fastcall TMainForm::stUserDblClick(TObject *Sender)
+{
+  if(DatabaseModule->IsValidDatabaseVersion())
+  {
+   std::auto_ptr<TLoginDlg> dlg(new TLoginDlg(this));
+   dlg->Login();
+
+   updateControls();
+   setupControlsAfterLogin();
+  }
+  else
+  {
+   showInvalidDatabaseVersionMessage();
+  }
 }
 // ---------------------------------------------------------------------------
 
@@ -163,7 +168,7 @@ boolean __fastcall TMainForm::inDeveloperMode() {
 }
 
 // ---------------------------------------------------------------------------
-boolean __fastcall TMainForm::setupControlsAfterLogin() {
+void __fastcall TMainForm::setupControlsAfterLogin() {
 	Label1->Visible = false;
 	Label2->Visible = false;
 	Label3->Visible = false;
@@ -189,12 +194,25 @@ boolean __fastcall TMainForm::setupControlsAfterLogin() {
 }
 
 // ---------------------------------------------------------------------------
-void __fastcall TMainForm::acAutoLoginExecute(TObject *Sender) {
-	if (inDeveloperMode()) {
-		DatabaseModule->Login("admin", "admin");
-		updateControls();
-		setupControlsAfterLogin();
-	}
+void __fastcall TMainForm::acAutoLoginExecute(TObject *Sender)
+{
+ if(inDeveloperMode())
+ {
+  if(DatabaseModule->IsValidDatabaseVersion())
+  {
+   DatabaseModule->Login("admin", "admin");
+
+   updateControls();
+   setupControlsAfterLogin();
+  }
+  else
+  {
+   showInvalidDatabaseVersionMessage();
+  }
+ }
 }
 // ---------------------------------------------------------------------------
-
+void __fastcall TMainForm::showInvalidDatabaseVersionMessage()
+{
+ ShowMessage(L"Niepoprawna wersja bazy danych.");
+}

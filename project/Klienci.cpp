@@ -4,7 +4,6 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("fm_select_client_dlg.cpp", SelectClientDlg);
 USEFORM("fm_seek_client_dlg.cpp", SeekClientDlg);
 USEFORM("fm_property_account_dlg.cpp", PropertyAccount);
 USEFORM("fm_person_dlg.cpp", PersonDlg);
