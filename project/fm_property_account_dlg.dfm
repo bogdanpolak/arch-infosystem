@@ -56,6 +56,10 @@ object PropertyAccount: TPropertyAccount
       TabOrder = 0
       object TabSheet1: TTabSheet
         Caption = 'Sk'#322'adniki'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Panel4: TPanel
           Left = 0
           Top = 0
@@ -83,6 +87,10 @@ object PropertyAccount: TPropertyAccount
       object TabSheet2: TTabSheet
         Caption = 'Podatnicy'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Panel5: TPanel
           Left = 0
           Top = 0
