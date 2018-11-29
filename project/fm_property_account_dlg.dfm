@@ -13,6 +13,7 @@ object PropertyAccount: TPropertyAccount
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -21,8 +22,21 @@ object PropertyAccount: TPropertyAccount
     Width = 761
     Height = 161
     Align = alTop
-    Caption = 'G'#322#243'wne dane konta podatkowego (tabela PD_KONTA)'
     TabOrder = 0
+    object dbgKonta: TDBGrid
+      Left = 1
+      Top = 1
+      Width = 759
+      Height = 159
+      Align = alClient
+      DataSource = dsKonta
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
   end
   object Panel2: TPanel
     Left = 0
@@ -37,27 +51,46 @@ object PropertyAccount: TPropertyAccount
       Top = 0
       Width = 761
       Height = 298
-      ActivePage = TabSheet1
+      ActivePage = TabSheet2
       Align = alClient
       TabOrder = 0
       object TabSheet1: TTabSheet
         Caption = 'Sk'#322'adniki'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Panel4: TPanel
           Left = 0
           Top = 0
           Width = 753
           Height = 270
           Align = alClient
-          Caption = 
-            'Lista sk'#322'adnik'#243'w nieruchomo'#347'ci do obliczenia podatku (tabela PD_' +
-            'SKLADNIKI)'
           ParentBackground = False
           TabOrder = 0
+          object dbgSkladniki: TDBGrid
+            Left = 1
+            Top = 1
+            Width = 751
+            Height = 268
+            Align = alClient
+            DataSource = dsSkladniki
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+          end
         end
       end
       object TabSheet2: TTabSheet
         Caption = 'Podatnicy'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Panel5: TPanel
           Left = 0
           Top = 0
@@ -67,6 +100,20 @@ object PropertyAccount: TPropertyAccount
           Caption = 'Lista podatnik'#243'w podatku od nieruchomo'#347'ci (tabela PD_PODATNICY)'
           ParentBackground = False
           TabOrder = 0
+          object dbgPodatnicy: TDBGrid
+            Left = 1
+            Top = 1
+            Width = 751
+            Height = 268
+            Align = alClient
+            DataSource = dsPodatnicy
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+          end
         end
       end
     end
@@ -92,5 +139,17 @@ object PropertyAccount: TPropertyAccount
       Height = 25
       TabOrder = 1
     end
+  end
+  object dsKonta: TDataSource
+    Left = 388
+    Top = 249
+  end
+  object dsSkladniki: TDataSource
+    Left = 132
+    Top = 377
+  end
+  object dsPodatnicy: TDataSource
+    Left = 468
+    Top = 409
   end
 end
