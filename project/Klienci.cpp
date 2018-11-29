@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
@@ -21,7 +21,6 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
       Application->Initialize();
       Application->MainFormOnTaskBar = true;
       Application->CreateForm(__classid(TMainForm), &MainForm);
-		Application->CreateForm(__classid(TPropertyAccount), &PropertyAccount);
 		Application->CreateForm(__classid(TDatabaseModule), &DatabaseModule);
 		Application->CreateForm(__classid(TPersonModule), &PersonModule);
 		Application->CreateForm(__classid(TBrowserDlg), &BrowserDlg);
@@ -29,22 +28,18 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 		Application->CreateForm(__classid(TPropertyAccount), &PropertyAccount);
 		Application->CreateForm(__classid(TSeekClientDlg), &SeekClientDlg);
 		Application->Run();
-   }
-   catch (Exception &exception)
-   {
-      Application->ShowException(&exception);
-   }
-   catch (...)
-   {
-      try
-      {
-         throw Exception("");
-      }
-      catch (Exception &exception)
-      {
-         Application->ShowException(&exception);
-      }
-   }
-   return 0;
+	}
+	catch (Exception &exception) {
+		Application->ShowException(&exception);
+	}
+	catch (...) {
+		try {
+			throw Exception("");
+		}
+		catch (Exception &exception) {
+			Application->ShowException(&exception);
+		}
+	}
+	return 0;
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------

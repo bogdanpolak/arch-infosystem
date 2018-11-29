@@ -4,7 +4,7 @@ object LoginDlg: TLoginDlg
   BorderStyle = bsDialog
   Caption = 'Logowanie'
   ClientHeight = 111
-  ClientWidth = 290
+  ClientWidth = 331
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,6 +13,7 @@ object LoginDlg: TLoginDlg
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -34,7 +35,7 @@ object LoginDlg: TLoginDlg
     Top = 12
     Width = 145
     Height = 21
-    TabOrder = 0
+    TabOrder = 1
   end
   object edPassw: TEdit
     Left = 76
@@ -42,16 +43,16 @@ object LoginDlg: TLoginDlg
     Width = 145
     Height = 21
     PasswordChar = '*'
-    TabOrder = 1
+    TabOrder = 2
   end
   object btLogin: TButton
-    Left = 208
-    Top = 76
+    Left = 240
+    Top = 78
     Width = 75
     Height = 25
     Caption = 'Gotowe'
     Default = True
-    TabOrder = 2
+    TabOrder = 3
     OnClick = btLoginClick
   end
   object btCancel: TButton
@@ -62,6 +63,15 @@ object LoginDlg: TLoginDlg
     Cancel = True
     Caption = 'Anuluj'
     ModalResult = 2
-    TabOrder = 3
+    TabOrder = 4
+  end
+  object bbSignIn: TBitBtn
+    Left = 240
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Logowanie'
+    TabOrder = 0
+    OnClick = bbSignInClick
   end
 end

@@ -50,7 +50,7 @@ void __fastcall TMainForm::updateControls() {
 		break;
 
 	case klienci::UserInfo::ustErased:
-		stUser->Caption = L"<wykreœlony> " + user.Name;
+		stUser->Caption = L"<wykreÅ“lony> " + user.Name;
 		break;
 	}
 }
@@ -62,18 +62,17 @@ void __fastcall TMainForm::FormShow(TObject *Sender) {
 }
 // ---------------------------------------------------------------------------
 
-void __fastcall TMainForm::stUserDblClick(TObject *Sender)
-{
-  if(DatabaseModule->IsValidDatabaseVersion())
-  {
-   std::auto_ptr<TLoginDlg> dlg(new TLoginDlg(this));
-   dlg->Login();
+void __fastcall TMainForm::stUserDblClick(TObject *Sender) {
+	std::auto_ptr<TLoginDlg> dlg(new TLoginDlg(this));
+	dlg->Login();
 
-   updateControls();
-   setupControlsAfterLogin();
-  }
-  else
-  {
+
+	if (DatabaseModule->IsValidDatabaseVersion() )
+	{
+		updateControls();
+		setupControlsAfterLogin();
+	} else
+	{
    showInvalidDatabaseVersionMessage();
   }
 }
@@ -82,14 +81,16 @@ void __fastcall TMainForm::stUserDblClick(TObject *Sender)
 void __fastcall TMainForm::btKlientDodajClick(TObject *Sender) {
 	klienci::UserInfo user(DatabaseModule->GetUser());
 
-	if (user.Status != klienci::UserInfo::ustActive) {
+	if (user.Status != klienci::UserInfo::ustActive)
+	{
 		ShowMessage(L"Zalogowany operator nie jest czynny.");
 
 		return;
 	}
 
-	if (!user.checkRight(klienci::UserInfo::uacAdd)) {
-		ShowMessage(L"Brak uprawnienia do dodawania nowych klientów.");
+	if (!user.checkRight(klienci::UserInfo::uacAdd))
+	{
+		ShowMessage(L"Brak uprawnienia do dodawania nowych klientÃ³w.");
 
 		return;
 	}
@@ -108,7 +109,7 @@ void __fastcall TMainForm::btKlientAktClick(TObject *Sender) {
 	}
 
 	if (!user.checkRight(klienci::UserInfo::uacEdit)) {
-		ShowMessage(_T("Brak uprawnienia do aktualizowania danych klientów."));
+		ShowMessage(_T("Brak uprawnienia do aktualizowania danych klientÃ³w."));
 
 		return;
 	}
@@ -119,9 +120,9 @@ void __fastcall TMainForm::btKlientAktClick(TObject *Sender) {
 
 	if (client_id > 0) {
 		if (SeekClientDlg->GetClientKind() != _T("F")) {
-			// ta wersje obs³uguje tylko osoby fizyczne; obs³uga firm w kolejnej wersji
+			// ta wersje obsÂ³uguje tylko osoby fizyczne; obsÂ³uga firm w kolejnej wersji
 
-			ShowMessage(_T("Nieobs³ugiwany rodzaj klienta: '") +
+			ShowMessage(_T("NieobsÂ³ugiwany rodzaj klienta: '") +
 				SeekClientDlg->GetClientKind() + _T("'"));
 		}
 		else {
@@ -142,7 +143,7 @@ void __fastcall TMainForm::btKlientBazaClick(TObject *Sender) {
 	}
 
 	if (!user.checkRight(klienci::UserInfo::uacBrowse)) {
-		ShowMessage(_T("Brak uprawnienia dostêpu do bazy klientów."));
+		ShowMessage(_T("Brak uprawnienia dostÃªpu do bazy klientÃ³w."));
 
 		return;
 	}
@@ -166,7 +167,6 @@ boolean __fastcall TMainForm::inDeveloperMode() {
 	return false;
 #endif
 }
-
 // ---------------------------------------------------------------------------
 void __fastcall TMainForm::setupControlsAfterLogin() {
 	Label1->Visible = false;

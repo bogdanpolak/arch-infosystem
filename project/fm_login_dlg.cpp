@@ -27,6 +27,28 @@ void __fastcall TLoginDlg::btLoginClick(TObject *Sender) {
 }
 // ---------------------------------------------------------------------------
 
+boolean __fastcall TLoginDlg::signInDeveloperMode()
+{
+	bool result=false;
+
+	#if defined _DEBUG
+		String projFileName = ChangeFileExt(ExtractFileName(Application->ExeName),
+		".cbproj");
+		if(FileExists("..\\..\\"+projFileName))
+		{
+			result = true;
+		}
+		else
+		{
+        	ShowMessage(L"Brak pliku konfiguracyjnego.");
+		}
+
+	#endif
+
+	return result;
+}
+// ---------------------------------------------------------------------------
+
 UnicodeString __fastcall TLoginDlg::GetUser() {
 	return edUser->Text;
 }
@@ -38,3 +60,26 @@ bool __fastcall TLoginDlg::Login() {
 	return ModalResult == mrOk;
 }
 // ------------------------------------------------------------------------------
+void __fastcall TLoginDlg::FormShow(TObject *Sender){
+
+	if(signInDeveloperMode())
+	{
+		bbSignIn->Visible = true;
+		btLogin->Enabled  = false;
+		edUser->Text      = L"admin";
+		edPassw->Text     = L"admin";
+	}
+	else
+	{
+		bbSignIn->Visible = false;
+		btLogin->Enabled  = true;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TLoginDlg::bbSignInClick(TObject *Sender) {
+
+	btLoginClick(Sender);
+}
+//---------------------------------------------------------------------------
+
