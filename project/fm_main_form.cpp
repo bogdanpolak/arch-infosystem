@@ -30,6 +30,7 @@ void __fastcall TMainForm::updateControls() {
 	bool logged = DatabaseModule->IsUserLogged();
 	bool active = (user.Status == klienci::UserInfo::ustActive);
 
+    //------
 	btKlientDodaj->Enabled = logged && active;
 	btKlientAkt->Enabled = logged && active;
 	btKlientBaza->Enabled = logged && active;

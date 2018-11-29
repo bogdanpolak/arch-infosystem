@@ -205,6 +205,10 @@ std::unique_ptr<TCustomer> cust(new TCustomer);
 
 Wsparcie C++Builder-a dla biblioteki STD:
 
+
+
+Co nowego w C++Builder 10.3:
+
 * [David Millington - Blog Post](https://community.idera.com/developer-tools/b/blog/posts/new-in-rad-studio-10-3-c-17-asynchronous-c-code-completion-and-more)
 * [RAD Studio 10.3 Rio - What's New](http://docwiki.embarcadero.com/RADStudio/Rio/en/What%27s_New#C.2B.2B)
 
