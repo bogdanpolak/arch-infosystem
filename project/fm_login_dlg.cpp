@@ -29,16 +29,23 @@ void __fastcall TLoginDlg::btLoginClick(TObject *Sender) {
 
 boolean __fastcall TLoginDlg::signInDeveloperMode()
 {
+	bool result=false;
+
 	#if defined _DEBUG
 		String projFileName = ChangeFileExt(ExtractFileName(Application->ExeName),
 		".cbproj");
 		if(FileExists("..\\..\\"+projFileName))
 		{
-			return true;
+			result = true;
 		}
-	#else
-		return false;
+		else
+		{
+        	ShowMessage(L"Brak pliku konfiguracyjnego.");
+		}
+
 	#endif
+
+	return result;
 }
 // ---------------------------------------------------------------------------
 
