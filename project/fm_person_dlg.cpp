@@ -18,7 +18,7 @@ __fastcall TPersonDlg::TPersonDlg(TComponent* Owner) : TForm(Owner) {
 void __fastcall TPersonDlg::FormShow(TObject *Sender) {
 	String typ_dok_toz(PersonModule->cdsPerson->FieldByName("TYP_DOK_TOZ")
 		->AsString);
-
+   /* TODO 2 : do zrobienia!!! */
 	if (typ_dok_toz.IsEmpty()) {
 		cbRodzajDok->ItemIndex = -1;
 	}
