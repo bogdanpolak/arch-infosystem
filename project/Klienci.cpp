@@ -1,10 +1,9 @@
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("fm_select_client_dlg.cpp", SelectClientDlg);
 USEFORM("fm_seek_client_dlg.cpp", SeekClientDlg);
 USEFORM("fm_property_account_dlg.cpp", PropertyAccount);
 USEFORM("fm_person_dlg.cpp", PersonDlg);
@@ -30,22 +29,18 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 		Application->CreateForm(__classid(TPropertyAccount), &PropertyAccount);
 		Application->CreateForm(__classid(TSeekClientDlg), &SeekClientDlg);
 		Application->Run();
-   }
-   catch (Exception &exception)
-   {
-      Application->ShowException(&exception);
-   }
-   catch (...)
-   {
-      try
-      {
-         throw Exception("");
-      }
-      catch (Exception &exception)
-      {
-         Application->ShowException(&exception);
-      }
-   }
-   return 0;
+	}
+	catch (Exception &exception) {
+		Application->ShowException(&exception);
+	}
+	catch (...) {
+		try {
+			throw Exception("");
+		}
+		catch (Exception &exception) {
+			Application->ShowException(&exception);
+		}
+	}
+	return 0;
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------

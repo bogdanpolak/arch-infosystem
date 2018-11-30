@@ -38,15 +38,16 @@ __published: // IDE-managed Components
 	void __fastcall stUserDblClick(TObject *Sender);
 	void __fastcall btPropertyAccountClick(TObject *Sender);
 	void __fastcall acAutoLoginExecute(TObject *Sender);
-
+  
 private: // User declarations
-
 	void __fastcall updateControls();
 	boolean __fastcall inDeveloperMode();
-	boolean __fastcall setupControlsAfterLogin();
-
+	void    __fastcall setupControlsAfterLogin();
+	void    __fastcall showInvalidDatabaseVersionMessage();
+  
 public: // User declarations
 	__fastcall TMainForm(TComponent* Owner);
+
 };
 
 // ---------------------------------------------------------------------------

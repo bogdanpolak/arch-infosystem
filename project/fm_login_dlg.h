@@ -7,6 +7,7 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
+#include <Vcl.Buttons.hpp>
 //---------------------------------------------------------------------------
 class TLoginDlg : public TForm
 {
@@ -17,8 +18,13 @@ __published:	// IDE-managed Components
    TEdit *edPassw;
    TButton *btLogin;
    TButton *btCancel;
+	TBitBtn *bbSignIn;
    void __fastcall btLoginClick(TObject *Sender);
+	void __fastcall FormShow(TObject *Sender);
+	void __fastcall bbSignInClick(TObject *Sender);
 private:	// User declarations
+	boolean __fastcall signInDeveloperMode();
+
 public:		// User declarations
    __fastcall TLoginDlg(TComponent* Owner);
 
