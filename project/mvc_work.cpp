@@ -6,71 +6,34 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
+using namespace mvc;
 
-/*
-unit MVC.Work;
+__fastcall TWork::TWork(TComponent* AOwner) : TComponent(AOwner)
+{
+  FAction = new TAction(this);
 
-interface
+  FAction->OnExecute = ExecuteEvent;
+}
 
-uses
-  System.Classes,
-  VCL.ActnList;
+void __fastcall TWork::ExecuteEvent(TObject* Sender)
+{
+  DoWork();
+}
 
-type
-  TWork = class (TComponent)
-  private
-    FCaption: String;
-    FAction: TAction;
-    function GetAction: TAction;
-    procedure SetCaption (ACaption: string);
-    procedure ExecuteEvent (Sender: TObject);
-  public
-    constructor Create(AOwner: TComponent); override;
-    destructor Destroy; override;
-    function DoWork: boolean;  virtual; abstract;
-    procedure SetActionEnable (Enable: boolean);
-    property Caption: String read FCaption write SetCaption;
-    property Action: TAction read GetAction;
-  end;
+TAction* __fastcall TWork::GetAction()
+{
+  FAction->Caption = FCaption;
+  return FAction;
+}
 
-implementation
+void __fastcall TWork::SetCaption(String ACaption)
+{
+  FCaption = ACaption;
+  FAction->Caption = ACaption;
+}
 
-{ TWork }
+void __fastcall TWork::SetActionEnable(bool Enable)
+{
+  FAction->Enabled = Enable;
+}
 
-constructor TWork.Create(AOwner: TComponent);
-begin
-  inherited;
-  FAction := TAction.Create(self);
-  FAction.OnExecute := ExecuteEvent;
-end;
-
-destructor TWork.Destroy;
-begin
-
-  inherited;
-end;
-
-procedure TWork.ExecuteEvent(Sender: TObject);
-begin
-  DoWork;
-end;
-
-function TWork.GetAction: TAction;
-begin
-  FAction.Caption := FCaption;
-  Result := FAction;
-end;
-
-procedure TWork.SetCaption(ACaption: string);
-begin
-  FCaption := ACaption;
-  FAction.Caption := ACaption;
-end;
-
-procedure TWork.SetActionEnable(Enable: boolean);
-begin
-  FAction.Enabled := Enable;
-end;
-
-end.
-*/

@@ -7,12 +7,13 @@
 USEFORM("fm_seek_client_dlg.cpp", SeekClientDlg);
 USEFORM("fm_property_account_dlg.cpp", PropertyAccount);
 USEFORM("fm_person_dlg.cpp", PersonDlg);
+USEFORM("fm_select_client_dlg.cpp", SelectClientDlg);
 USEFORM("dm_person_module.cpp", PersonModule); /* TDataModule: File Type */
 USEFORM("dm_database_module.cpp", DatabaseModule); /* TDataModule: File Type */
+USEFORM("dm_property_module.cpp", PropertyModule); /* TDataModule: File Type */
 USEFORM("fm_main_form.cpp", MainForm);
 USEFORM("fm_login_dlg.cpp", LoginDlg);
 USEFORM("fm_browser_dlg.cpp", BrowserDlg);
-USEFORM("dm_property_module.cpp", PropertyModule); /* TDataModule: File Type */
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
