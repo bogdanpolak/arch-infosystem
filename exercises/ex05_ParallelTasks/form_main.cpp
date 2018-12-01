@@ -183,3 +183,15 @@ void __fastcall TForm1::tmrIdleTimer(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::btnMoreInfoAboutDemoClick(TObject *Sender)
+{
+	TMemo* mm = new TMemo (this);
+	mm->Align = alBottom;
+    mm->AlignWithMargins = true;
+	mm->Height = 48;
+    mm->Parent = this;
+	mm->Lines->Add ("Dokumentacja na docwiki:");
+	mm->Lines->Add ("http://docwiki.embarcadero.com/RADStudio/Tokyo/en/Using_the_Parallel_Programming_Library");
+}
+//---------------------------------------------------------------------------
+

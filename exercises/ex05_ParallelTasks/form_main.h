@@ -19,11 +19,13 @@ __published:	// IDE-managed Components
 	TButton *btnAddTask;
 	TBevel *Bevel1;
 	TButton *btnAdd3Tasks;
+	TButton *btnMoreInfoAboutDemo;
 	void __fastcall btnCheckCompilerClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall tmrIdleTimer(TObject *Sender);
 	void __fastcall btnAddTaskClick(TObject *Sender);
 	void __fastcall btnAdd3TasksClick(TObject *Sender);
+	void __fastcall btnMoreInfoAboutDemoClick(TObject *Sender);
 private:	// User declarations
 	String GetCompilerInfo();
 	TMemo* InsertMemo(TWinControl* container);

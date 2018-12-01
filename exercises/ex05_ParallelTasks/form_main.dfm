@@ -45,7 +45,6 @@ object Form1: TForm1
       Caption = 'btnCheckCompiler'
       TabOrder = 0
       OnClick = btnCheckCompilerClick
-      ExplicitWidth = 140
     end
     object btnAddTask: TButton
       AlignWithMargins = True
@@ -57,7 +56,6 @@ object Form1: TForm1
       Caption = 'btnAddTask'
       TabOrder = 1
       OnClick = btnAddTaskClick
-      ExplicitWidth = 140
     end
     object btnAdd3Tasks: TButton
       AlignWithMargins = True
@@ -69,7 +67,20 @@ object Form1: TForm1
       Caption = 'btnAdd3Tasks'
       TabOrder = 2
       OnClick = btnAdd3TasksClick
-      ExplicitWidth = 140
+    end
+    object btnMoreInfoAboutDemo: TButton
+      AlignWithMargins = True
+      Left = 5
+      Top = 347
+      Width = 156
+      Height = 25
+      Align = alBottom
+      Caption = 'btnMoreInfoAboutDemo'
+      TabOrder = 3
+      OnClick = btnMoreInfoAboutDemoClick
+      ExplicitLeft = 48
+      ExplicitTop = 176
+      ExplicitWidth = 75
     end
   end
   object GroupBox2: TGroupBox
